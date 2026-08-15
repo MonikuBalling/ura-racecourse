@@ -24,9 +24,9 @@ const i18n = {
     modalSub: "ご要望や改善点を送信してください。",
     modalSubmitBtn: "送信する",
     aiTitle: "🤖 Universal Racing AI コンシェルジュ",
-    aiSub: "Xの検証ポストやYouTube動画などの最新検証データを引用し、勝てるスタミナ目安やスキル構成をAIがアドバイスします。",
-    aiInitMsg: "🤖 <strong>AIアシスタント:</strong> トレーナーさん、こんにちは！XやYouTube等の最新検証データを参照しています。何でもご質問ください。",
-    aiPlaceholder: "例: 先行ウマ娘に必要なスタミナの目標値は？",
+    aiSub: "教え込まれたXポストやYouTube動画などのソースをAIが学習・自動参照し、ソース元リンク付きで回答します。",
+    aiInitMsg: "🤖 <strong>AIアシスタント:</strong> トレーナーさん、こんにちは！教え込まれたXやYouTubeのソースから回答します。新しい検証データも上の「🧠 AIに教え込む」からいつでも学習させられます！",
+    aiPlaceholder: "例: 中山2500mで先行に必要なスタミナは？",
     aiSendBtn: "質問する",
     optionsTrack: {
       nakayama: "中山競馬場 (JRA内回り・有馬記念)",
@@ -72,9 +72,9 @@ const i18n = {
     modalSub: "Please share your suggestions or feedback.",
     modalSubmitBtn: "Submit",
     aiTitle: "🤖 Universal Racing AI Concierge",
-    aiSub: "AI provides real-time strategy recommendations based on verified data cited from X posts & YouTube guides.",
-    aiInitMsg: "🤖 <strong>AI Assistant:</strong> Hello Trainer! Citing latest community data from X & YouTube. Ask me anything!",
-    aiPlaceholder: "e.g., Target stamina for Front Runner?",
+    aiSub: "AI learns and cites taught sources (X posts & YouTube videos) to answer questions accurately with direct links.",
+    aiInitMsg: "🤖 <strong>AI Assistant:</strong> Hello Trainer! Trained on X & YouTube sources. You can teach me new data anytime using '🧠 Teach AI' above!",
+    aiPlaceholder: "e.g., Target stamina for Nakayama 2500m?",
     aiSendBtn: "Ask AI",
     optionsTrack: {
       nakayama: "Nakayama Racecourse (Official JRA Inner Track)",
@@ -117,9 +117,9 @@ const i18n = {
     modalSub: "Veuillez partager vos suggestions ou commentaires.",
     modalSubmitBtn: "Envoyer",
     aiTitle: "🤖 Concierge IA Universal Racing",
-    aiSub: "L'IA fournit des recommandations basées sur les données citées de X et YouTube.",
-    aiInitMsg: "🤖 <strong>Assistant IA:</strong> Bonjour Entraîneur ! Citant les dernières données de X et YouTube. Posez-moi vos questions !",
-    aiPlaceholder: "Ex: Endurance cible pour Front Runner ?",
+    aiSub: "L'IA apprend et cite les sources (X et YouTube) enseignées pour répondre avec des liens directes.",
+    aiInitMsg: "🤖 <strong>Assistant IA:</strong> Bonjour Entraîneur ! Appris sur les sources X et YouTube. Vous pouvez me former à tout moment !",
+    aiPlaceholder: "Ex: Endurance cible pour Nakayama 2500m ?",
     aiSendBtn: "Demander",
     optionsTrack: {
       nakayama: "Hippodrome de Nakayama (Arima Kinen)",
@@ -159,9 +159,9 @@ const i18n = {
     umaiCreditDesc: "本站技能發動數據引用自<strong>X (Twitter) 社群驗證貼文</strong>與<strong>YouTube 驗證影片</strong>之最新公開資料。",
     btnFeedback: "發送寶貴意見",
     aiTitle: "🤖 Universal Racing AI 專任顧問",
-    aiSub: "AI引用X與YouTube最新驗證數據，提供最合適的耐力目標與技能組合。",
-    aiInitMsg: "🤖 <strong>AI顧問:</strong> 訓練員你好！本AI已引用X與YouTube最新驗證數據，歡迎提問！",
-    aiPlaceholder: "例如：逃馬需要的耐力目標是多少？",
+    aiSub: "AI學習並引用教學好的X貼文與YouTube影片，附帶原始來源連結精確回答。",
+    aiInitMsg: "🤖 <strong>AI顧問:</strong> 訓練員你好！本AI已學習X與YouTube來源數據。隨時點擊「🧠 教導AI」補充知識！",
+    aiPlaceholder: "例如：中山2500m先行需要的耐力是多少？",
     aiSendBtn: "提問",
     optionsTrack: {
       nakayama: "中山賽馬場 (JRA有馬紀念)",
@@ -201,9 +201,9 @@ const i18n = {
     umaiCreditDesc: "본 사이트의 스킬 발동 데이터는 <strong>X (Twitter) 검증 포스트</strong> 및 <strong>YouTube 검증 영상</strong>의 최신 공개 데이터를 인용하고 있습니다.",
     btnFeedback: "의견 보내기",
     aiTitle: "🤖 Universal Racing AI 컨시어지",
-    aiSub: "X 및 YouTube의 최신 검증 데이터를 인용하여 최적의 스태미나 목표와 스킬을 AI가 진단해 드립니다.",
-    aiInitMsg: "🤖 <strong>AI 아시스턴트:</strong> 트레이너님, 안녕하세요! X 및 YouTube 최신 검증 데이터를 참조하고 있습니다.",
-    aiPlaceholder: "예: 도주 우마무스메에 필요한 스태미나 목표치는?",
+    aiSub: "학습된 X 포스트 및 YouTube 영상 출처를 바탕으로 원본 링크와 함께 정확하게 답변합니다.",
+    aiInitMsg: "🤖 <strong>AI 아시스턴트:</strong> 트레이너님, 안녕하세요! 학습된 X 및 YouTube 데이터로 답변합니다.",
+    aiPlaceholder: "예: 나카야마 2500m 선행에 필요한 스태미나는?",
     aiSendBtn: "질문하기",
     optionsTrack: {
       nakayama: "나카야마 경마장 (JRA 아리마 기념)",
@@ -509,14 +509,112 @@ document.addEventListener("DOMContentLoaded", () => {
   setupZoomAndPanListeners();
   setupCatalogFilterListeners();
   setupFeedbackModalListeners();
+  setupTeachAiModalListeners();
   setupUserAiChatListeners();
   updateLanguageUI();
   updateCourseView(currentCourseKey);
   loadAffiliateConfig();
+  renderLearnedKnowledgeList();
   window.addEventListener("resize", drawUmaiOvalDiagram);
 });
 
-// ★ AIコンシェルジュ対話エンジン (ソース元 X / YouTube 引用リンクの自動埋め込み機能付き) ★
+// 🧠 AIに知識・ソースを教え込んで記憶させるモーダルエンジン
+function setupTeachAiModalListeners() {
+  const modal = document.getElementById("teach-ai-modal");
+  const btnOpen = document.getElementById("btn-open-teach-modal");
+  const btnClose = document.getElementById("btn-close-teach");
+  const btnSubmit = document.getElementById("btn-submit-teach");
+  const sentMsg = document.getElementById("teach-sent-msg");
+
+  if (!btnOpen || !modal) return;
+
+  btnOpen.addEventListener("click", () => {
+    modal.classList.add("active");
+    sentMsg.style.display = "none";
+    renderLearnedKnowledgeList();
+  });
+
+  btnClose.addEventListener("click", () => {
+    modal.classList.remove("active");
+  });
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) modal.classList.remove("active");
+  });
+
+  btnSubmit.addEventListener("click", () => {
+    const keywords = document.getElementById("teach-keywords").value.trim();
+    const sourceUrl = document.getElementById("teach-source-url").value.trim();
+    const sourceTitle = document.getElementById("teach-source-title").value.trim() || "教え込まれた検証ソース";
+    const knowledgeText = document.getElementById("teach-knowledge-text").value.trim();
+
+    if (!keywords || !knowledgeText) {
+      alert("対象キーワードとAIに覚えさせる解説テキストをご入力ください。");
+      return;
+    }
+
+    const newKnowledge = {
+      id: Date.now(),
+      keywords: keywords.toLowerCase(),
+      title: sourceTitle,
+      url: sourceUrl || "https://x.com/search?q=" + encodeURIComponent(keywords),
+      content: knowledgeText,
+      date: new Date().toLocaleDateString("ja-JP")
+    };
+
+    let list = JSON.parse(localStorage.getItem("ai_taught_knowledge_db") || "[]");
+    list.unshift(newKnowledge);
+    localStorage.setItem("ai_taught_knowledge_db", JSON.stringify(list));
+
+    sentMsg.style.display = "block";
+    document.getElementById("teach-keywords").value = "";
+    document.getElementById("teach-source-url").value = "";
+    document.getElementById("teach-source-title").value = "";
+    document.getElementById("teach-knowledge-text").value = "";
+
+    renderLearnedKnowledgeList();
+
+    setTimeout(() => {
+      modal.classList.remove("active");
+    }, 1800);
+  });
+}
+
+function renderLearnedKnowledgeList() {
+  const container = document.getElementById("learned-knowledge-list");
+  if (!container) return;
+
+  let list = JSON.parse(localStorage.getItem("ai_taught_knowledge_db") || "[]");
+  if (list.length === 0) {
+    container.innerHTML = `<span style="color: var(--text-muted);">まだ教え込まれた知識はありません。（デフォルトのJRA/URA知識が適用されます）</span>`;
+    return;
+  }
+
+  container.innerHTML = "";
+  list.forEach(item => {
+    const div = document.createElement("div");
+    div.style.background = "#f1f5f9";
+    div.style.padding = "0.4rem 0.6rem";
+    div.style.borderRadius = "4px";
+    div.style.marginBottom = "0.4rem";
+    div.style.borderLeft = "3px solid #0284c7";
+
+    const isX = item.url.includes("x.com") || item.url.includes("twitter");
+    const isYt = item.url.includes("youtube") || item.url.includes("youtu.be");
+    const iconTag = isX ? `<i class="fa-brands fa-x-twitter"></i>` : (isYt ? `<i class="fa-brands fa-youtube" style="color:#cc0000;"></i>` : `<i class="fa-solid fa-link"></i>`);
+
+    div.innerHTML = `
+      <div style="font-weight: 800; color: #0f172a; display: flex; justify-content: space-between;">
+        <span>${iconTag} ${item.title} (${item.keywords})</span>
+        <span style="font-size: 0.68rem; color: #64748b;">${item.date}</span>
+      </div>
+      <div style="font-size: 0.72rem; color: #334155; margin-top: 2px;">${item.content}</div>
+    `;
+    container.appendChild(div);
+  });
+}
+
+// ★ AIコンシェルジュ対話エンジン (教え込まれたソース知識の自動検索・参照・引用吐き出し) ★
 function setupUserAiChatListeners() {
   const input = document.getElementById("user-ai-input");
   const btn = document.getElementById("btn-send-user-ai");
@@ -552,39 +650,68 @@ function setupUserAiChatListeners() {
       const cName = data.name[currentLang] || data.name["jp"];
       let answerText = "";
 
-      const lower = q.toLowerCase();
-      const searchQuery = encodeURIComponent(`ウマ娘 ${cName} ${q}`);
-      const xSearchUrl = `https://x.com/search?q=${searchQuery}`;
-      const ytSearchUrl = `https://www.youtube.com/results?search_query=${searchQuery}`;
+      const lowerQ = q.toLowerCase();
 
-      if (currentLang === 'fr') {
-        answerText = `🤖 <strong>【Assistant IA - Sources X & YouTube】</strong><br>Pour le parcours "${cName}", les données de test recommandent les compétences au repère (${data.spurtPos}m) !`;
-      } else if (currentLang === 'en') {
-        if (lower.includes("stamina") || lower.includes("heal") || lower.includes("recover")) {
-          answerText = `💧 <strong>【X & YouTube Cited Strategy】</strong><br>Currently selected course "${cName}" distance is ${data.totalDistance}m! Target stamina is minimum 850-1000+ based on community test data.`;
-        } else {
-          answerText = `🤖 <strong>【AI Concierge Citation】</strong><br>Key to victory on "${cName}": Trigger max speed & acceleration skills right at the ${data.spurtPos}m spurt mark!`;
-        }
+      // 🧠 教え込まれた知識データベース (`ai_taught_knowledge_db`) のキーワード検索
+      let taughtList = JSON.parse(localStorage.getItem("ai_taught_knowledge_db") || "[]");
+      let matchedTaughtItem = taughtList.find(item => {
+        const kwArr = item.keywords.split(",").map(k => k.trim());
+        return kwArr.some(kw => lowerQ.includes(kw) || kw.includes(lowerQ));
+      });
+
+      let citationHtml = "";
+
+      if (matchedTaughtItem) {
+        // ★ 教え込まれた知識から完璧に回答＆ソース元を吐き出す！
+        answerText = `🧠 <strong>【AI学習済みソースからの回答】</strong><br>${matchedTaughtItem.content}`;
+
+        const isX = matchedTaughtItem.url.includes("x.com") || matchedTaughtItem.url.includes("twitter");
+        const isYt = matchedTaughtItem.url.includes("youtube") || matchedTaughtItem.url.includes("youtu.be");
+        const badgeColor = isX ? "#000000" : (isYt ? "#cc0000" : "#0284c7");
+        const iconTag = isX ? `<i class="fa-brands fa-x-twitter"></i>` : (isYt ? `<i class="fa-brands fa-youtube"></i>` : `<i class="fa-solid fa-link"></i>`);
+
+        citationHtml = `
+          <div style="margin-top: 0.6rem; padding-top: 0.5rem; border-top: 1px dashed #10b981; font-size: 0.74rem; display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center;">
+            <span style="color: #a7f3d0; font-weight: 800;">📌 教え込まれた学習ソース:</span>
+            <a href="${matchedTaughtItem.url}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; background: ${badgeColor}; color: #fff; padding: 2px 8px; border-radius: 4px; font-weight: 800; display: inline-flex; align-items: center; gap: 0.3rem;">
+              ${iconTag} ${matchedTaughtItem.title}
+            </a>
+          </div>
+        `;
       } else {
-        if (lower.includes("スタミナ") || lower.includes("回復") || lower.includes("stamina")) {
-          answerText = `💧 <strong>【X・YouTube検証データ引用アドバイス】</strong><br>現在選択中の「${cName}」は距離 ${data.totalDistance}m です！Xでの有志検証ポストに基づくスタミナ目標は最低850〜1000＋金回復スキルが1〜2つ必須となります！`;
-        } else {
-          answerText = `🤖 <strong>【AIコンシェルジュ (X・YouTube引用データ)】</strong><br>「${cName}」での勝利のコツ：最速スパート位置（${data.spurtPos}m地点）に合わせて最高速度・最高加速スキルを発動させることがポイントです！`;
-        }
-      }
+        // 通常の動的検索・生成ロジック
+        const searchQuery = encodeURIComponent(`ウマ娘 ${cName} ${q}`);
+        const xSearchUrl = `https://x.com/search?q=${searchQuery}`;
+        const ytSearchUrl = `https://www.youtube.com/results?search_query=${searchQuery}`;
 
-      // ★ 引用元 X & YouTube リンクブロックの追加 ★
-      const citationHtml = `
-        <div style="margin-top: 0.6rem; padding-top: 0.5rem; border-top: 1px dashed #10b981; font-size: 0.74rem; display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center;">
-          <span style="color: #a7f3d0; font-weight: 800;">🔗 検証・引用ソース:</span>
-          <a href="${xSearchUrl}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; background: #000; color: #fff; padding: 2px 6px; border-radius: 4px; font-weight: 800; display: inline-flex; align-items: center; gap: 0.2rem;">
-            <i class="fa-brands fa-x-twitter"></i> X検証ポスト検索
-          </a>
-          <a href="${ytSearchUrl}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; background: #cc0000; color: #fff; padding: 2px 6px; border-radius: 4px; font-weight: 800; display: inline-flex; align-items: center; gap: 0.2rem;">
-            <i class="fa-brands fa-youtube"></i> YouTube検証動画検索
-          </a>
-        </div>
-      `;
+        if (currentLang === 'fr') {
+          answerText = `🤖 <strong>【Assistant IA - Sources X & YouTube】</strong><br>Pour le parcours "${cName}", les données de test recommandent les compétences au repère (${data.spurtPos}m) !`;
+        } else if (currentLang === 'en') {
+          if (lowerQ.includes("stamina") || lowerQ.includes("heal") || lowerQ.includes("recover")) {
+            answerText = `💧 <strong>【X & YouTube Cited Strategy】</strong><br>Currently selected course "${cName}" distance is ${data.totalDistance}m! Target stamina is minimum 850-1000+ based on community test data.`;
+          } else {
+            answerText = `🤖 <strong>【AI Concierge Citation】</strong><br>Key to victory on "${cName}": Trigger max speed & acceleration skills right at the ${data.spurtPos}m spurt mark!`;
+          }
+        } else {
+          if (lowerQ.includes("スタミナ") || lowerQ.includes("回復") || lowerQ.includes("stamina")) {
+            answerText = `💧 <strong>【X・YouTube検証データ引用アドバイス】</strong><br>現在選択中の「${cName}」は距離 ${data.totalDistance}m です！Xでの有志検証ポストに基づくスタミナ目標は最低850〜1000＋金回復スキルが1〜2つ必須となります！`;
+          } else {
+            answerText = `🤖 <strong>【AIコンシェルジュ (X・YouTube引用データ)】</strong><br>「${cName}」での勝利のコツ：最速スパート位置（${data.spurtPos}m地点）に合わせて最高速度・最高加速スキルを発動させることがポイントです！`;
+          }
+        }
+
+        citationHtml = `
+          <div style="margin-top: 0.6rem; padding-top: 0.5rem; border-top: 1px dashed #10b981; font-size: 0.74rem; display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center;">
+            <span style="color: #a7f3d0; font-weight: 800;">🔗 検証・引用ソース:</span>
+            <a href="${xSearchUrl}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; background: #000; color: #fff; padding: 2px 6px; border-radius: 4px; font-weight: 800; display: inline-flex; align-items: center; gap: 0.2rem;">
+              <i class="fa-brands fa-x-twitter"></i> X検証ポスト検索
+            </a>
+            <a href="${ytSearchUrl}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; background: #cc0000; color: #fff; padding: 2px 6px; border-radius: 4px; font-weight: 800; display: inline-flex; align-items: center; gap: 0.2rem;">
+              <i class="fa-brands fa-youtube"></i> YouTube検証動画検索
+            </a>
+          </div>
+        `;
+      }
 
       const botMsg = document.createElement("div");
       botMsg.style.background = "#064e3b";

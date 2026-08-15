@@ -51,11 +51,11 @@
   <div class="jra-news-ticker">
     <span class="ticker-tag-jra">URA NEWS</span>
     <div class="ticker-scroll-text" id="jra-ticker-content">
-      【UmAIデータ連動】本日開催・次回開催対象コースのJRA公式プロファイルをUmAI 24h Discord Intelligence Engine最新検証データと完全同期更新しました。
+      【検証データ同期】X (旧Twitter) の最新検証ポストやYouTube攻略動画の解析プロファイルを同期更新しました。
     </div>
   </div>
 
-  <!-- ★ 4言語対応 ファンサイト声明 ＆ サイト概要通知カード ★ -->
+  <!-- ★ 5言語対応 ファンサイト声明 ＆ サイト概要通知カード ★ -->
   <div style="max-width: 1320px; margin: 1rem auto 0; padding: 0 1.5rem;">
     <div style="background: #ffffff; border: 1px solid var(--border-green); border-left: 4px solid var(--jra-official-green); border-radius: 8px; padding: 0.9rem 1.2rem; font-size: 0.8rem; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
       <div style="display: flex; align-items: flex-start; gap: 0.8rem;">
@@ -114,14 +114,24 @@
         </div>
       </div>
 
-      <!--★ UmAI 蓄積データ引用・連携 クレジットカード ★ -->
+      <!--★ AI分析・検証データ一次引用元カード (X / YouTube / Verified Sources) ★ -->
       <div class="jra-card-box" style="background: #f0fdf4; border-color: var(--jra-official-green);">
         <h3 id="label-umai-credit-title" style="font-size: 0.88rem; color: var(--jra-official-green); margin-bottom: 0.6rem;">
-          <i class="fa-solid fa-microchip"></i> Data Source: UmAI
+          <i class="fa-solid fa-quote-left"></i> 分析データ引用元 (Data Sources)
         </h3>
-        <p id="label-umai-credit-desc" style="font-size: 0.76rem; color: var(--text-dark); line-height: 1.4; font-weight: 600;">
-          当サイトのスキル発動検証値およびコース攻略アルゴリズムは、24時間自動ウマ娘攻略・分析Bot「<strong>UmAI (Discord Intelligence System)</strong>」が蓄積した解析データを引用・応用しています。
+        <p id="label-umai-credit-desc" style="font-size: 0.76rem; color: var(--text-dark); line-height: 1.45; font-weight: 600; margin-bottom: 0.6rem;">
+          当サイトのスキル発動距離やコース攻略アルゴリズムは、<strong>X (旧Twitter) の有志検証ポスト</strong>、<strong>YouTubeの攻略検証動画</strong>、およびコミュニティの最新公開データをAIが引用・分析・可視化しています。
         </p>
+
+        <!-- 引用元メディアタグ一覧 -->
+        <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; font-size: 0.7rem;">
+          <a href="https://x.com/search?q=%E3%82%A6%E3%83%9E%E5%A8%98+%E6%A4%9C%E8%A8%BC" target="_blank" rel="noopener noreferrer" style="text-decoration: none; background: #000; color: #fff; padding: 2px 8px; border-radius: 4px; font-weight: 800; display: inline-flex; align-items: center; gap: 0.3rem;">
+            <i class="fa-brands fa-x-twitter"></i> <span>X (検証ポスト)</span>
+          </a>
+          <a href="https://www.youtube.com/results?search_query=%E3%82%A6%E3%83%9E%E5%A8%98+%E3%82%B3%E3%83%BC%E3%82%B9%E6%A4%9C%E8%A8%BC" target="_blank" rel="noopener noreferrer" style="text-decoration: none; background: #cc0000; color: #fff; padding: 2px 8px; border-radius: 4px; font-weight: 800; display: inline-flex; align-items: center; gap: 0.3rem;">
+            <i class="fa-brands fa-youtube"></i> <span>YouTube (検証動画)</span>
+          </a>
+        </div>
       </div>
 
       <!-- コーススペック詳細 -->
@@ -200,7 +210,7 @@
             <button class="zoom-btn mode-rotate-btn" id="btn-rotate-left"><i class="fa-solid fa-rotate-left"></i> Rotate</button>
             <button class="zoom-btn mode-rotate-btn" id="btn-rotate-right"><i class="fa-solid fa-rotate-right"></i></button>
             <button class="zoom-btn" id="btn-zoom-reset">Reset</button>
-            <button class="zoom-btn mode-3d-btn" id="btn-toggle-3d">3D View</button>
+            <button class="zoom-btn mode-3d-btn active" id="btn-toggle-3d">3D View</button>
           </div>
         </div>
 
@@ -229,24 +239,29 @@
         </section>
       </div>
 
-      <!-- URA AIコンシェルジュ (JRA公式問い合わせ案内風) -->
+      <!-- URA AIコンシェルジュ (AIへの教え込み・学習機能付き) -->
       <section class="jra-ai-section">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem;">
           <h3 id="ai-concierge-title" style="font-size: 1.1rem; font-weight: 900; color: var(--jra-official-green); display: flex; align-items: center; gap: 0.5rem;">
-            <i class="fa-solid fa-robot"></i> Universal Racing AI コンシェルジュ (Powered by UmAI)
+            <i class="fa-solid fa-robot"></i> Universal Racing AI コンシェルジュ
           </h3>
-          <span style="font-size: 0.72rem; background: var(--jra-official-green); color: #fff; padding: 2px 8px; border-radius: 4px; font-weight: 800;">24h AI SUPPORT</span>
+          <div style="display: flex; gap: 0.5rem; align-items: center;">
+            <button id="btn-open-teach-modal" style="background: #0284c7; color: #fff; border: none; padding: 4px 10px; border-radius: 4px; font-size: 0.72rem; font-weight: 800; cursor: pointer; display: inline-flex; align-items: center; gap: 0.3rem;">
+              <i class="fa-solid fa-brain"></i> 🧠 AIにソース・知識を教え込む
+            </button>
+            <span style="font-size: 0.72rem; background: var(--jra-official-green); color: #fff; padding: 2px 8px; border-radius: 4px; font-weight: 800;">24h AI SUPPORT</span>
+          </div>
         </div>
-        <p id="ai-concierge-sub" style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.8rem;">UmAI分析Botの蓄積データとJRA公式コース規格に基づき、勝てるスタミナ目安やスキル構成をAIがアドバイスします。</p>
+        <p id="ai-concierge-sub" style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.8rem;">教え込まれたXポストやYouTube動画などのソースをAIが学習・自動参照し、ソース元リンク付きで回答します。</p>
 
-        <div id="user-ai-chat-logs" style="background: #ffffff; border: 1px solid var(--border-light); border-radius: 8px; padding: 1rem; max-height: 180px; overflow-y: auto; margin-bottom: 0.8rem;">
+        <div id="user-ai-chat-logs" style="background: #ffffff; border: 1px solid var(--border-light); border-radius: 8px; padding: 1rem; max-height: 220px; overflow-y: auto; margin-bottom: 0.8rem;">
           <div id="ai-concierge-init-msg" style="font-size: 0.85rem; color: var(--text-dark);">
-            🤖 <strong>AIアシスタント:</strong> トレーナーさん、こんにちは！UmAI解析データ連携AIです。コース選びや攻略スキルについて何でもご質問ください。
+            🤖 <strong>AIアシスタント:</strong> トレーナーさん、こんにちは！教え込まれたXやYouTubeのソースから回答します。新しい検証データも上の「🧠 AIに教え込む」からいつでも学習させられます！
           </div>
         </div>
 
         <div style="display: flex; gap: 0.6rem;">
-          <input type="text" id="user-ai-input" class="select-jra" placeholder="例: 先行ウマ娘に必要なスタミナの目標値は？" style="flex: 1; background: #fff;">
+          <input type="text" id="user-ai-input" class="select-jra" placeholder="例: 中山2500mで先行に必要なスタミナは？" style="flex: 1; background: #fff;">
           <button id="btn-send-user-ai" class="btn-jra-green">
             <span id="label-btn-send-ai">質問する</span>
           </button>
@@ -260,6 +275,56 @@
       </section>
 
     </main>
+  </div>
+
+  <!-- 🧠 AIに知識・ソースを教え込む学習用モーダルUI -->
+  <div class="feedback-modal-overlay" id="teach-ai-modal">
+    <div class="feedback-modal-card" style="max-width: 520px;">
+      <button class="close-modal-btn" id="btn-close-teach" style="color: var(--text-dark);"><i class="fa-solid fa-xmark"></i></button>
+      <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem;">
+        <i class="fa-solid fa-brain" style="color: #0284c7; font-size: 1.8rem;"></i>
+        <div>
+          <h3 style="font-size: 1.1rem; font-weight: 900; color: var(--text-dark);">🧠 AIに検証ソース・知識を教え込む</h3>
+          <p style="font-size: 0.78rem; color: var(--text-muted);">XのポストURLやYouTube動画リンク、検証知識を入力するとAIが学習します。</p>
+        </div>
+      </div>
+
+      <div class="form-group-jra">
+        <label>対象コース・キーワード (例: 中山 芝 2500m / 有馬記念 / スタミナ)</label>
+        <input type="text" id="teach-keywords" class="select-jra" placeholder="例: 中山2500m, 先行, スタミナ">
+      </div>
+
+      <div class="form-group-jra">
+        <label>検証ソースのURL (𝕏 Post URL または ▶️ YouTube URL)</label>
+        <input type="text" id="teach-source-url" class="select-jra" placeholder="https://x.com/... や https://youtube.com/watch?v=...">
+      </div>
+
+      <div class="form-group-jra">
+        <label>ソースのタイトル・メディア名 (例: 〇〇さん検証Xポスト / コース解説動画)</label>
+        <input type="text" id="teach-source-title" class="select-jra" placeholder="例: 有馬記念先行スタミナ検証ツイート">
+      </div>
+
+      <div class="form-group-jra">
+        <label>AIに覚えさせる解説・結論データ</label>
+        <textarea id="teach-knowledge-text" class="select-jra" rows="3" placeholder="例: 中山2500mの先行はスタミナ950＋金回復1つで走り切れる。"></textarea>
+      </div>
+
+      <button id="btn-submit-teach" class="btn-jra-green" style="background: #0284c7; border-color: #0284c7; width: 100%; margin-top: 0.8rem;">
+        <span>🧠 AIに学習・記憶させる</span>
+      </button>
+
+      <div id="teach-sent-msg" style="display: none; color: #0284c7; font-weight: 800; font-size: 0.82rem; margin-top: 0.8rem; text-align: center;">
+        ✅ AIが知識とソース元URLを完全に記憶いたしました！
+      </div>
+
+      <!-- 過去に教え込んだ知識リスト表示 -->
+      <div style="margin-top: 1.2rem; border-top: 1px dashed var(--border-light); padding-top: 0.8rem;">
+        <h4 style="font-size: 0.82rem; font-weight: 800; color: var(--text-dark); margin-bottom: 0.5rem;">📚 現在AIが学習済みの教え込まれたソース一覧:</h4>
+        <div id="learned-knowledge-list" style="max-height: 120px; overflow-y: auto; font-size: 0.75rem; color: var(--text-muted);">
+          <!-- JSで動的描画 -->
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- 改善点・ご意見送信モーダルUI -->
