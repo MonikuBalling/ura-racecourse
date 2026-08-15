@@ -1,0 +1,11 @@
+[
+  {
+    "id": "fb-001",
+    "timestamp": "2026-08-15T20:56:00+09:00",
+    "user_lang": "jp",
+    "category": "feature_request",
+    "message": "阪神2000mのコース図も追加してほしいです！",
+    "ai_status": "analyzed",
+    "ai_action_plan": "Next course DB update will include Hanshin 2000m"
+  }
+]

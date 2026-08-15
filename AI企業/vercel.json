@@ -1,0 +1,17 @@
+{
+  "cleanUrls": true,
+  "routes": [
+    {
+      "src": "/admin(.*)",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/privacy",
+      "dest": "/privacy.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}

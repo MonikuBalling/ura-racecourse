@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universal Racing Analyzer (URA) | ウマ娘 ファン制作データポータル</title>
+
+  <!-- 本物の Google AdSense 自動広告スクリプトタグ -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4288786982374427" crossorigin="anonymous"></script>
+
+  <!-- Google Fonts & FontAwesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- JRA日本中央競馬会風 緑の公式トップヘッダーバー -->
+  <header class="jra-header-bar">
+    <div class="jra-top-nav-inner">
+      <a href="#" class="jra-logo-box">
+        <div class="jra-symbol-mark">
+          <i class="fa-solid fa-horse-head"></i>
+        </div>
+        <div class="jra-brand-titles">
+          <h1>Universal Racing Analyzer (URA)</h1>
+          <p id="header-sub-title">ウマ娘 プリティーダービー 非公式ファン制作 コース ＆ スキルアナライザー</p>
+        </div>
+      </a>
+
+      <div class="jra-top-controls">
+        <div class="server-switch-jra">
+          <button class="server-btn-jra active" id="btn-server-jp">🇯🇵 日本版 (JP)</button>
+          <button class="server-btn-jra" id="btn-server-global">🌐 Global (EN/EU)</button>
+        </div>
+
+        <select id="select-language" class="lang-dropdown-jra">
+          <option value="jp" selected>🇯🇵 日本語</option>
+          <option value="en">🇺🇸 English</option>
+          <option value="fr">🇫🇷 Français (フランス語)</option>
+          <option value="tw">🇹🇼 繁體中文</option>
+          <option value="kr">🇰🇷 한국어</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- JRA公式 速報ニュースチッカー -->
+  <div class="jra-news-ticker">
+    <span class="ticker-tag-jra">URA NEWS</span>
+    <div class="ticker-scroll-text" id="jra-ticker-content">
+      【ファン制作ツール】本日開催・次回開催対象コース（東京2400m・阪神1600m・京都3200m）のJRA公式直線長・高低差プロファイルを最新同期更新しました。
+    </div>
+  </div>
+
+  <!-- ★ 多言語対応 ファンサイト声明 ＆ サイト概要通知カード ★ -->
+  <div style="max-width: 1320px; margin: 1rem auto 0; padding: 0 1.5rem;">
+    <div style="background: #ffffff; border: 1px solid var(--border-green); border-left: 4px solid var(--jra-official-green); border-radius: 8px; padding: 0.9rem 1.2rem; font-size: 0.8rem; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+      <div style="display: flex; align-items: flex-start; gap: 0.8rem;">
+        <i class="fa-solid fa-heart-circle-check" style="color: var(--jra-official-green); font-size: 1.2rem; margin-top: 2px;"></i>
+        <div>
+          <strong id="label-about-title" style="color: var(--jra-official-green); font-weight: 900; font-size: 0.88rem; display: block; margin-bottom: 0.2rem;">
+            【サイト概要 ＆ 免責事項 (Unofficial Fan Site)】
+          </strong>
+          <p id="label-about-desc" style="color: var(--text-dark); line-height: 1.5; font-weight: 600;">
+            本サイトは「ウマ娘 プリティーダービー」を愛する有志トレーナーによって運営されている非公式ファン制作データアナライザーです。JRA公式レースコース規格やスキル発動位置の検証・解説を目的としており、Cygames様およびJRA（日本中央競馬会）様等の公式企業とは一切関係ございません。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JRAポータル風 メイン2カラム構造 -->
+  <div class="jra-main-wrapper" style="margin-top: 1rem;">
+    
+    <!-- 左側サイドナビゲーション -->
+    <aside class="jra-sidebar">
+      
+      <!-- コース検索・選択カード -->
+      <div class="jra-card-box">
+        <h3 id="label-select-course"><i class="fa-solid fa-map-location-dot"></i> コース ＆ 条件選択</h3>
+
+        <div class="form-group-jra">
+          <label id="label-track">競馬場 (Track)</label>
+          <select id="select-track" class="select-jra">
+            <option value="nakayama" selected>中山競馬場 (JRA内回り・有馬記念)</option>
+            <option value="tokyo">東京競馬場 (JRA大回り・ダービー)</option>
+            <option value="hanshin">阪神競馬場 (JRA外回り・マイルCS)</option>
+            <option value="kyoto">京都競馬場 (JRA淀の坂・天皇賞春)</option>
+          </select>
+        </div>
+
+        <div class="form-group-jra">
+          <label id="label-distance">距離・バ場 (Distance)</label>
+          <select id="select-distance" class="select-jra">
+            <option value="2500_turf" selected>芝 2500m (長距離)</option>
+            <option value="2400_turf">芝 2400m (長距離)</option>
+            <option value="3200_turf">芝 3200m (超長距離)</option>
+            <option value="2000_turf">芝 2000m (中距離)</option>
+            <option value="1600_turf">芝 1600m (マイル)</option>
+          </select>
+        </div>
+
+        <div class="form-group-jra">
+          <label id="label-strategy">脚質 (Strategy)</label>
+          <select id="select-style" class="select-jra">
+            <option value="nige">逃げ</option>
+            <option value="senko" selected>先行</option>
+            <option value="sashi">差し</option>
+            <option value="oikomi">追込</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- コーススペック詳細 -->
+      <div class="jra-card-box">
+        <h3 id="label-summary-title"><i class="fa-solid fa-circle-info"></i> JRA公式コーススペック</h3>
+        <div class="summary-item-jra">
+          <span id="label-straight">直線距離:</span>
+          <strong id="info-straight">310m</strong>
+        </div>
+        <div class="summary-item-jra">
+          <span id="label-slope-info">高低差:</span>
+          <strong id="info-slope" style="color: #d97706;">2.2m</strong>
+        </div>
+        <div class="summary-item-jra">
+          <span id="label-spurt-info">最速スパート:</span>
+          <strong id="info-spurt" style="color: var(--jra-official-green);">1666m地点</strong>
+        </div>
+      </div>
+
+      <!-- ご意見送信ボタン -->
+      <button id="btn-open-feedback" class="btn-jra-green" style="width: 100%; text-align: center; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+        <i class="fa-solid fa-comment-dots"></i> <span>ご意見・改善点送信</span>
+      </button>
+
+      <!-- 特選広告バナー -->
+      <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+        <a href="https://www.amazon.co.jp/s?k=%E3%82%A6%E3%83%9E%E5%A8%98+%E3%83%95%E3%82%A3%E3%82%AE%E3%83%A5%E3%82%A2&tag=uraracecourse-22" target="_blank" rel="noopener noreferrer" style="text-decoration: none; background: #fff; border: 1px solid var(--border-light); border-radius: 8px; padding: 0.8rem; display: flex; align-items: center; gap: 0.8rem;">
+          <div style="width: 40px; height: 40px; background: #006837; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.2rem;">
+            <i class="fa-solid fa-chess-knight"></i>
+          </div>
+          <div>
+            <strong style="font-size: 0.82rem; color: var(--text-dark); display: block;">公式フィギュア特集</strong>
+            <span style="font-size: 0.7rem; color: var(--text-muted);">Amazonアソシエイトストア</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+
+    <!-- 右側メインエリア -->
+    <main class="jra-content-area">
+      
+      <!-- レースイベント切替 (JRA出馬表タブ風) -->
+      <div class="jra-tabs-row">
+        <div class="jra-tab-card active" id="tab-chanmi" data-event="chanmi">
+          <div class="jra-tab-header">
+            <span class="jra-badge-chanmi">🏆 Champions Meeting</span>
+            <span style="font-size: 0.72rem; color: var(--jra-official-green); font-weight: 800;" id="status-chanmi">● LIVE NOW</span>
+          </div>
+          <div class="jra-tab-title" id="tab-chanmi-title">Leo Cup (Tokyo 2400m DERBY)</div>
+          <div class="jra-tab-date"><i class="fa-regular fa-calendar-days"></i> <span id="tab-chanmi-date">2026.08.20 〜 08.26</span></div>
+        </div>
+
+        <div class="jra-tab-card" id="tab-loh" data-event="loh">
+          <div class="jra-tab-header">
+            <span class="jra-badge-loh">⭐ League of Heroes</span>
+            <span style="font-size: 0.72rem; color: #d97706; font-weight: 800;" id="status-loh">UPCOMING</span>
+          </div>
+          <div class="jra-tab-title" id="tab-loh-title">LoH Stage (Hanshin 1600m MILE)</div>
+          <div class="jra-tab-date"><i class="fa-regular fa-calendar-days"></i> <span id="tab-loh-date">2026.09.12 〜 09.18</span></div>
+        </div>
+      </div>
+
+      <!-- コース展開図メインカード -->
+      <section class="jra-course-card">
+        <div class="jra-course-header">
+          <h3 id="course-title-display"><i class="fa-solid fa-route"></i> Nakayama Turf 2500m Course Map</h3>
+          <div class="race-conditions-row" id="race-conditions-container">
+            <!-- JS動的描画 -->
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem;">
+          <div class="zoom-controls-box">
+            <button class="zoom-btn" id="btn-zoom-in" title="拡大"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+            <button class="zoom-btn" id="btn-zoom-out" title="縮小"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
+            <button class="zoom-btn mode-rotate-btn" id="btn-rotate-left"><i class="fa-solid fa-rotate-left"></i> Rotate</button>
+            <button class="zoom-btn mode-rotate-btn" id="btn-rotate-right"><i class="fa-solid fa-rotate-right"></i></button>
+            <button class="zoom-btn" id="btn-zoom-reset">Reset</button>
+            <button class="zoom-btn mode-3d-btn" id="btn-toggle-3d">3D View</button>
+          </div>
+        </div>
+
+        <div class="canvas-container-jra" id="canvas-wrapper">
+          <canvas id="umai-course-canvas" height="480"></canvas>
+        </div>
+
+        <div style="margin-top: 1rem;">
+          <label style="font-size: 0.8rem; font-weight: 800; color: var(--text-dark);">
+            <i class="fa-solid fa-person-running" style="color: var(--jra-official-green);"></i> <span id="label-slider">コース位置プレビュー:</span> <span id="distance-val">1,666</span> m
+          </label>
+          <input type="range" id="course-slider" min="0" max="2500" value="1666" step="10" style="width: 100%; margin-top: 0.4rem;">
+        </div>
+      </section>
+
+      <!-- おすすめ有効スキル vs 罠スキル (JRAスタイル) -->
+      <div class="jra-skills-grid">
+        <section class="jra-skill-box">
+          <h4 id="title-god-skills" style="color: var(--jra-official-green);"><i class="fa-solid fa-circle-check"></i> 推奨有効スキル (Recommended)</h4>
+          <div id="recommended-skills-list"></div>
+        </section>
+
+        <section class="jra-skill-box">
+          <h4 id="title-trap-skills" style="color: #ef4444;"><i class="fa-solid fa-triangle-exclamation"></i> 注意・罠スキル (Ineffective)</h4>
+          <div id="trap-skills-list"></div>
+        </section>
+      </div>
+
+      <!-- URA AIコンシェルジュ (JRA公式問い合わせ案内風) -->
+      <section class="jra-ai-section">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem;">
+          <h3 id="ai-concierge-title" style="font-size: 1.1rem; font-weight: 900; color: var(--jra-official-green); display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fa-solid fa-robot"></i> Universal Racing AI コンシェルジュ
+          </h3>
+          <span style="font-size: 0.72rem; background: var(--jra-official-green); color: #fff; padding: 2px 8px; border-radius: 4px; font-weight: 800;">24h AI SUPPORT</span>
+        </div>
+        <p id="ai-concierge-sub" style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.8rem;">JRA公式コース規格に基づく最適なスタミナ目安や勝てるスキル構成をAIがアドバイスします。</p>
+
+        <div id="user-ai-chat-logs" style="background: #ffffff; border: 1px solid var(--border-light); border-radius: 8px; padding: 1rem; max-height: 180px; overflow-y: auto; margin-bottom: 0.8rem;">
+          <div id="ai-concierge-init-msg" style="font-size: 0.85rem; color: var(--text-dark);">
+            🤖 <strong>AIアシスタント:</strong> トレーナーさん、こんにちは！コース選びや攻略スキルについて何でもご質問ください。
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 0.6rem;">
+          <input type="text" id="user-ai-input" class="select-jra" placeholder="例: 先行ウマ娘に必要なスタミナの目標値は？" style="flex: 1; background: #fff;">
+          <button id="btn-send-user-ai" class="btn-jra-green">
+            <span id="label-btn-send-ai">質問する</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 全発動スキル一覧 -->
+      <section class="jra-course-card">
+        <h3 id="title-all-skills-catalog" style="font-size: 1.1rem; margin-bottom: 0.8rem; color: var(--jra-official-green);"><i class="fa-solid fa-list-check"></i> 全主要スキル発動メートル一覧</h3>
+        <div class="all-skills-grid" id="all-skills-catalog-list"></div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- 改善点・ご意見送信モーダルUI -->
+  <div class="feedback-modal-overlay" id="feedback-modal">
+    <div class="feedback-modal-card">
+      <button class="close-modal-btn" id="btn-close-feedback" style="color: var(--text-dark);"><i class="fa-solid fa-xmark"></i></button>
+      <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem;">
+        <i class="fa-solid fa-comments" style="color: var(--jra-official-green); font-size: 1.6rem;"></i>
+        <div>
+          <h3 style="font-size: 1.1rem; font-weight: 900; color: var(--text-dark);">改善点・ご意見送信フォーム</h3>
+          <p style="font-size: 0.78rem; color: var(--text-muted);">ご要望や改善点を送信してください。</p>
+        </div>
+      </div>
+
+      <div class="form-group-jra">
+        <label>カテゴリー</label>
+        <select id="fb-category" class="select-jra">
+          <option value="course_add">新しいコースの追加希望</option>
+          <option value="skill_add">特定スキルの追加・位置修正</option>
+          <option value="ui_improvement">画面デザイン・見やすさの改善</option>
+          <option value="other">その他の改善ご提案</option>
+        </select>
+      </div>
+
+      <div class="form-group-jra">
+        <label>改善内容</label>
+        <textarea id="fb-message" class="select-jra" rows="4" placeholder="ご自由にご記入ください。"></textarea>
+      </div>
+
+      <button id="btn-submit-feedback" class="btn-jra-green" style="width: 100%; margin-top: 1rem;">
+        <span>送信する</span>
+      </button>
+
+      <div id="feedback-sent-msg" style="display: none; color: var(--jra-official-green); font-weight: 800; font-size: 0.82rem; margin-top: 0.8rem; text-align: center;">
+        ✅ 送信が完了いたしました。
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

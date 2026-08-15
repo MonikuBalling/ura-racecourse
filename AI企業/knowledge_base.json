@@ -1,0 +1,20 @@
+{
+  "version": "2.4.0",
+  "last_updated": "2026-08-15",
+  "ai_learning_model": "Self-Evolving Knowledge Engine",
+  "learned_insights": [
+    {
+      "topic": "stamina_requirements",
+      "insight": "3000m以上の超長距離（京都3200m等）では、根性ステータスおよび下り坂モード発動確率が勝率に大きく影響する。"
+    },
+    {
+      "topic": "spurt_acceleration",
+      "insight": "東京2400mなどの大回りコースでは、最終コーナー手前発動の加速スキル（王手/アングリング）が最重要。"
+    }
+  ],
+  "frequently_asked_topics": {
+    "stamina": 42,
+    "skills": 89,
+    "strategy": 65
+  }
+}

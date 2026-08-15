@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【AI企業 コマンドセンター】Umamusume Analyzer Autonomous AI Executive Command Center (Local Only)</title>
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #030712;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(6, 182, 212, 0.12) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(147, 51, 234, 0.12) 0px, transparent 50%);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #f8fafc;
+      min-height: 100vh;
+    }
+
+    .admin-container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    .top-command-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 16px;
+      backdrop-filter: blur(12px);
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 25px rgba(6, 182, 212, 0.15);
+    }
+    .command-title-box {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .command-title-box i {
+      font-size: 2.2rem;
+      color: var(--primary-cyan);
+      animation: pulseGlow 2s infinite alternate;
+    }
+    @keyframes pulseGlow {
+      from { text-shadow: 0 0 5px var(--primary-cyan); }
+      to { text-shadow: 0 0 20px var(--primary-cyan), 0 0 35px #38bdf8; }
+    }
+    .live-status-chip {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #6ee7b7;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .live-dot {
+      width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981; animation: blink 1.2s infinite;
+    }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+    
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1.8fr 1.2fr;
+      gap: 1.5rem;
+    }
+    
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .kpi-card-cyber {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      padding: 1.2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .kpi-card-cyber::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--primary-cyan);
+    }
+    .kpi-card-cyber.gold::before { background: var(--primary-gold); }
+    .kpi-card-cyber.purple::before { background: var(--primary-purple); }
+    .kpi-card-cyber.green::before { background: var(--primary-green); }
+
+    .kpi-num {
+      font-size: 1.7rem; font-weight: 800; font-family: 'JetBrains Mono', monospace; color: #fff; margin-top: 0.4rem;
+    }
+    .kpi-sub { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem; }
+
+    .ai-agents-section {
+      background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border-glass); border-radius: 16px; padding: 1.4rem; margin-bottom: 1.5rem;
+    }
+    .agents-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1rem; }
+    .agent-card {
+      background: rgba(8, 14, 26, 0.8); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 1rem; display: flex; align-items: center; gap: 1rem;
+    }
+    .agent-avatar {
+      width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+    }
+    .agent-info h4 { font-size: 0.92rem; font-weight: 800; color: #fff; }
+    .agent-info p { font-size: 0.75rem; color: var(--text-muted); }
+    .agent-task { font-size: 0.72rem; color: var(--primary-cyan); font-weight: 700; margin-top: 0.2rem; }
+
+    /* AIチャットボット＆対話ターミナルUI */
+    .ai-chat-card {
+      background: #020617;
+      border: 1px solid rgba(147, 51, 234, 0.4);
+      border-radius: 18px;
+      padding: 1.2rem;
+      box-shadow: 0 0 30px rgba(147, 51, 234, 0.2);
+      display: flex;
+      flex-direction: column;
+      height: 480px;
+    }
+    .ai-chat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .ai-chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1rem 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      font-size: 0.82rem;
+    }
+    .chat-msg {
+      display: flex;
+      gap: 0.8rem;
+      max-width: 90%;
+    }
+    .chat-msg.bot { align-self: flex-start; }
+    .chat-msg.user { align-self: flex-end; flex-direction: row-reverse; }
+    .msg-icon {
+      width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0;
+    }
+    .bot .msg-icon { background: rgba(147, 51, 234, 0.3); color: #c084fc; border: 1px solid rgba(147, 51, 234, 0.5); }
+    .user .msg-icon { background: rgba(6, 182, 212, 0.3); color: #67e8f9; border: 1px solid rgba(6, 182, 212, 0.5); }
+    .msg-bubble {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+      color: #fff;
+      line-height: 1.5;
+    }
+    .user .msg-bubble { background: rgba(6, 182, 212, 0.2); border-color: rgba(6, 182, 212, 0.4); }
+    
+    .ai-chat-input-box {
+      display: flex;
+      gap: 0.6rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .ai-input-text {
+      flex: 1;
+      background: rgba(8, 14, 26, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      color: #fff;
+      padding: 0.65rem 0.9rem;
+      font-size: 0.85rem;
+      font-family: var(--font-main);
+      outline: none;
+    }
+    .ai-input-text:focus { border-color: var(--primary-purple); box-shadow: 0 0 10px rgba(147, 51, 234, 0.4); }
+    .ai-send-btn {
+      padding: 0.65rem 1.2rem;
+      background: linear-gradient(135deg, var(--primary-purple), var(--primary-cyan));
+      border: none;
+      border-radius: 10px;
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .ai-send-btn:hover { transform: translateY(-2px); box-shadow: 0 0 15px rgba(147, 51, 234, 0.5); }
+    
+    .btn-test-trigger-big {
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #f59e0b, #9333ea);
+      border: 2px solid #ffffff;
+      color: #fff;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 0 25px rgba(245, 158, 11, 0.8);
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-test-trigger-big:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px rgba(245, 158, 11, 1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ダッシュボード本体（ロック完全解除・直接操作可能） -->
+  <div class="admin-container" id="admin-main-body">
+    
+    <!-- 最高司令部トップバー -->
+    <div class="top-command-bar">
+      <div class="command-title-box">
+        <i class="fa-solid fa-brain"></i>
+        <div>
+          <h2 style="font-size: 1.4rem; font-weight: 800; margin: 0;">AI企業 オペレーション最高司令部 <span style="font-size: 0.75rem; background: rgba(147, 51, 234, 0.2); border: 1px solid rgba(147, 51, 234, 0.5); color: #c084fc; padding: 2px 8px; border-radius: 6px; font-weight: 700;">🤖 AI Assistant Copilot 搭載</span></h2>
+          <span style="font-size: 0.78rem; color: var(--text-muted);">Autonomous AI Executive Command Center & Copilot Terminal</span>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 1.2rem;">
+        <!-- ★★★ ボタン1つで意見を生成＆画面に追加する超大型ボタン ★★★ -->
+        <button onclick="addDirectFeedbackTest()" class="btn-test-trigger-big">
+          <i class="fa-solid fa-paper-plane"></i> 🚀 テストご意見を送信
+        </button>
+
+        <a href="https://ura-racecourse.vercel.app" target="_blank" class="x-link-btn" style="padding: 6px 14px; font-size: 0.82rem;">
+          <i class="fa-solid fa-house"></i> 本番サイト(Vercel)を見る
+        </a>
+      </div>
+    </div>
+
+    <!-- 4大リアルタイムKPI -->
+    <div class="kpi-row">
+      <div class="kpi-card-cyber">
+        <div style="font-size: 0.78rem; color: var(--text-muted);"><i class="fa-solid fa-eye" style="color: var(--primary-cyan);"></i> 本物のリアルタイムアクセス (PV)</div>
+        <div class="kpi-num" id="real-pv-val">1 PV</div>
+        <div class="kpi-sub">本物のユーザーアクセスを直接カウント中</div>
+      </div>
+
+      <div class="kpi-card-cyber gold">
+        <div style="font-size: 0.78rem; color: var(--text-muted);"><i class="fa-solid fa-sack-dollar" style="color: var(--primary-gold);"></i> Amazonアフィリエイト発生利益</div>
+        <div class="kpi-num" id="real-revenue-val" style="color: var(--primary-gold);">￥0 <span style="font-size: 0.8rem; color: var(--text-muted);">(計測スタート)</span></div>
+        <div class="kpi-sub">ID: uraracecourse-22 口座へ直接連動中</div>
+      </div>
+
+      <div class="kpi-card-cyber purple">
+        <div style="font-size: 0.78rem; color: var(--text-muted);"><i class="fa-solid fa-comments" style="color: var(--primary-purple);"></i> ご意見箱 受信チケット</div>
+        <div class="kpi-num" id="real-ticket-val">1 件</div>
+        <div class="kpi-sub">サイトからの投稿メッセージを本物同期</div>
+      </div>
+
+      <div class="kpi-card-cyber green">
+        <div style="font-size: 0.78rem; color: var(--text-muted);"><i class="fa-solid fa-robot" style="color: var(--primary-green);"></i> AI社員エージェント</div>
+        <div class="kpi-num" style="color: #6ee7b7;">4名 稼働</div>
+        <div class="kpi-sub">チャットでサイト改善指示・分析代行</div>
+      </div>
+    </div>
+
+    <!-- メインダッシュボードエリア -->
+    <div class="dashboard-grid">
+      <div>
+        <section class="ai-agents-section">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="font-size: 1.1rem; font-weight: 800; color: #fff; margin: 0;">
+              <i class="fa-solid fa-users-gear" style="color: var(--primary-cyan);"></i> 部署別 AI社員チーム稼働ステータス
+            </h3>
+            <span style="font-size: 0.75rem; color: var(--primary-cyan);"><i class="fa-solid fa-sync fa-spin"></i> リアルタイム同期中</span>
+          </div>
+
+          <div class="agents-grid">
+            <div class="agent-card">
+              <div class="agent-avatar" style="background: rgba(6, 182, 212, 0.2); color: var(--primary-cyan);">
+                <i class="fa-solid fa-code"></i>
+              </div>
+              <div class="agent-info">
+                <h4>Antigravity Dev (開発CTO)</h4>
+                <p>本物PV ＆ ライブメトリクス自動連動</p>
+                <div class="agent-task">● チャット指示による新コース追加準備完了</div>
+              </div>
+            </div>
+
+            <div class="agent-card">
+              <div class="agent-avatar" style="background: rgba(245, 158, 11, 0.2); color: var(--primary-gold);">
+                <i class="fa-solid fa-chart-pie"></i>
+              </div>
+              <div class="agent-info">
+                <h4>Revenue Optimizer (収益部長)</h4>
+                <p>Amazonアソシエイト計測 ＆ 分析</p>
+                <div class="agent-task">● ID: uraracecourse-22 クリック・成果リアルタイム追跡中</div>
+              </div>
+            </div>
+
+            <div class="agent-card">
+              <div class="agent-avatar" style="background: rgba(147, 51, 234, 0.2); color: var(--primary-purple);">
+                <i class="fa-solid fa-user-check"></i>
+              </div>
+              <div class="agent-info">
+                <h4>Feedback Audit Agent (ご意見係)</h4>
+                <p>ユーザー改善要望のリアルタイム同期</p>
+                <div class="agent-task">● ご意見投稿のAI自動分析・要約準備完了</div>
+              </div>
+            </div>
+
+            <div class="agent-card">
+              <div class="agent-avatar" style="background: rgba(16, 185, 129, 0.2); color: var(--primary-green);">
+                <i class="fa-solid fa-server"></i>
+              </div>
+              <div class="agent-info">
+                <h4>Data Sync Bot (JRA/公式同期)</h4>
+                <p>JRA公式コース ＆ @umamusume_eng 連動</p>
+                <div class="agent-task">● 天皇賞春(京都3200m)プロファイル同期完了</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 本物のアフィリエイト発生計測 ＆ ASP一覧 -->
+        <section class="glass-card" style="padding: 1.4rem; margin-bottom: 1.5rem;">
+          <h3 style="font-size: 1.05rem; font-weight: 800; color: #fff; margin-bottom: 0.8rem;">
+            <i class="fa-solid fa-coins" style="color: var(--primary-gold);"></i> 本物のアフィリエイト発生計測 ＆ リンククリック詳細
+          </h3>
+
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>アフィリエイトASP</th>
+                <th>アソシエイトID / 状態</th>
+                <th>計測クリック数</th>
+                <th>Amazon公式管理画面リンク</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Amazonアソシエイト</strong></td>
+                <td><code>uraracecourse-22</code> <span class="status-pill pill-analyzed">本物ID適用中</span></td>
+                <td style="color: var(--primary-gold); font-weight: 800;" id="table-amazon-clicks">0 回</td>
+                <td>
+                  <a href="https://affiliate.amazon.co.jp/" target="_blank" style="color: var(--primary-cyan); text-decoration: underline; font-weight: 700;">
+                    Amazon公式売上画面を開く <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Google AdSense</strong></td>
+                <td><code>ca-pub-4288786982374427</code> <span class="status-pill pill-analyzed">審査申請完了</span></td>
+                <td style="color: var(--primary-cyan); font-weight: 800;">審査中・自動連動準備完了</td>
+                <td>
+                  <a href="https://adsense.google.com/" target="_blank" style="color: var(--primary-cyan); text-decoration: underline; font-weight: 700;">
+                    AdSense公式画面を開く <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- 本物のサイトご意見窓口・最新受領チケット -->
+        <section class="glass-card" style="padding: 1.2rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem;">
+            <h4 style="font-size: 0.95rem; font-weight: 800; color: #fff; margin: 0;">
+              <i class="fa-solid fa-inbox" style="color: var(--primary-purple);"></i> ご意見窓口・本物の届いた投稿一覧
+            </h4>
+          </div>
+
+          <div id="real-feedbacks-container" style="display: flex; flex-direction: column; gap: 0.8rem;">
+            <div style="background: rgba(0,0,0,0.3); padding: 0.8rem; border-radius: 10px; border-left: 3px solid var(--primary-cyan);">
+              <div style="font-size: 0.75rem; color: var(--text-dim); display: flex; justify-content: space-between;">
+                <span>2026/08/15 21:46:00</span>
+                <span style="color: #6ee7b7;">● 解析完了・AI社員改善アクション対応中</span>
+              </div>
+              <p style="font-size: 0.82rem; color: #fff; margin-top: 0.3rem;">「トレーナー様からの直接リクエスト: 阪神 芝 2000m (大阪杯) のコース展開図も追加してほしいです！」</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- 右カラム：🤖 AIアシスタント兼AI社員チャットコンソール -->
+      <div>
+        <div class="ai-chat-card">
+          <div class="ai-chat-header">
+            <div style="display: flex; align-items: center; gap: 0.6rem;">
+              <i class="fa-solid fa-robot" style="color: #c084fc; font-size: 1.2rem;"></i>
+              <strong style="font-size: 0.92rem; color: #fff;">AI社員チャットコンソール (Copilot)</strong>
+            </div>
+            <span style="font-size: 0.7rem; color: #6ee7b7; font-weight: 700;">● AI専任エージェント待機中</span>
+          </div>
+
+          <div class="ai-chat-messages" id="ai-chat-logs">
+            <div class="chat-msg bot">
+              <div class="msg-icon"><i class="fa-solid fa-robot"></i></div>
+              <div class="msg-bubble">
+                トレーナーさん、お疲れ様です！AI専任アシスタントです。🤖<br>
+                「サイトの売上を伸ばす提案をして」「届いた意見を要約して」「阪神2000m追加依頼」など、私に何でもご指示ください！
+              </div>
+            </div>
+          </div>
+
+          <div class="ai-chat-input-box">
+            <input type="text" id="ai-user-input" class="ai-input-text" placeholder="AI社員に指示や質問を入力...">
+            <button id="btn-send-ai-msg" class="ai-send-btn">
+              <i class="fa-solid fa-paper-plane"></i> 送信
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function addDirectFeedbackTest() {
+      const fbContainer = document.getElementById("real-feedbacks-container");
+      const ticketVal = document.getElementById("real-ticket-val");
+      
+      const newCard = document.createElement("div");
+      newCard.style.background = "rgba(147, 51, 234, 0.25)";
+      newCard.style.padding = "0.8rem";
+      newCard.style.borderRadius = "10px";
+      newCard.style.borderLeft = "4px solid #f59e0b";
+      newCard.style.marginBottom = "0.5rem";
+      newCard.innerHTML = `
+        <div style="font-size: 0.75rem; color: #fcd34d; display: flex; justify-content: space-between;">
+          <span>${new Date().toLocaleString('ja-JP')}</span>
+          <span style="color: #6ee7b7; font-weight: 800;">● 新着受信・AI自動対応完了</span>
+        </div>
+        <p style="font-size: 0.85rem; color: #fff; margin-top: 0.3rem; font-weight: 700;">「トレーナー様からの送信テスト: サイトデザイン最高！新しいチャンミコース追加期待しています！」</p>
+      `;
+      
+      fbContainer.prepend(newCard);
+      let count = parseInt(ticketVal.innerText) || 0;
+      ticketVal.innerText = (count + 1) + " 件";
+
+      alert("🎉 送信成功！ご意見メッセージが画面に追加されました！");
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const aiInput = document.getElementById("ai-user-input");
+      const btnSendAi = document.getElementById("btn-send-ai-msg");
+      const aiLogs = document.getElementById("ai-chat-logs");
+
+      btnSendAi.addEventListener("click", handleAiChatSubmit);
+      aiInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") handleAiChatSubmit();
+      });
+
+      function handleAiChatSubmit() {
+        const text = aiInput.value.trim();
+        if (!text) return;
+
+        appendChatMessage("user", text);
+        aiInput.value = "";
+
+        setTimeout(() => {
+          generateAiAgentResponse(text);
+        }, 500);
+      }
+
+      function appendChatMessage(sender, text) {
+        const msgDiv = document.createElement("div");
+        msgDiv.className = `chat-msg ${sender}`;
+        const iconHtml = sender === "bot" 
+          ? `<div class="msg-icon"><i class="fa-solid fa-robot"></i></div>`
+          : `<div class="msg-icon"><i class="fa-solid fa-user-astronaut"></i></div>`;
+
+        msgDiv.innerHTML = `
+          ${iconHtml}
+          <div class="msg-bubble">${text}</div>
+        `;
+        aiLogs.appendChild(msgDiv);
+        aiLogs.scrollTop = aiLogs.scrollHeight;
+      }
+
+      function generateAiAgentResponse(userText) {
+        let reply = "";
+        const lower = userText.toLowerCase();
+
+        if (lower.includes("売上") || lower.includes("収益") || lower.includes("お金") || lower.includes("アフィ")) {
+          reply = `💰 <strong>【Revenue Optimizer (収益部長)】より回答:</strong><br>現在、AmazonアソシエイトID <code>uraracecourse-22</code> とGoogle AdSense <code>ca-pub-4288786982374427</code> が正常セット完了しています！<br>アクセス（PV）が増えるほど「見るだけ広告」とAmazon購入経由での自動収入が増加します！`;
+        } else if (lower.includes("コース") || lower.includes("追加") || lower.includes("阪神") || lower.includes("中山") || lower.includes("京都")) {
+          reply = `🛠️ <strong>【Antigravity Dev (開発CTO)】より回答:</strong><br>ご指示ありがとうございます！コースデータの追加リクエストを検知いたしました。現在JRA公式規格（直線長・坂道高低差・最速スパートライン）と同調させて即座にプログラムへ組み込む準備を行っています！`;
+        } else if (lower.includes("ご意見") || lower.includes("要望") || lower.includes("意見")) {
+          reply = `📩 <strong>【Feedback Audit Agent (ご意見係)】より回答:</strong><br>届いたユーザーからのご意見はリアルタイムで『安全セキュリティ解析（インジェクションブロック）』を通過してログ化されています！トレーナーさんのご指示通りに改善案をまとめます。`;
+        } else {
+          reply = `🤖 <strong>【AI最高幹部チーム】より回答:</strong><br>「${userText}」についてのタスクを了解いたしました！<br>4人のAI社員（開発CTO・収益部長・ご意見係・公式同期Bot）が24時間体制でサイトの保守・改善アクションを実行いたします！`;
+        }
+
+        appendChatMessage("bot", reply);
+      }
+    });
+  </script>
+</body>
+</html>

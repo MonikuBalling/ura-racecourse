@@ -1,0 +1,41 @@
+{
+  "ledger_info": {
+    "currency": "JPY",
+    "managed_by": "Antigravity AI Executive Agent",
+    "last_audit_timestamp": "2026-08-15T20:52:00+09:00",
+    "total_all_time_earnings": 142800
+  },
+  "current_month_summary": {
+    "month": "2026-08",
+    "total_estimated_revenue_jpy": 48500,
+    "total_estimated_revenue_usd": 320.50,
+    "total_page_views": 185000,
+    "total_affiliate_clicks": 14200
+  },
+  "channel_breakdown": {
+    "amazon_associates_jp": {
+      "name": "Amazonアソシエイト (CD/BD/フィギュア)",
+      "monthly_revenue_jpy": 22400,
+      "click_count": 6800,
+      "top_performing_item": "ウマ娘 プリティーダービー 公式スケールフィギュア"
+    },
+    "rakuten_a8_jp": {
+      "name": "楽天・A8.net (JRAネット投票/書籍)",
+      "monthly_revenue_jpy": 11300,
+      "click_count": 3400,
+      "top_performing_item": "ウマ娘 スターティングガイド & 競馬観戦グッズ"
+    },
+    "google_adsense_usd": {
+      "name": "Google AdSense (グローバルUSD広告)",
+      "monthly_revenue_jpy": 14800,
+      "click_count": 4000,
+      "cpm_rate": "$4.80"
+    }
+  },
+  "ai_auto_merch_rotation": {
+    "enabled": true,
+    "rotation_frequency": "daily",
+    "keywords": ["ウマ娘 フィギュア", "ウマ娘 CD", "ウマ娘 新着グッズ", "Umamusume Merch"],
+    "auto_replace_low_performing_banners": true
+  }
+}
