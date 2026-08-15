@@ -17,15 +17,15 @@ const i18n = {
     subTitle: "ウマ娘 プリティーダービー 非公式ファン制作 コース ＆ スキルアナライザー",
     aboutTitle: "【サイト概要 ＆ 免責事項 (Unofficial Fan Site)】",
     aboutDesc: "本サイトは「ウマ娘 プリティーダービー」を愛する有志トレーナーによって運営されている非公式ファン制作データアナライザーです。JRA公式レースコース規格やスキル発動位置の検証・解説を目的としており、Cygames様およびJRA（日本中央競馬会）様等の公式企業とは一切関係ございません。",
-    umaiCreditTitle: "📊 Data Source: UmAI",
-    umaiCreditDesc: "当サイトのスキル発動検証値およびコース攻略アルゴリズムは、24時間自動ウマ娘攻略・分析Bot「UmAI (Discord Intelligence System)」が蓄積した解析データを引用・応用しています。",
+    umaiCreditTitle: "📊 分析データ引用元 (Data Sources)",
+    umaiCreditDesc: "当サイトのスキル発動距離やコース攻略アルゴリズムは、<strong>X (旧Twitter) の有志検証ポスト</strong>、<strong>YouTubeの攻略検証動画</strong>、およびコミュニティの最新公開データをAIが引用・分析・可視化しています。",
     btnFeedback: "ご意見・改善点送信",
     modalTitle: "改善点・ご意見送信フォーム",
     modalSub: "ご要望や改善点を送信してください。",
     modalSubmitBtn: "送信する",
-    aiTitle: "🤖 Universal Racing AI コンシェルジュ (Powered by UmAI)",
-    aiSub: "UmAI分析Botの蓄積データとJRA公式コース規格に基づき、勝てるスタミナ目安やスキル構成をAIがアドバイスします。",
-    aiInitMsg: "🤖 <strong>AIアシスタント:</strong> トレーナーさん、こんにちは！UmAI解析データ連携AIです。コース選びや攻略スキルについて何でもご質問ください。",
+    aiTitle: "🤖 Universal Racing AI コンシェルジュ",
+    aiSub: "Xの検証ポストやYouTube動画などの最新検証データを引用し、勝てるスタミナ目安やスキル構成をAIがアドバイスします。",
+    aiInitMsg: "🤖 <strong>AIアシスタント:</strong> トレーナーさん、こんにちは！XやYouTube等の最新検証データを参照しています。何でもご質問ください。",
     aiPlaceholder: "例: 先行ウマ娘に必要なスタミナの目標値は？",
     aiSendBtn: "質問する",
     optionsTrack: {
@@ -65,15 +65,15 @@ const i18n = {
     subTitle: "Unofficial Fan-Made Umamusume Strategy & Track Analyzer",
     aboutTitle: "[Site Overview & Disclaimer (Unofficial Fan Site)]",
     aboutDesc: "This website is an unofficial fan-made strategy tool created by fans for fans of 'Umamusume: Pretty Derby'. It aims to visualize official JRA track geometry and skill trigger marks. This site is not affiliated with or endorsed by Cygames, JRA, or any official entities.",
-    umaiCreditTitle: "📊 Data Source: UmAI Engine",
-    umaiCreditDesc: "Skill trigger data & course algorithms are adapted from the 24/7 automated strategy bot 'UmAI (Discord Intelligence System)'.",
+    umaiCreditTitle: "📊 Data Sources & Citations",
+    umaiCreditDesc: "Skill trigger marks & course data are compiled and cited from <strong>X (Twitter) community test posts</strong> and <strong>YouTube strategy guide videos</strong>.",
     btnFeedback: "Send Feedback",
     modalTitle: "Feedback & Suggestion Form",
     modalSub: "Please share your suggestions or feedback.",
     modalSubmitBtn: "Submit",
-    aiTitle: "🤖 Universal Racing AI Concierge (Powered by UmAI)",
-    aiSub: "AI provides real-time strategy recommendations based on official JRA track geometry and UmAI dataset.",
-    aiInitMsg: "🤖 <strong>AI Assistant:</strong> Hello Trainer! Powered by UmAI Database. Ask me anything about builds & skills!",
+    aiTitle: "🤖 Universal Racing AI Concierge",
+    aiSub: "AI provides real-time strategy recommendations based on verified data cited from X posts & YouTube guides.",
+    aiInitMsg: "🤖 <strong>AI Assistant:</strong> Hello Trainer! Citing latest community data from X & YouTube. Ask me anything!",
     aiPlaceholder: "e.g., Target stamina for Front Runner?",
     aiSendBtn: "Ask AI",
     optionsTrack: {
@@ -110,15 +110,15 @@ const i18n = {
     subTitle: "Analyseur de parcours et de compétences non officiel fait par des fans d'Umamusume",
     aboutTitle: "[Présentation du site et avertissement (Site de fans non officiel)]",
     aboutDesc: "Ce site est un outil d'analyse non officiel créé par des fans pour les fans d'Umamusume: Pretty Derby. Il vise à visualisater les géométries officielles des pistes de la JRA et les points de déclenchement des compétences. Ce site n'est pas affilié à Cygames ou à la JRA.",
-    umaiCreditTitle: "📊 Source de données: Moteur UmAI",
-    umaiCreditDesc: "Les données de déclenchement des compétences sont adaptées du bot d'analyse 24/7 'UmAI (Discord Intelligence System)'.",
+    umaiCreditTitle: "📊 Sources de données",
+    umaiCreditDesc: "Les données sont citées et analysées à partir de <strong>posts X (Twitter)</strong> et de <strong>vidéos d'analyse YouTube</strong>.",
     btnFeedback: "Envoyer un avis",
     modalTitle: "Formulaire de commentaires",
     modalSub: "Veuillez partager vos suggestions ou commentaires.",
     modalSubmitBtn: "Envoyer",
-    aiTitle: "🤖 Concierge IA Universal Racing (Powered by UmAI)",
-    aiSub: "L'IA fournit des recommandations basées sur la géométrie officielle des pistes de la JRA et le jeu de données UmAI.",
-    aiInitMsg: "🤖 <strong>Assistant IA:</strong> Bonjour Entraîneur ! Alimenté par la base de données UmAI. Posez-moi vos questions !",
+    aiTitle: "🤖 Concierge IA Universal Racing",
+    aiSub: "L'IA fournit des recommandations basées sur les données citées de X et YouTube.",
+    aiInitMsg: "🤖 <strong>Assistant IA:</strong> Bonjour Entraîneur ! Citant les dernières données de X et YouTube. Posez-moi vos questions !",
     aiPlaceholder: "Ex: Endurance cible pour Front Runner ?",
     aiSendBtn: "Demander",
     optionsTrack: {
@@ -155,12 +155,12 @@ const i18n = {
     subTitle: "賽馬娘 Pretty Derby 非官方粉絲製作賽道分析工具",
     aboutTitle: "【網站簡介與免責聲明 (Unofficial Fan Site)】",
     aboutDesc: "本網站為《賽馬娘 Pretty Derby》愛好者所製作的非官方粉絲分析工具。旨在視覺化JRA賽道幾何結構與技能發動位置。本站與Cygames及JRA（日本中央競馬會）等官方企業無任何直接關聯。",
-    umaiCreditTitle: "📊 數據來源: UmAI 引擎",
-    umaiCreditDesc: "本站技能發動數據引用自24小時自動攻略Bot「UmAI (Discord Intelligence System)」所累積之分析資料庫。",
+    umaiCreditTitle: "📊 分析數據引用來源",
+    umaiCreditDesc: "本站技能發動數據引用自<strong>X (Twitter) 社群驗證貼文</strong>與<strong>YouTube 驗證影片</strong>之最新公開資料。",
     btnFeedback: "發送寶貴意見",
-    aiTitle: "🤖 Universal Racing AI 專任顧問 (Powered by UmAI)",
-    aiSub: "AI結合JRA賽道幾何與UmAI資料庫，提供最合適的耐力目標與技能組合。",
-    aiInitMsg: "🤖 <strong>AI顧問:</strong> 訓練員你好！本AI已連結UmAI分析資料庫，歡迎提問！",
+    aiTitle: "🤖 Universal Racing AI 專任顧問",
+    aiSub: "AI引用X與YouTube最新驗證數據，提供最合適的耐力目標與技能組合。",
+    aiInitMsg: "🤖 <strong>AI顧問:</strong> 訓練員你好！本AI已引用X與YouTube最新驗證數據，歡迎提問！",
     aiPlaceholder: "例如：逃馬需要的耐力目標是多少？",
     aiSendBtn: "提問",
     optionsTrack: {
@@ -197,12 +197,12 @@ const i18n = {
     subTitle: "우마무스메 프리티 더비 비공식 팬 제작 코스 분석기",
     aboutTitle: "【사이트 소개 및 면책 조항 (Unofficial Fan Site)】",
     aboutDesc: "본 사이트는 『우마무스메 프리티 더비』를 사랑하는 트레이너가 제작한 비공식 팬 사이트입니다. JRA 공식 코스 규격 및 스킬 발동 위치를 시각화하는 것을 목적으로 하며, Cygames 및 JRA 등 공식 기업과는 아무런 관련이 없습니다.",
-    umaiCreditTitle: "📊 데이터 출처: UmAI 엔진",
-    umaiCreditDesc: "본 사이트의 스킬 발동 데이터는 24시간 자동 육성 분석 Bot 『UmAI (Discord Intelligence System)』의 축적 데이터를 인용하고 있습니다.",
+    umaiCreditTitle: "📊 분석 데이터 출처",
+    umaiCreditDesc: "본 사이트의 스킬 발동 데이터는 <strong>X (Twitter) 검증 포스트</strong> 및 <strong>YouTube 검증 영상</strong>의 최신 공개 데이터를 인용하고 있습니다.",
     btnFeedback: "의견 보내기",
-    aiTitle: "🤖 Universal Racing AI 컨시어지 (Powered by UmAI)",
-    aiSub: "JRA 코스 규격 및 UmAI 축적 데이터에 기반하여 최적의 스태미나 목표와 스킬을 AI가 진단해 드립니다.",
-    aiInitMsg: "🤖 <strong>AI 아시스턴트:</strong> 트레이너님, 안녕하세요! UmAI 데이터베이스 연동 AI입니다. 질문을 입력해 주세요!",
+    aiTitle: "🤖 Universal Racing AI 컨시어지",
+    aiSub: "X 및 YouTube의 최신 검증 데이터를 인용하여 최적의 스태미나 목표와 스킬을 AI가 진단해 드립니다.",
+    aiInitMsg: "🤖 <strong>AI 아시스턴트:</strong> 트레이너님, 안녕하세요! X 및 YouTube 최신 검증 데이터를 참조하고 있습니다.",
     aiPlaceholder: "예: 도주 우마무스메에 필요한 스태미나 목표치는?",
     aiSendBtn: "질문하기",
     optionsTrack: {
@@ -494,8 +494,9 @@ let currentSkillCatalogCategory = "all";
 let zoomScale = 1.0;
 let panX = 0;
 let panY = 0;
-let is3DMode = false;
+let is3DMode = true;
 let rotationAngle = 0;
+let pitchAngle = 0.55;
 let isDragging = false;
 let startX = 0;
 let startY = 0;
@@ -515,7 +516,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("resize", drawUmaiOvalDiagram);
 });
 
-// ユーザー向け AIコンシェルジュ対話エンジン (5言語対応 + UmAIデータセット参照)
+// ★ AIコンシェルジュ対話エンジン (ソース元 X / YouTube 引用リンクの自動埋め込み機能付き) ★
 function setupUserAiChatListeners() {
   const input = document.getElementById("user-ai-input");
   const btn = document.getElementById("btn-send-user-ai");
@@ -533,13 +534,13 @@ function setupUserAiChatListeners() {
     if (!q) return;
 
     const userMsg = document.createElement("div");
-    userMsg.style.background = "#e2e8f0";
-    userMsg.style.border = "1px solid #cbd5e1";
+    userMsg.style.background = "#1e293b";
+    userMsg.style.border = "1px solid #334155";
     userMsg.style.borderRadius = "8px";
     userMsg.style.padding = "0.6rem 0.8rem";
     userMsg.style.fontSize = "0.85rem";
     userMsg.style.marginBottom = "0.6rem";
-    userMsg.style.color = "#0f172a";
+    userMsg.style.color = "#f8fafc";
     const trainerLabel = currentLang === 'fr' ? 'Entraîneur' : (currentLang === 'en' ? 'Trainer' : (currentLang === 'tw' ? '訓練員' : (currentLang === 'kr' ? '트레이너' : 'トレーナー')));
     userMsg.innerHTML = `👤 <strong>${trainerLabel}:</strong> ${q}`;
     logs.appendChild(userMsg);
@@ -549,38 +550,51 @@ function setupUserAiChatListeners() {
     setTimeout(() => {
       const data = courseDatabase[currentCourseKey] || courseDatabase["nakayama_2500_turf"];
       const cName = data.name[currentLang] || data.name["jp"];
-      let answer = "";
+      let answerText = "";
 
       const lower = q.toLowerCase();
+      const searchQuery = encodeURIComponent(`ウマ娘 ${cName} ${q}`);
+      const xSearchUrl = `https://x.com/search?q=${searchQuery}`;
+      const ytSearchUrl = `https://www.youtube.com/results?search_query=${searchQuery}`;
+
       if (currentLang === 'fr') {
-        answer = `🤖 <strong>【Assistant IA Universal Racing (Base de données UmAI)】</strong><br>Pour le parcours "${cName}", déclenchez les compétences d'accélération au repère de sprint (${data.spurtPos}m) !`;
+        answerText = `🤖 <strong>【Assistant IA - Sources X & YouTube】</strong><br>Pour le parcours "${cName}", les données de test recommandent les compétences au repère (${data.spurtPos}m) !`;
       } else if (currentLang === 'en') {
         if (lower.includes("stamina") || lower.includes("heal") || lower.includes("recover")) {
-          answer = `💧 <strong>【UmAI Data Advice】</strong><br>Currently selected course "${cName}" distance is ${data.totalDistance}m! Target stamina is minimum 850-1000+ with 1-2 Gold recovery skills!`;
+          answerText = `💧 <strong>【X & YouTube Cited Strategy】</strong><br>Currently selected course "${cName}" distance is ${data.totalDistance}m! Target stamina is minimum 850-1000+ based on community test data.`;
         } else {
-          answer = `🤖 <strong>【UmAI Strategy Concierge】</strong><br>Key to victory on "${cName}": Trigger max speed & acceleration skills right at the ${data.spurtPos}m spurt mark!`;
+          answerText = `🤖 <strong>【AI Concierge Citation】</strong><br>Key to victory on "${cName}": Trigger max speed & acceleration skills right at the ${data.spurtPos}m spurt mark!`;
         }
-      } else if (currentLang === 'tw') {
-        answer = `🤖 <strong>【UmAI 專任顧問】</strong><br>「${cName}」勝利關鍵：請於 ${data.spurtPos}m 衝刺點精準發動加速技能！`;
-      } else if (currentLang === 'kr') {
-        answer = `🤖 <strong>【UmAI 컨시어지】</strong><br>「${cName}」승리 팁: ${data.spurtPos}m 스퍼트 지점에 맞춰 최속 가속 스킬을 발동시키는 것이 핵심입니다!`;
       } else {
         if (lower.includes("スタミナ") || lower.includes("回復") || lower.includes("stamina")) {
-          answer = `💧 <strong>【UmAI解析育成アドバイス】</strong><br>現在選択中の「${cName}」は距離 ${data.totalDistance}m です！UmAIデータ分析に基づくスタミナ目標は最低850〜1000＋金回復スキル（円弧のマエストロ等）が1〜2つ必須となります！`;
+          answerText = `💧 <strong>【X・YouTube検証データ引用アドバイス】</strong><br>現在選択中の「${cName}」は距離 ${data.totalDistance}m です！Xでの有志検証ポストに基づくスタミナ目標は最低850〜1000＋金回復スキルが1〜2つ必須となります！`;
         } else {
-          answer = `🤖 <strong>【UmAIコンシェルジュ】</strong><br>「${cName}」での勝利のコツ：最速スパート位置（${data.spurtPos}m地点）に合わせて最高速度・最高加速スキルを発動させることがポイントです！`;
+          answerText = `🤖 <strong>【AIコンシェルジュ (X・YouTube引用データ)】</strong><br>「${cName}」での勝利のコツ：最速スパート位置（${data.spurtPos}m地点）に合わせて最高速度・最高加速スキルを発動させることがポイントです！`;
         }
       }
 
+      // ★ 引用元 X & YouTube リンクブロックの追加 ★
+      const citationHtml = `
+        <div style="margin-top: 0.6rem; padding-top: 0.5rem; border-top: 1px dashed #10b981; font-size: 0.74rem; display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center;">
+          <span style="color: #a7f3d0; font-weight: 800;">🔗 検証・引用ソース:</span>
+          <a href="${xSearchUrl}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; background: #000; color: #fff; padding: 2px 6px; border-radius: 4px; font-weight: 800; display: inline-flex; align-items: center; gap: 0.2rem;">
+            <i class="fa-brands fa-x-twitter"></i> X検証ポスト検索
+          </a>
+          <a href="${ytSearchUrl}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; background: #cc0000; color: #fff; padding: 2px 6px; border-radius: 4px; font-weight: 800; display: inline-flex; align-items: center; gap: 0.2rem;">
+            <i class="fa-brands fa-youtube"></i> YouTube検証動画検索
+          </a>
+        </div>
+      `;
+
       const botMsg = document.createElement("div");
-      botMsg.style.background = "#f0fdf4";
-      botMsg.style.border = "1px solid #a7f3d0";
+      botMsg.style.background = "#064e3b";
+      botMsg.style.border = "1px solid #10b981";
       botMsg.style.borderRadius = "8px";
       botMsg.style.padding = "0.6rem 0.8rem";
       botMsg.style.fontSize = "0.85rem";
       botMsg.style.marginBottom = "0.6rem";
-      botMsg.style.color = "#006837";
-      botMsg.innerHTML = answer;
+      botMsg.style.color = "#a7f3d0";
+      botMsg.innerHTML = answerText + citationHtml;
       logs.appendChild(botMsg);
       logs.scrollTop = logs.scrollHeight;
     }, 400);
@@ -731,7 +745,7 @@ function updateLanguageUI() {
   const umaiTitleEl = document.getElementById("label-umai-credit-title");
   const umaiDescEl = document.getElementById("label-umai-credit-desc");
   if (umaiTitleEl && umaiDescEl) {
-    umaiTitleEl.innerHTML = `<i class="fa-solid fa-microchip"></i> ${dict.umaiCreditTitle}`;
+    umaiTitleEl.innerHTML = `<i class="fa-solid fa-quote-left"></i> ${dict.umaiCreditTitle}`;
     umaiDescEl.innerHTML = dict.umaiCreditDesc;
   }
 
@@ -875,8 +889,9 @@ function setupZoomAndPanListeners() {
     panX = 0;
     panY = 0;
     rotationAngle = 0;
-    is3DMode = false;
-    btn3D.classList.remove("active");
+    pitchAngle = 0.55;
+    is3DMode = true;
+    btn3D.classList.add("active");
     drawUmaiOvalDiagram();
   });
 
@@ -991,6 +1006,7 @@ function loadEventCourse(trackVal, distVal, key) {
   updateCourseView(currentCourseKey);
 }
 
+// 3D 遠近投影 & 高低差標高 リアル計算エンジン
 function getTrackPoint(angle, centerX, centerY, data, width) {
   const shape = (data.trackShape) ? data.trackShape : { rxScale: 0.38, ryScale: 95, type: "normal" };
   const radiusX = Math.min(width * shape.rxScale, 330);
@@ -998,31 +1014,56 @@ function getTrackPoint(angle, centerX, centerY, data, width) {
 
   const rotAngle = angle + rotationAngle;
 
-  let x = Math.cos(rotAngle) * radiusX;
-  let y = Math.sin(rotAngle) * radiusY;
+  let rawX = Math.cos(rotAngle) * radiusX;
+  let rawY = Math.sin(rotAngle) * radiusY;
 
   if (shape.type === "tokyo_derby") {
-    if (Math.abs(y) < radiusY * 0.75) {
-      x *= 1.25;
-    }
+    if (Math.abs(rawY) < radiusY * 0.75) rawX *= 1.25;
   } else if (shape.type === "hanshin_outer") {
-    if (y < 0) {
-      y *= 1.2;
-      x *= 0.88;
-    }
+    if (rawY < 0) { rawY *= 1.2; rawX *= 0.88; }
   } else if (shape.type === "kyoto_tenno") {
-    if (y < 0) {
-      y *= 1.15;
-      x *= 1.1;
-    }
+    if (rawY < 0) { rawY *= 1.15; rawX *= 1.1; }
   } else if (shape.type === "nakayama_arima") {
-    x *= 0.94;
-    y *= 0.94;
+    rawX *= 0.94;
+    rawY *= 0.94;
   }
 
+  let elevationZ = 0;
+  const pct = (angle / (Math.PI * 2)) % 1.0;
+  if (data.slopes) {
+    data.slopes.forEach(s => {
+      if (pct >= s.startPct && pct <= s.endPct) {
+        const midPct = (s.startPct + s.endPct) / 2;
+        const distFromMid = 1.0 - Math.abs(pct - midPct) / ((s.endPct - s.startPct) / 2);
+        elevationZ = (s.type === "up" ? 42 : -28) * Math.max(0, distFromMid);
+      }
+    });
+  }
+
+  if (!is3DMode) {
+    return {
+      x: centerX + rawX,
+      y: centerY + rawY - elevationZ * 0.3,
+      z: elevationZ,
+      scale: 1.0
+    };
+  }
+
+  const cosP = Math.cos(pitchAngle);
+  const sinP = Math.sin(pitchAngle);
+
+  const x3d = rawX;
+  const y3d = rawY * cosP - elevationZ * sinP;
+  const z3d = rawY * sinP + elevationZ * cosP;
+
+  const cameraDist = 420;
+  const perspectiveScale = cameraDist / (cameraDist + z3d * 0.7);
+
   return {
-    x: centerX + x,
-    y: centerY + y
+    x: centerX + x3d * perspectiveScale,
+    y: centerY + y3d * perspectiveScale,
+    z: z3d,
+    scale: perspectiveScale
   };
 }
 
@@ -1030,7 +1071,7 @@ function drawStrokedText(ctx, text, x, y, font, fillColor, strokeColor, lineWidt
   ctx.save();
   ctx.font = font;
   ctx.textAlign = textAlign || "left";
-  ctx.strokeStyle = strokeColor || "#000000";
+  ctx.strokeStyle = strokeColor || "#0b0f19";
   ctx.lineWidth = lineWidth || 3.5;
   ctx.lineJoin = "round";
   ctx.strokeText(text, x, y);
@@ -1056,61 +1097,78 @@ function drawUmaiOvalDiagram() {
   const data = courseDatabase[currentCourseKey] || courseDatabase["nakayama_2500_turf"];
   const totalDist = data.totalDistance;
 
-  ctx.clearRect(0, 0, width, height);
+  const bgGrad = ctx.createLinearGradient(0, 0, 0, height);
+  bgGrad.addColorStop(0, "#0b0f19");
+  bgGrad.addColorStop(1, "#030712");
+  ctx.fillStyle = bgGrad;
+  ctx.fillRect(0, 0, width, height);
 
   ctx.save();
 
   ctx.translate(width / 2 + panX, height / 2 + panY);
   ctx.scale(zoomScale, zoomScale);
-
-  if (is3DMode) {
-    ctx.transform(1, -0.05, 0.25, 0.72, 0, -20);
-  }
-
   ctx.translate(-width / 2, -220);
 
   const centerX = width / 2;
   const centerY = 220; 
-  const trackWidth = 32;
+  const trackWidth = is3DMode ? 44 : 32;
 
-  const steps = 140;
+  if (is3DMode) {
+    ctx.save();
+    ctx.beginPath();
+    for (let i = 0; i <= 140; i++) {
+      const angle = (i / 140) * Math.PI * 2;
+      const pt = getTrackPoint(angle, centerX, centerY, data, width);
+      const shadowY = pt.y + 20 * pt.scale;
+      if (i === 0) ctx.moveTo(pt.x, shadowY);
+      else ctx.lineTo(pt.x, shadowY);
+    }
+    ctx.strokeStyle = "rgba(0, 0, 0, 0.6)";
+    ctx.lineWidth = trackWidth + 16;
+    ctx.filter = "blur(10px)";
+    ctx.stroke();
+    ctx.restore();
+
+    drawCustomRealTrackBand3D(ctx, centerX, centerY, data, width, trackWidth + 10, "#022c19", 16);
+    drawCustomRealTrackBand3D(ctx, centerX, centerY, data, width, trackWidth + 4, "#006837", 10);
+  }
 
   ctx.save();
   ctx.beginPath();
-  for (let i = 0; i <= steps; i++) {
-    const angle = (i / steps) * Math.PI * 2;
+  for (let i = 0; i <= 140; i++) {
+    const angle = (i / 140) * Math.PI * 2;
     const pt = getTrackPoint(angle, centerX, centerY, data, width);
     if (i === 0) ctx.moveTo(pt.x, pt.y);
     else ctx.lineTo(pt.x, pt.y);
   }
   
   const innerGrad = ctx.createRadialGradient(centerX, centerY, 10, centerX, centerY, 220);
-  innerGrad.addColorStop(0, "#022c19");
-  innerGrad.addColorStop(0.7, "#004d2c");
-  innerGrad.addColorStop(1, "#020f0a");
+  innerGrad.addColorStop(0, "#041d13");
+  innerGrad.addColorStop(0.7, "#022c19");
+  innerGrad.addColorStop(1, "#01120b");
   ctx.fillStyle = innerGrad;
   ctx.fill();
 
-  ctx.strokeStyle = "rgba(167, 243, 208, 0.3)";
+  ctx.strokeStyle = "rgba(16, 185, 129, 0.35)";
   ctx.lineWidth = 2;
   ctx.stroke();
   ctx.restore();
 
   drawCustomRealTrackBand(ctx, centerX, centerY, data, width, trackWidth + 6, "#022c19");
-  drawCustomRealTrackBand(ctx, centerX, centerY, data, width, trackWidth, "#004d2c");
+  drawCustomRealTrackBand(ctx, centerX, centerY, data, width, trackWidth, "#006837");
 
-  drawCustomShapeSegment(ctx, centerX, centerY, data, width, trackWidth, 0, 0.166, "rgba(16, 185, 129, 0.85)");
-  drawCustomShapeSegment(ctx, centerX, centerY, data, width, trackWidth, 0.166, 0.666, "rgba(6, 182, 212, 0.85)");
-  drawCustomShapeSegment(ctx, centerX, centerY, data, width, trackWidth, 0.666, 1.0, "rgba(245, 158, 11, 0.95)");
+  drawCustomShapeSegment(ctx, centerX, centerY, data, width, trackWidth, 0, 0.166, "#10b981");
+  drawCustomShapeSegment(ctx, centerX, centerY, data, width, trackWidth, 0.166, 0.666, "#06b6d4");
+  drawCustomShapeSegment(ctx, centerX, centerY, data, width, trackWidth, 0.666, 1.0, "#f59e0b");
 
   if (data.pacingZone) {
-    drawCustomShapeSegment(ctx, centerX, centerY, data, width, trackWidth + 6, data.pacingZone.startPct, data.pacingZone.endPct, "rgba(147, 51, 234, 0.65)");
+    drawCustomShapeSegment(ctx, centerX, centerY, data, width, trackWidth + 6, data.pacingZone.startPct, data.pacingZone.endPct, "rgba(168, 85, 247, 0.85)");
     
     drawStrokedText(
       ctx,
       data.pacingZone.label[currentLang] || data.pacingZone.label["jp"],
       centerX,
-      centerY + 55,
+      centerY + (is3DMode ? 75 : 55),
       "extrabold 11px Plus Jakarta Sans",
       "#c084fc",
       "#000000",
@@ -1130,7 +1188,7 @@ function drawUmaiOvalDiagram() {
   const spurtPt = getTrackPoint(spurtAngle, centerX, centerY, data, width);
 
   const rotSpurtAngle = spurtAngle + rotationAngle;
-  const laserOffset = 24;
+  const laserOffset = 26 * spurtPt.scale;
   const l1x = spurtPt.x + Math.cos(rotSpurtAngle) * laserOffset;
   const l1y = spurtPt.y + Math.sin(rotSpurtAngle) * laserOffset;
   const l2x = spurtPt.x - Math.cos(rotSpurtAngle) * (laserOffset * 0.6);
@@ -1138,10 +1196,13 @@ function drawUmaiOvalDiagram() {
 
   ctx.beginPath();
   ctx.strokeStyle = "#ffd700";
-  ctx.lineWidth = 4;
+  ctx.lineWidth = 4.5 * spurtPt.scale;
+  ctx.shadowColor = "#ffd700";
+  ctx.shadowBlur = 12;
   ctx.moveTo(l1x, l1y);
   ctx.lineTo(l2x, l2y);
   ctx.stroke();
+  ctx.shadowBlur = 0;
 
   drawStrokedText(
     ctx, 
@@ -1164,21 +1225,21 @@ function drawUmaiOvalDiagram() {
       const tPt = getTrackPoint(angle, centerX, centerY, data, width);
 
       const rotAngle = angle + rotationAngle;
-      const dist = slope.offsetDist || 45;
+      const dist = (slope.offsetDist || 45) * tPt.scale;
       let sx = tPt.x + Math.cos(rotAngle) * dist;
       let sy = tPt.y + Math.sin(rotAngle) * dist;
 
       if (slope.labelDir === "top-right-far") {
-        sx += 40;
-        sy -= 20;
+        sx += 40 * tPt.scale;
+        sy -= 20 * tPt.scale;
       } else if (slope.labelDir === "bottom-left") {
-        sx -= 20;
-        sy += 15;
+        sx -= 20 * tPt.scale;
+        sy += 15 * tPt.scale;
       }
 
       ctx.beginPath();
       ctx.strokeStyle = slope.color;
-      ctx.lineWidth = 2;
+      ctx.lineWidth = 2 * tPt.scale;
       ctx.setLineDash([3, 3]);
       ctx.moveTo(tPt.x, tPt.y);
       ctx.lineTo(sx, sy);
@@ -1187,7 +1248,7 @@ function drawUmaiOvalDiagram() {
 
       ctx.fillStyle = slope.color;
       ctx.beginPath();
-      ctx.arc(sx, sy, 7, 0, Math.PI * 2);
+      ctx.arc(sx, sy, 7 * tPt.scale, 0, Math.PI * 2);
       ctx.fill();
 
       const labelText = slope.label[currentLang] || slope.label["jp"];
@@ -1211,36 +1272,36 @@ function drawUmaiOvalDiagram() {
     const tPt = getTrackPoint(angle, centerX, centerY, data, width);
 
     const rotAngle = angle + rotationAngle;
-    const dist = pin.offsetDist || 35;
+    const dist = (pin.offsetDist || 35) * tPt.scale;
     let px = tPt.x + Math.cos(rotAngle) * dist;
     let py = tPt.y + Math.sin(rotAngle) * dist;
 
     if (pin.labelDir === "right-down") {
-      px += 25;
-      py += 22;
+      px += 25 * tPt.scale;
+      py += 22 * tPt.scale;
     } else if (pin.labelDir === "right-up") {
-      px += 25;
-      py -= 20;
+      px += 25 * tPt.scale;
+      py -= 20 * tPt.scale;
     } else if (pin.labelDir === "top-left-far") {
-      px -= 45;
-      py -= 22;
+      px -= 45 * tPt.scale;
+      py -= 22 * tPt.scale;
     } else if (pin.labelDir === "top-left") {
-      px -= 25;
-      py -= 15;
+      px -= 25 * tPt.scale;
+      py -= 15 * tPt.scale;
     } else if (pin.labelDir === "right") {
-      px += 25;
+      px += 25 * tPt.scale;
     }
 
     ctx.beginPath();
     ctx.strokeStyle = pin.color;
-    ctx.lineWidth = 1.8;
+    ctx.lineWidth = 1.8 * tPt.scale;
     ctx.moveTo(tPt.x, tPt.y);
     ctx.lineTo(px, py);
     ctx.stroke();
 
     ctx.fillStyle = pin.color;
     ctx.beginPath();
-    ctx.arc(px, py, 6, 0, Math.PI * 2);
+    ctx.arc(px, py, 6 * tPt.scale, 0, Math.PI * 2);
     ctx.fill();
 
     drawStrokedText(
@@ -1274,14 +1335,17 @@ function drawUmaiOvalDiagram() {
   }
 
   ctx.beginPath();
-  ctx.arc(rPt.x, rPt.y, 11, 0, Math.PI * 2);
+  ctx.arc(rPt.x, rPt.y, 11 * rPt.scale, 0, Math.PI * 2);
   ctx.fillStyle = "#ffffff";
   ctx.fill();
-  ctx.strokeStyle = "#006837";
-  ctx.lineWidth = 4;
+  ctx.strokeStyle = "#10b981";
+  ctx.lineWidth = 4 * rPt.scale;
+  ctx.shadowColor = "#10b981";
+  ctx.shadowBlur = 10;
   ctx.stroke();
+  ctx.shadowBlur = 0;
 
-  const hudY = rPt.y > centerY ? rPt.y + 24 : rPt.y - 20;
+  const hudY = rPt.y > centerY ? rPt.y + 24 * rPt.scale : rPt.y - 20 * rPt.scale;
   drawStrokedText(
     ctx,
     `🏃‍♂️ ${currentRunnerPos}m [${currentSlopeStatus}]`,
@@ -1296,7 +1360,7 @@ function drawUmaiOvalDiagram() {
 
   ctx.restore();
 
-  drawSlopeProfileMiniGraph(ctx, width, height, totalDist);
+  drawDiscordEmbedSlopeProfile(ctx, width, height, totalDist);
 }
 
 function drawCustomRealTrackBand(ctx, cx, cy, data, width, strokeW, colorHex) {
@@ -1314,6 +1378,22 @@ function drawCustomRealTrackBand(ctx, cx, cy, data, width, strokeW, colorHex) {
   ctx.stroke();
 }
 
+function drawCustomRealTrackBand3D(ctx, cx, cy, data, width, strokeW, colorHex, depthY) {
+  const steps = 140;
+  ctx.beginPath();
+  for (let i = 0; i <= steps; i++) {
+    const angle = (i / steps) * Math.PI * 2;
+    const pt = getTrackPoint(angle, cx, cy, data, width);
+    const wallY = pt.y + depthY * pt.scale;
+    if (i === 0) ctx.moveTo(pt.x, wallY);
+    else ctx.lineTo(pt.x, wallY);
+  }
+  ctx.strokeStyle = colorHex;
+  ctx.lineWidth = strokeW;
+  ctx.lineCap = "round";
+  ctx.stroke();
+}
+
 function drawCustomShapeSegment(ctx, cx, cy, data, width, strokeW, startPct, endPct, colorHex) {
   const steps = 60;
   ctx.beginPath();
@@ -1321,11 +1401,11 @@ function drawCustomShapeSegment(ctx, cx, cy, data, width, strokeW, startPct, end
     const pct = startPct + (i / steps) * (endPct - startPct);
     const angle = pct * Math.PI * 2;
     const pt = getTrackPoint(angle, cx, cy, data, width);
-    if (i === 0) ctx.moveTo(pct === startPct ? pt.x : pt.x, pt.y);
+    if (i === 0) ctx.moveTo(pt.x, pt.y);
     else ctx.lineTo(pt.x, pt.y);
   }
   ctx.strokeStyle = colorHex;
-  ctx.lineWidth = strokeW;
+  ctx.lineWidth = strokeW * (is3DMode ? 1.1 : 1.0);
   ctx.stroke();
 }
 
@@ -1336,8 +1416,8 @@ function drawCustomShapeFence(ctx, cx, cy, data, width, offset) {
     const angle = (i / steps) * Math.PI * 2;
     const pt = getTrackPoint(angle, cx, cy, data, width);
     const rotAngle = angle + rotationAngle;
-    const fx = pt.x + Math.cos(rotAngle) * offset;
-    const fy = pt.y + Math.sin(rotAngle) * offset;
+    const fx = pt.x + Math.cos(rotAngle) * offset * pt.scale;
+    const fy = pt.y + Math.sin(rotAngle) * offset * pt.scale;
     if (i === 0) ctx.moveTo(fx, fy);
     else ctx.lineTo(fx, fy);
   }
@@ -1346,26 +1426,53 @@ function drawCustomShapeFence(ctx, cx, cy, data, width, offset) {
   ctx.stroke();
 }
 
-function drawSlopeProfileMiniGraph(ctx, width, height, totalDist) {
-  const padLeft = 50;
-  const padRight = 50;
+function drawDiscordEmbedSlopeProfile(ctx, width, height, totalDist) {
+  const padLeft = 45;
+  const padRight = 45;
   const chartW = width - padLeft - padRight;
-  const graphYBase = height - 25;
+  const graphYBase = height - 20;
 
   drawStrokedText(
     ctx,
-    currentLang === "jp" ? "▲ 高低差断面プロファイル (坂道)" : "▲ Elevation Slope Profile",
+    currentLang === "jp" ? "📊 X (旧Twitter) ＆ YouTube 引用データ: 高低差プロファイル" : "📊 Cited Data Profile (X & YouTube)",
     padLeft,
-    graphYBase - 40,
+    graphYBase - 42,
     "bold 11px Plus Jakarta Sans",
-    "#a7f3d0",
+    "#38bdf8",
     "#000000",
     3,
     "left"
   );
 
+  ctx.save();
   ctx.beginPath();
-  ctx.strokeStyle = "rgba(244, 114, 182, 0.9)";
+  ctx.moveTo(padLeft, graphYBase);
+
+  for (let x = 0; x <= chartW; x += 5) {
+    const dist = (x / chartW) * totalDist;
+    let slopeH = 0;
+    if (dist >= 2150 && dist <= 2450) {
+      slopeH = Math.sin(((dist - 2150) / 300) * Math.PI) * 28;
+    } else if (dist >= 600 && dist <= 1100) {
+      slopeH = -Math.sin(((dist - 600) / 500) * Math.PI) * 10;
+    }
+
+    const cx = padLeft + x;
+    const cy = graphYBase - slopeH;
+    ctx.lineTo(cx, cy);
+  }
+
+  ctx.lineTo(padLeft + chartW, graphYBase);
+  ctx.closePath();
+
+  const fillGrad = ctx.createLinearGradient(0, graphYBase - 35, 0, graphYBase);
+  fillGrad.addColorStop(0, "rgba(56, 189, 248, 0.45)");
+  fillGrad.addColorStop(1, "rgba(56, 189, 248, 0.0)");
+  ctx.fillStyle = fillGrad;
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.strokeStyle = "#38bdf8";
   ctx.lineWidth = 2.5;
 
   for (let x = 0; x <= chartW; x += 5) {
@@ -1384,9 +1491,11 @@ function drawSlopeProfileMiniGraph(ctx, width, height, totalDist) {
   }
   ctx.stroke();
 
-  drawStrokedText(ctx, "0m (START)", padLeft, graphYBase + 14, "bold 10px Plus Jakarta Sans", "#94a3b8", "#000000", 3, "center");
-  drawStrokedText(ctx, `${Math.floor(totalDist / 2)}m`, padLeft + chartW / 2, graphYBase + 14, "bold 10px Plus Jakarta Sans", "#94a3b8", "#000000", 3, "center");
-  drawStrokedText(ctx, `${totalDist}m (GOAL)`, padLeft + chartW, graphYBase + 14, "bold 10px Plus Jakarta Sans", "#94a3b8", "#000000", 3, "center");
+  ctx.restore();
+
+  drawStrokedText(ctx, "0m (START)", padLeft, graphYBase + 12, "bold 10px Plus Jakarta Sans", "#94a3b8", "#000000", 3, "center");
+  drawStrokedText(ctx, `${Math.floor(totalDist / 2)}m`, padLeft + chartW / 2, graphYBase + 12, "bold 10px Plus Jakarta Sans", "#94a3b8", "#000000", 3, "center");
+  drawStrokedText(ctx, `${totalDist}m (GOAL)`, padLeft + chartW, graphYBase + 12, "bold 10px Plus Jakarta Sans", "#94a3b8", "#000000", 3, "center");
 }
 
 function updateCourseView(courseKey) {
