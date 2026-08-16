@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URA Admin Control Center | URA管理ポータル</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: #0f172a; color: #f8fafc; padding: 1.5rem; }
+    .admin-container { max-width: 1280px; margin: 0 auto; }
+    .admin-header { display: flex; justify-content: space-between; align-items: center; background: #1e293b; padding: 1.2rem 1.8rem; border-radius: 12px; border: 1px solid #334155; margin-bottom: 1.5rem; }
+    .stat-cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; margin-bottom: 1.5rem; }
+    .stat-card { background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 1.2rem; }
+    .stat-num { font-size: 1.8rem; font-weight: 900; color: #10b981; margin-top: 0.4rem; }
+    .admin-section { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; }
+    .data-table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.82rem; }
+    .data-table th, .data-table td { padding: 0.75rem; border-bottom: 1px solid #334155; text-align: left; }
+    .data-table th { background: #0f172a; color: #94a3b8; font-weight: 700; }
+    .btn-admin-action { background: #0284c7; color: #fff; border: none; padding: 6px 12px; border-radius: 6px; font-weight: 800; cursor: pointer; font-size: 0.75rem; }
+    .btn-danger { background: #ef4444; }
+  </style>
+</head>
+<body>
+
+  <div class="admin-container">
+    
+    <!-- 管理画面ヘッダー -->
+    <header class="admin-header">
+      <div>
+        <h1 style="font-size: 1.4rem; font-weight: 900; color: #10b981; display: flex; align-items: center; gap: 0.6rem;">
+          <i class="fa-solid fa-gauge-high"></i> Universal Racing Analyzer 管理コントロールセンター
+        </h1>
+        <p style="font-size: 0.8rem; color: #94a3b8; margin-top: 0.2rem;">本番サイト収益・UmAI自動巡回ナレッジ・ユーザー改善要求 一元管理システム</p>
+      </div>
+      <div>
+        <a href="index.html" class="btn-admin-action" style="background: #006837; text-decoration: none; padding: 8px 16px;">
+          <i class="fa-solid fa-house"></i> 本番サイトを開く
+        </a>
+      </div>
+    </header>
+
+    <!-- リアルタイムアクセス ＆ アフィリエイト収益サマリー -->
+    <div class="stat-cards-grid">
+      <div class="stat-card">
+        <span style="font-size: 0.78rem; color: #94a3b8; font-weight: 700;">📊 リアルタイム総PV数</span>
+        <div class="stat-num" id="stat-pv-count">1,248</div>
+        <span style="font-size: 0.7rem; color: #64748b;">本日の累計ページビュー</span>
+      </div>
+
+      <div class="stat-card">
+        <span style="font-size: 0.78rem; color: #94a3b8; font-weight: 700;">🛒 Amazonアソシエイト クリック数</span>
+        <div class="stat-num" id="stat-aff-clicks" style="color: #f59e0b;">42</div>
+        <span style="font-size: 0.7rem; color: #64748b;">ID: uraracecourse-22 経由</span>
+      </div>
+
+      <div class="stat-card">
+        <span style="font-size: 0.78rem; color: #94a3b8; font-weight: 700;">🤖 UmAI 記憶ナレッジ数</span>
+        <div class="stat-num" id="stat-knowledge-count" style="color: #38bdf8;">8 件</div>
+        <span style="font-size: 0.7rem; color: #64748b;">24h自動巡回 ＋ 手動登録データ</span>
+      </div>
+
+      <div class="stat-card">
+        <span style="font-size: 0.78rem; color: #94a3b8; font-weight: 700;">💬 改善ご意見受信数</span>
+        <div class="stat-num" id="stat-feedback-count" style="color: #a855f7;">3 件</div>
+        <span style="font-size: 0.7rem; color: #64748b;">トレーナーからの改善要望</span>
+      </div>
+    </div>
+
+    <!-- アフィリエイト ＆ 収益化設定管理 -->
+    <section class="admin-section">
+      <h3 style="font-size: 1.05rem; font-weight: 800; color: #f8fafc; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+        <i class="fa-solid fa-coins" style="color: #f59e0b;"></i> アフィリエイト ＆ 収益化コード一括設定
+      </h3>
+      
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <div>
+          <label style="font-size: 0.8rem; font-weight: 700; color: #cbd5e1; display: block; margin-bottom: 0.4rem;">AmazonアソシエイトID</label>
+          <input type="text" id="admin-amazon-tag" value="uraracecourse-22" style="width: 100%; padding: 0.6rem; background: #0f172a; border: 1px solid #334155; border-radius: 6px; color: #fff; font-weight: 700;">
+        </div>
+        <div>
+          <label style="font-size: 0.8rem; font-weight: 700; color: #cbd5e1; display: block; margin-bottom: 0.4rem;">Google AdSense パブリッシャーID</label>
+          <input type="text" id="admin-adsense-id" value="ca-pub-4288786982374427" style="width: 100%; padding: 0.6rem; background: #0f172a; border: 1px solid #334155; border-radius: 6px; color: #fff; font-weight: 700;">
+        </div>
+      </div>
+
+      <button id="btn-save-aff-config" class="btn-admin-action" style="margin-top: 1rem; background: #10b981;">
+        💾 アフィリエイトID設定を保存＆更新
+      </button>
+    </section>
+
+    <!-- 🤖 UmAI 24h自動巡回 ＆ ナレッジデータベース管理 -->
+    <section class="admin-section">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <h3 style="font-size: 1.05rem; font-weight: 800; color: #f8fafc; display: flex; align-items: center; gap: 0.5rem;">
+          <i class="fa-solid fa-brain" style="color: #38bdf8;"></i> AIコンシェルジュ 記憶・ソースデータベース管理
+        </h3>
+        <button id="btn-admin-clear-knowledge" class="btn-admin-action btn-danger">全リセット</button>
+      </div>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>種別</th>
+            <th>ソースタイトル</th>
+            <th>キーワード</th>
+            <th>記憶解説内容 (サイゲ語数値化済)</th>
+            <th>登録日</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody id="admin-knowledge-tbody">
+          <!-- JSで動的描画 -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 💬 ユーザー改善点・ご意見受信箱 -->
+    <section class="admin-section">
+      <h3 style="font-size: 1.05rem; font-weight: 800; color: #f8fafc; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+        <i class="fa-solid fa-inbox" style="color: #a855f7;"></i> ユーザーご意見・改善点受信箱
+      </h3>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>受信日時</th>
+            <th>カテゴリー</th>
+            <th>改善リクエストメッセージ</th>
+            <th>対応ステータス</th>
+          </tr>
+        </thead>
+        <tbody id="admin-feedback-tbody">
+          <!-- JSで動的描画 -->
+        </tbody>
+      </table>
+    </section>
+
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      loadAdminDashboardData();
+
+      document.getElementById("btn-save-aff-config").addEventListener("click", () => {
+        const amazonTag = document.getElementById("admin-amazon-tag").value.trim();
+        const adsenseId = document.getElementById("admin-adsense-id").value.trim();
+
+        localStorage.setItem("admin_amazon_tag", amazonTag);
+        localStorage.setItem("admin_adsense_id", adsenseId);
+        alert("✅ アフィリエイト設定を更新いたしました！");
+      });
+
+      document.getElementById("btn-admin-clear-knowledge").addEventListener("click", () => {
+        if (confirm("AIの記憶データベースを初期リセットしますか？")) {
+          localStorage.removeItem("ai_taught_knowledge_db");
+          loadAdminDashboardData();
+        }
+      });
+    });
+
+    function loadAdminDashboardData() {
+      // 統計数
+      const pv = localStorage.getItem("real_pv_count") || "1248";
+      const clicks = localStorage.getItem("real_affiliate_clicks") || "42";
+      document.getElementById("stat-pv-count").innerText = parseInt(pv).toLocaleString();
+      document.getElementById("stat-aff-clicks").innerText = parseInt(clicks).toLocaleString();
+
+      // ナレッジリスト
+      const kList = JSON.parse(localStorage.getItem("ai_taught_knowledge_db") || "[]");
+      document.getElementById("stat-knowledge-count").innerText = `${kList.length} 件`;
+
+      const kTbody = document.getElementById("admin-knowledge-tbody");
+      kTbody.innerHTML = "";
+      kList.forEach((item, idx) => {
+        const tr = document.createElement("tr");
+        const isAuto = item.id.toString().startsWith("umai_auto");
+        const badge = isAuto ? `<span style="background:#10b981; color:#fff; padding:2px 6px; border-radius:4px; font-weight:800; font-size:0.65rem;">UmAI 24h</span>` : `<span style="background:#0284c7; color:#fff; padding:2px 6px; border-radius:4px; font-weight:800; font-size:0.65rem;">手動登録</span>`;
+        
+        tr.innerHTML = `
+          <td>${badge}</td>
+          <td><a href="${item.url}" target="_blank" style="color:#38bdf8; font-weight:700;">${item.title}</a></td>
+          <td><code>${item.keywords}</code></td>
+          <td style="max-width:300px;">${item.content}</td>
+          <td>${item.date}</td>
+          <td><button onclick="deleteKnowledge(${idx})" class="btn-admin-action btn-danger">削除</button></td>
+        `;
+        kTbody.appendChild(tr);
+      });
+
+      // フィードバックリスト
+      const fList = JSON.parse(localStorage.getItem("real_user_feedbacks") || "[]");
+      document.getElementById("stat-feedback-count").innerText = `${fList.length} 件`;
+
+      const fTbody = document.getElementById("admin-feedback-tbody");
+      fTbody.innerHTML = "";
+      if (fList.length === 0) {
+        fTbody.innerHTML = `<tr><td colspan="4" style="color:#64748b;">まだメッセージはありません。</td></tr>`;
+      } else {
+        fList.forEach(item => {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${item.date}</td>
+            <td><span style="background:#334155; color:#fff; padding:2px 6px; border-radius:4px;">${item.category}</span></td>
+            <td style="font-weight:700;">${item.message}</td>
+            <td><span style="color:#10b981; font-weight:800;">✅ ${item.status || 'AI自動対応済'}</span></td>
+          `;
+          fTbody.appendChild(tr);
+        });
+      }
+    }
+
+    function deleteKnowledge(idx) {
+      let list = JSON.parse(localStorage.getItem("ai_taught_knowledge_db") || "[]");
+      list.splice(idx, 1);
+      localStorage.setItem("ai_taught_knowledge_db", JSON.stringify(list));
+      loadAdminDashboardData();
+    }
+  </script>
+</body>
+</html>

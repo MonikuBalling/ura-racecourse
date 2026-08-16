@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JRA Official Style | ウマ娘 多言語動画コミュニティ ＆ AI Wiki</title>
+  <meta name="description" content="JRA公式競馬中継デザインに落とし込んだウマ娘グローバル動画＆多言語AI攻略Wikiポータル。">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css?v=20260816_FULL_I18N_V3">
+</head>
+<body style="background: #f1f5f9;">
+
+  <!-- 🏇 JRA公式スタイル 最高級グリーンヘッダー -->
+  <header class="jra-theme-header" style="padding: 0.8rem 1.2rem;">
+    <div class="jra-header-inner" style="max-width: 1240px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.8rem;">
+      <div class="jra-brand" style="display: flex; align-items: center; gap: 0.9rem;">
+        <div style="background: #ffffff; color: #004d25; font-weight: 900; font-size: 1.1rem; padding: 4px 12px; border-radius: 6px; letter-spacing: 1px; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+          JRA LIVE
+        </div>
+        <div class="jra-title-group">
+          <h1 id="ui-header-title" style="margin: 0; font-size: 1.35rem; color: #ffffff; font-weight: 900; letter-spacing: 0.5px;">
+            ウマ娘 グローバル動画中継 ＆ 多言語AI攻略Wiki
+          </h1>
+          <p id="ui-header-subtitle" style="margin: 2px 0 0 0; font-size: 0.78rem; color: #a7f3d0; font-weight: 700;">
+            <i class="fa-solid fa-flag-checkered"></i> JRA Official Style × YouTube Engine (日・韓・台・欧米 双方向ブリッジ)
+          </p>
+        </div>
+      </div>
+
+      <!-- 🏇 レース攻略アナライザーへの切り替えボタン -->
+      <div>
+        <a href="index.html" class="jra-gold-badge" id="ui-btn-analyzer" style="text-decoration: none; font-size: 0.82rem; padding: 8px 18px; border-radius: 20px; display: inline-flex; align-items: center; gap: 0.5rem; transition: transform 0.15s ease;">
+          <i class="fa-solid fa-horse-head"></i> 🏇 RACE攻略・コースアナライザーへ
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 📰 JRA公式風ニュースチッカー -->
+  <div style="background: #0f172a; border-bottom: 2px solid #f59e0b; padding: 0.5rem 1rem; color: #f8fafc; font-size: 0.78rem;">
+    <div style="max-width: 1240px; margin: 0 auto; display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap;">
+      <span class="jra-gold-badge" id="ui-news-badge"><i class="fa-solid fa-bullhorn"></i> 重賞LIVE</span>
+      <span id="ui-news-text" style="color: #cbd5e1; font-weight: 700;">【2026年9月決定チャンミ】東京 芝 1800m 毎日王冠モデル 𝕏風多言語自動翻訳コメントスレッド絶賛稼働中！</span>
+    </div>
+  </div>
+
+  <!-- メインコンテンツ (1カラム縦並び構造) -->
+  <main class="community-container" style="max-width: 1240px; margin: 1.5rem auto; padding: 0 1rem; display: flex; flex-direction: column; gap: 1.8rem;">
+
+    <!-- 📺 JRA電光掲示板風 YouTube動画中継 ＆ 𝕏風自動翻訳スレッド -->
+    <section class="jra-board-card">
+      
+      <!-- JRA中継電光掲示板ヘッダー -->
+      <div class="jra-board-header">
+        <div style="display: flex; align-items: center; gap: 0.8rem;">
+          <span style="font-size: 1.1rem; color: #f59e0b; font-weight: 900;">
+            <span class="jra-pulse-dot"></span>G1 RACE LIVE
+          </span>
+          <span id="ui-board-title" style="font-size: 0.95rem; font-weight: 800; color: #f8fafc;">
+            ウマ娘 日・韓・台・欧米 双方向動画ブリッジ (YouTube Player)
+          </span>
+        </div>
+
+        <!-- 視聴言語セレクター -->
+        <div style="display: flex; gap: 0.4rem; align-items: center; flex-wrap: wrap;">
+          <span id="ui-lang-select-label" style="font-size: 0.72rem; color: #94a3b8; font-weight: 800;"><i class="fa-solid fa-language"></i> 表示言語:</span>
+          <div class="subtitle-lang-pills" id="subtitle-lang-container" style="display: flex; gap: 0.3rem;">
+            <button class="sub-lang-btn active" data-lang="ja">🇯🇵 日本語</button>
+            <button class="sub-lang-btn" data-lang="en">🇺🇸 English</button>
+            <button class="sub-lang-btn" data-lang="kr">🇰🇷 한국어</button>
+            <button class="sub-lang-btn" data-lang="tw">🇹🇼 繁體中文</button>
+            <button class="sub-lang-btn" data-lang="fr">🇫🇷 Français</button>
+            <button class="sub-lang-btn" data-lang="ph">🇵🇭 Tagalog</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding: 1.2rem;">
+        
+        <!-- 動画ターゲット選択バー -->
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.8rem 1rem; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <label id="ui-select-video-label" style="font-size: 0.75rem; font-weight: 900; color: #004d25; display: block; margin-bottom: 4px;">
+              <i class="fa-solid fa-circle-play"></i> 中継映像ターゲットを選択 (JRA/Global YouTube):
+            </label>
+            <select id="select-video-target" class="input-select" style="padding: 7px 12px; font-size: 0.85rem; border: 2px solid #059669; font-weight: 800; min-width: 320px; border-radius: 6px; background: #ffffff;">
+              <option value="vid_jp_pioneering" id="opt-vid-jp" selected>🇯🇵 日本発 (先行攻略) 【2026年9月決定チャンミ】東京1800m 最速スパート検証</option>
+              <option value="vid_us_gameplay" id="opt-vid-us">🇺🇸 海外発 (面白プレイ) 【米国トップ層】URA完走＆限定スキルの熱狂リアクション</option>
+              <option value="vid_tw_build" id="opt-vid-tw">🇹🇼 繁中発 (名手育成) 【台湾サーバー名手】マックイーン愛の限界育成論</option>
+            </select>
+          </div>
+
+          <div id="ui-bridge-desc" style="font-size: 0.78rem; color: #64748b; font-weight: 700;">
+            🇯🇵 日本人は海外の映像を日本語で 🌐 海外勢は日本の先行データを自国語で！
+          </div>
+        </div>
+
+        <!-- 💡 AIによる動画要約・先行ポイント解説カード -->
+        <div id="video-ai-summary-card" class="jra-news-tape" style="margin-bottom: 0.8rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
+          <div>
+            <span id="ui-ai-summary-badge" style="font-size: 0.7rem; font-weight: 900; color: #ffffff; background: #d97706; padding: 2px 8px; border-radius: 4px;"><i class="fa-solid fa-robot"></i> JRA AIレース解読分析</span>
+            <div id="video-ai-summary-text" style="font-weight: 800; color: #78350f; margin-top: 4px;">動画の要約を読み込み中…</div>
+          </div>
+          <span id="ui-ai-summary-status" style="font-size: 0.68rem; color: #b45309; white-space: nowrap; font-weight: 800;">● 母国語へ自動翻訳完了</span>
+        </div>
+
+        <!-- 🛡️ ユーザー考案！「3重AI字幕検証パイプライン (Triple AI Auto-Sub Check)」 -->
+        <div style="background: #0f172a; border: 1px solid #334155; border-radius: 8px; padding: 0.7rem 1rem; margin-bottom: 1.2rem; color: #f8fafc; font-size: 0.76rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.8rem;">
+          <div style="display: flex; align-items: center; gap: 0.6rem;">
+            <span class="jra-gold-badge">
+              <i class="fa-solid fa-shield-halved"></i> TRIPLE AI VERIFIED
+            </span>
+            <span id="ui-triple-ai-title" style="color: #cbd5e1; font-weight: 800;">JRA規格 3重AIリアルタイム誤訳監査システム:</span>
+          </div>
+
+          <div style="display: flex; gap: 0.6rem; align-items: center; font-size: 0.72rem; flex-wrap: wrap;">
+            <span id="ui-ai-step1" style="background: rgba(16, 185, 129, 0.25); border: 1px solid #10b981; color: #34d399; padding: 3px 10px; border-radius: 12px; font-weight: 800;">
+              <i class="fa-solid fa-check-double"></i> ① 日本語AI (専門語彙校正)
+            </span>
+            <i class="fa-solid fa-chevron-right" style="color: #64748b; font-size: 0.6rem;"></i>
+            <span id="ui-ai-step2" style="background: rgba(59, 130, 246, 0.25); border: 1px solid #3b82f6; color: #60a5fa; padding: 3px 10px; border-radius: 12px; font-weight: 800;">
+              <i class="fa-solid fa-language"></i> ② 海外語AI (ネイティブ文脈)
+            </span>
+            <i class="fa-solid fa-chevron-right" style="color: #64748b; font-size: 0.6rem;"></i>
+            <span id="ui-ai-step3" style="background: rgba(245, 158, 11, 0.25); border: 1px solid #f59e0b; color: #fbbf24; padding: 3px 10px; border-radius: 12px; font-weight: 900;">
+              <i class="fa-solid fa-crown"></i> ③ チーフAI (最終監査承認)
+            </span>
+          </div>
+        </div>
+
+        <!-- YouTube プレイヤー ＆ JRAオッズ掲示板風 𝕏多言語スレッド (2カラム) -->
+        <div class="chat-player-grid" style="display: grid; grid-template-columns: 1fr 380px; gap: 1.2rem; align-items: start;">
+          
+          <!-- 左: YouTube 映像プレイヤー -->
+          <div style="position: relative; width: 100%; border-radius: 10px; overflow: hidden; background: #000; box-shadow: 0 6px 18px rgba(0,0,0,0.25); border: 3px solid #0f172a;">
+            <div class="iframe-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+              <div id="youtube-player" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+            </div>
+          </div>
+
+          <!-- 右: JRAパドック・出馬表風 𝕏多言語スレッド -->
+          <div class="jra-odds-panel" style="display: flex; flex-direction: column; height: 100%; min-height: 480px; max-height: 500px;">
+            <div style="padding: 0.7rem 0.9rem; background: #004d25; color: #ffffff; border-bottom: 2px solid #f59e0b; display: flex; justify-content: space-between; align-items: center;">
+              <strong style="font-size: 0.85rem; letter-spacing: 0.5px;"><i class="fa-brands fa-x-twitter"></i> <span id="current-video-title-label">実況コメント掲示板</span></strong>
+              <span id="ui-chat-ai-trans-badge" style="font-size: 0.7rem; color: #f59e0b; font-weight: 800;"><i class="fa-solid fa-wand-magic-sparkles"></i> 𝕏風 AI自動翻訳中</span>
+            </div>
+
+            <div style="padding: 0.6rem; background: #ffffff; border-bottom: 1px solid #e2e8f0; display: flex; gap: 0.4rem; align-items: center;">
+              <input type="text" id="user-chat-input" placeholder="自国語で掲示板に投下… (世界中の言語へ自動翻訳)" style="flex: 1; padding: 7px 12px; border: 1px solid #cbd5e1; border-radius: 20px; font-size: 0.78rem; outline: none;">
+              <button id="btn-send-chat" class="btn-primary" style="padding: 7px 16px; font-size: 0.78rem; background: #059669; border-radius: 20px; font-weight: 800;">
+                投稿
+              </button>
+            </div>
+
+            <div id="global-chat-timeline" style="flex: 1; padding: 0.7rem; overflow-y: auto; display: flex; flex-direction: column; gap: 0.8rem; font-size: 0.78rem; background: #fafafa;">
+              <!-- JSで動的生成 -->
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 📚 JRA競馬新聞風 「みんなで創る多言語AI攻略Wiki」 -->
+    <section class="jra-board-card">
+      <div class="jra-board-header" style="background: linear-gradient(135deg, #004d25 0%, #059669 100%);">
+        <div style="display: flex; align-items: center; gap: 0.8rem;">
+          <i class="fa-solid fa-book-bookmark" style="color: #f59e0b; font-size: 1.2rem;"></i>
+          <div>
+            <h3 id="ui-wiki-main-title" style="margin: 0; font-size: 1.15rem; color: #ffffff; font-weight: 900;">
+              ウマ娘 JRA規格 みんなで創る多言語AI攻略Wiki
+            </h3>
+            <p id="ui-wiki-main-sub" style="margin: 2px 0 0 0; font-size: 0.75rem; color: #a7f3d0;">
+              🇯🇵 日本人トレーナーが集まって投稿した最新検証・Wiki知見が、🌐 海外プレイヤーの母国語へ全自動翻訳されます。
+            </p>
+          </div>
+        </div>
+
+        <button id="btn-add-wiki-knowledge" class="jra-gold-badge" style="border: none; cursor: pointer; padding: 8px 16px; font-size: 0.78rem;">
+          <i class="fa-solid fa-plus"></i> 日本の攻略・検証知見をWikiに投稿
+        </button>
+      </div>
+
+      <div style="padding: 1.2rem;">
+        <div class="wiki-grid" style="display: grid; grid-template-columns: 240px 1fr; gap: 1.2rem; align-items: start;">
+          
+          <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 0.8rem;">
+            <div id="ui-wiki-cat-header" style="font-size: 0.75rem; font-weight: 900; color: #004d25; margin-bottom: 0.6rem; text-transform: uppercase; border-bottom: 2px solid #059669; padding-bottom: 4px;">
+              <i class="fa-solid fa-list-check"></i> WIKI CATEGORIES
+            </div>
+            <div class="wiki-cat-list" style="display: flex; flex-direction: column; gap: 0.4rem;">
+              <button class="wiki-cat-btn active" id="ui-wiki-cat-1" data-cat="chanmi_guide">🏆 2026年9月決定チャンミ攻略</button>
+              <button class="wiki-cat-btn" id="ui-wiki-cat-2" data-cat="stamina_calc">💧 目標スタミナ・回復基準</button>
+              <button class="wiki-cat-btn" id="ui-wiki-cat-3" data-cat="factor_farm">🌸 最短・因子周回おすすめ</button>
+            </div>
+          </div>
+
+          <div class="wiki-article-card" style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 1.2rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #059669; padding-bottom: 0.6rem; margin-bottom: 1rem;">
+              <h4 id="wiki-article-title" style="margin: 0; font-size: 1.1rem; color: #004d25; font-weight: 900;">
+                【2026年9月チャンミ】東京 芝 1800m 完全育成ガイド
+              </h4>
+              <span class="jra-gold-badge" id="ui-wiki-badge-trans">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> 母国語AI自動翻訳済
+              </span>
+            </div>
+
+            <div id="wiki-article-content" style="font-size: 0.85rem; color: #1e293b; line-height: 1.7;">
+              <!-- JSで動的更新 -->
+            </div>
+
+            <div style="margin-top: 1.5rem; border-top: 1px dashed #cbd5e1; padding-top: 1rem;">
+              <strong id="ui-wiki-comments-label" style="font-size: 0.82rem; color: #004d25; display: block; margin-bottom: 0.6rem; font-weight: 900;">
+                <i class="fa-solid fa-users"></i> トレーナーたちの追加検証スレッド (自動翻訳):
+              </strong>
+              <div id="wiki-comments-container" style="display: flex; flex-direction: column; gap: 0.6rem;">
+                <!-- JSで動的描画 -->
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" style="background: #0f172a; border-top: 3px solid #059669; margin-top: 3rem; padding: 1.5rem; color: #94a3b8; text-align: center; font-size: 0.78rem;">
+    <p>&copy; 2026 Universal Racing Analyzer (URA) - JRA Official Style Global Video & Wiki Portal.</p>
+  </footer>
+
+  <script src="community.js?v=20260816_FULL_I18N_V3"></script>
+</body>
+</html>

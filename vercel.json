@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "rewrites": [
+    { "source": "/factor-loop", "destination": "/factor-loop/index.html" },
+    { "source": "/factor-loop/", "destination": "/factor-loop/index.html" }
+  ]
+}

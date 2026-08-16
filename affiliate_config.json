@@ -1,0 +1,26 @@
+{
+  "amazon_associate_id": "uraracecourse-22",
+  "a8_media_id": "a8_urarace_2026",
+  "google_adsense_client": "ca-pub-4288786982374427",
+  "currency": "JPY",
+  "active_banners": [
+    {
+      "id": "banner_01",
+      "type": "amazon",
+      "title": "ウマ娘 公式CD＆ライブBlu-ray",
+      "url": "https://www.amazon.co.jp/s?k=%E3%82%A6%E3%83%9E%E5%A8%98+CD&tag=uraracecourse-22",
+      "icon": "fa-compact-disc",
+      "category": "music"
+    },
+    {
+      "id": "banner_02",
+      "type": "amazon",
+      "title": "ウマ娘 公式フィギュア＆グッズ",
+      "url": "https://www.amazon.co.jp/s?k=%E3%82%A6%E3%83%9E%E5%A8%98+%E3%83%95%E3%82%A3%E3%82%AE%E3%83%A5%E3%82%A2&tag=uraracecourse-22",
+      "icon": "fa-chess-knight",
+      "category": "figure"
+    }
+  ],
+  "auto_rotation_interval_hours": 24,
+  "ai_agent_status": "active"
+}

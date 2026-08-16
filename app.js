@@ -1,1648 +1,676 @@
-// 5言語辞書データ (JP / EN / FR / TW / KR) - URA Official Fan Portal Edition
+/* ==========================================================================
+   Universal Racing Analyzer (URA) - Complete Rebuild Engine (2026.08.16)
+   ========================================================================== */
+
+// 🏆 5言語 完全動的多言語翻訳辞書 (i18n)
 const i18n = {
   jp: {
-    badgeVersion: "URA公式 JRAデータ 100% 完全準拠",
-    selectCourse: "コース・イベント選択",
-    track: "競馬場 (Track)",
-    distance: "距離・バ場 (Distance / Surface)",
-    strategy: "脚質 (Strategy)",
-    summaryTitle: "URA / JRA公式コース特徴サマリー",
-    straight: "直線距離:",
-    slopeInfo: "高低差:",
-    spurtInfo: "最速スパート:",
-    adTag: "URA & JRA 公式データ同期完了",
-    engX: "X (@umamusume_eng & 日本公式)",
-    globalDb: "ユニバーサル攻略データベース",
-    mainTitle: "Universal Racing Analyzer (URA)",
-    subTitle: "ウマ娘 プリティーダービー 非公式ファン制作 コース ＆ スキルアナライザー",
-    aboutTitle: "【サイト概要 ＆ 免責事項 (Unofficial Fan Site)】",
-    aboutDesc: "本サイトは「ウマ娘 プリティーダービー」を愛する有志トレーナーによって運営されている非公式ファン制作データアナライザーです。JRA公式レースコース規格やスキル発動位置の検証・解説を目的としており、Cygames様およびJRA（日本中央競馬会）様等の公式企業とは一切関係ございません。",
-    umaiCreditTitle: "📊 分析データ引用元 (Data Sources)",
-    umaiCreditDesc: "当サイトのスキル発動距離やコース攻略アルゴリズムは、<strong>X (旧Twitter) の有志検証ポスト</strong>、<strong>YouTubeの攻略検証動画</strong>、およびコミュニティの最新公開データをAIが引用・分析・可視化しています。",
-    btnFeedback: "ご意見・改善点送信",
-    modalTitle: "改善点・ご意見送信フォーム",
-    modalSub: "ご要望や改善点を送信してください。",
-    modalSubmitBtn: "送信する",
-    aiTitle: "🤖 Universal Racing AI コンシェルジュ",
-    aiSub: "教え込まれたXポストやYouTube動画などのソースをAIが学習・自動参照し、ソース元リンク付きで回答します。",
-    aiInitMsg: "🤖 <strong>AIアシスタント:</strong> トレーナーさん、こんにちは！教え込まれたXやYouTubeのソースから回答します。新しい検証データも上の「🧠 AIに教え込む」からいつでも学習させられます！",
-    aiPlaceholder: "例: 中山2500mで先行に必要なスタミナは？",
-    aiSendBtn: "質問する",
-    optionsTrack: {
-      nakayama: "中山競馬場 (JRA内回り・有馬記念)",
-      tokyo: "東京競馬場 (JRA大回り・ダービー)",
-      hanshin: "阪神競馬場 (JRA外回り・マイルCS)",
-      kyoto: "京都競馬場 (JRA淀の坂・天皇賞春)"
-    },
-    optionsDistance: {
-      "2500_turf": "芝 2500m (長距離)",
-      "2400_turf": "芝 2400m (長距離)",
-      "3200_turf": "芝 3200m (超長距離)",
-      "2000_turf": "芝 2000m (中距離)",
-      "1600_turf": "芝 1600m (マイル)"
-    },
-    optionsStyle: {
-      nige: "逃げ",
-      senko: "先行",
-      sashi: "差し",
-      oikomi: "追込"
-    }
+    headerSub: "ウマ娘 プリティーダービー 非公式ファン制作 コース ＆ スキルアナライザー",
+    ticker: "【2026年9月決定チャンミ対応】東京 芝 1800m (毎日王冠) コースデータ＆有力スキル評価エンジンを同期適用しました。",
+    aboutTitle: "【非公式ファン制作ポータル声明 (Unofficial Fan Site)】",
+    aboutDesc: "本サイトは「ウマ娘 プリティーダービー」を愛する有志トレーナーによって制作・運営されている非公式データアナライザーです。JRA公式コース規格やスキル発動位置の検証・解説を目的としており、Cygames様およびJRA様等の公式企業とは一切関係ございません。",
+    selectCourse: "コース ＆ 条件選択",
+    trackLabel: "競馬場 (Track)",
+    distanceLabel: "距離 ＆ コース種別 (Distance)",
+    specTitle: "JRA公式コーススペック",
+    straightLabel: "直線距離:",
+    slopeLabel: "高低差:",
+    spurtLabel: "最速スパート:",
+    btnFeedback: "ご意見・改善点送信"
   },
   en: {
-    badgeVersion: "100% Synced with JRA Official Specs",
-    selectCourse: "Select Course & Conditions",
-    track: "Racetrack",
-    distance: "Distance",
-    strategy: "Running Style (Strategy)",
-    summaryTitle: "JRA Course Specifications",
-    straight: "Final Straight:",
-    slopeInfo: "Elevation Gain:",
-    spurtInfo: "Optimal Spurt Line:",
-    adTag: "JRA Synced",
-    engX: "X (@umamusume_eng & JP Official)",
-    globalDb: "Universal Strategy Wiki",
-    mainTitle: "Universal Racing Analyzer (URA)",
-    subTitle: "Unofficial Fan-Made Umamusume Strategy & Track Analyzer",
-    aboutTitle: "[Site Overview & Disclaimer (Unofficial Fan Site)]",
-    aboutDesc: "This website is an unofficial fan-made strategy tool created by fans for fans of 'Umamusume: Pretty Derby'. It aims to visualize official JRA track geometry and skill trigger marks. This site is not affiliated with or endorsed by Cygames, JRA, or any official entities.",
-    umaiCreditTitle: "📊 Data Sources & Citations",
-    umaiCreditDesc: "Skill trigger marks & course data are compiled and cited from <strong>X (Twitter) community test posts</strong> and <strong>YouTube strategy guide videos</strong>.",
-    btnFeedback: "Send Feedback",
-    modalTitle: "Feedback & Suggestion Form",
-    modalSub: "Please share your suggestions or feedback.",
-    modalSubmitBtn: "Submit",
-    aiTitle: "🤖 Universal Racing AI Concierge",
-    aiSub: "AI learns and cites taught sources (X posts & YouTube videos) to answer questions accurately with direct links.",
-    aiInitMsg: "🤖 <strong>AI Assistant:</strong> Hello Trainer! Trained on X & YouTube sources. You can teach me new data anytime using '🧠 Teach AI' above!",
-    aiPlaceholder: "e.g., Target stamina for Nakayama 2500m?",
-    aiSendBtn: "Ask AI",
-    optionsTrack: {
-      nakayama: "Nakayama Racecourse (Official JRA Inner Track)",
-      tokyo: "Tokyo Racecourse (Official JRA Huge Oval)",
-      hanshin: "Hanshin Racecourse (Official JRA Outer Track)",
-      kyoto: "Kyoto Racecourse (Official JRA Yodo Track - Tenno Sho Spring)"
-    },
-    optionsDistance: {
-      "2500_turf": "Turf 2500m (Long)",
-      "2400_turf": "Turf 2400m (Long Derby)",
-      "3200_turf": "Turf 3200m (Ultra Long - Tenno Sho Spring)",
-      "2000_turf": "Turf 2000m (Medium)",
-      "1600_turf": "Turf 1600m (Mile)"
-    },
-    optionsStyle: {
-      nige: "Front Runner (Nige)",
-      senko: "Pacesetter (Senko)",
-      sashi: "Late Surger (Sashi)",
-      oikomi: "Chaser (Oikomi)"
-    }
+    headerSub: "Umamusume Pretty Derby Unofficial Fan Course & Skill Analyzer",
+    ticker: "[Sep 2026 CM Ready] Tokyo Turf 1800m (Mainichi Okan) dataset & skill evaluation engine updated.",
+    aboutTitle: "[Unofficial Fan Site Statement]",
+    aboutDesc: "This website is an unofficial fan-made dataset created for Umamusume Pretty Derby players. Not affiliated with Cygames or JRA.",
+    selectCourse: "Course & Track Selection",
+    trackLabel: "Track",
+    distanceLabel: "Distance",
+    specTitle: "JRA Official Track Spec",
+    straightLabel: "Final Straight:",
+    slopeLabel: "Elevation Diff:",
+    spurtLabel: "Optimal Spurt:",
+    btnFeedback: "Send Feedback"
   },
   fr: {
-    badgeVersion: "100% Conforme aux spécifications JRA",
-    selectCourse: "Sélectionner la piste et les conditions",
-    track: "Hippodrome (Track)",
-    distance: "Distance",
-    strategy: "Style de course (Strategy)",
-    summaryTitle: "Spécifications de la piste JRA",
-    straight: "Ligne droite finale:",
-    slopeInfo: "Dénivelé:",
-    spurtInfo: "Ligne de sprint optimale:",
-    mainTitle: "Universal Racing Analyzer (URA)",
-    subTitle: "Analyseur de parcours et de compétences non officiel fait par des fans d'Umamusume",
-    aboutTitle: "[Présentation du site et avertissement (Site de fans non officiel)]",
-    aboutDesc: "Ce site est un outil d'analyse non officiel créé par des fans pour les fans d'Umamusume: Pretty Derby. Il vise à visualisater les géométries officielles des pistes de la JRA et les points de déclenchement des compétences. Ce site n'est pas affilié à Cygames ou à la JRA.",
-    umaiCreditTitle: "📊 Sources de données",
-    umaiCreditDesc: "Les données sont citées et analysées à partir de <strong>posts X (Twitter)</strong> et de <strong>vidéos d'analyse YouTube</strong>.",
-    btnFeedback: "Envoyer un avis",
-    modalTitle: "Formulaire de commentaires",
-    modalSub: "Veuillez partager vos suggestions ou commentaires.",
-    modalSubmitBtn: "Envoyer",
-    aiTitle: "🤖 Concierge IA Universal Racing",
-    aiSub: "L'IA apprend et cite les sources (X et YouTube) enseignées pour répondre avec des liens directes.",
-    aiInitMsg: "🤖 <strong>Assistant IA:</strong> Bonjour Entraîneur ! Appris sur les sources X et YouTube. Vous pouvez me former à tout moment !",
-    aiPlaceholder: "Ex: Endurance cible pour Nakayama 2500m ?",
-    aiSendBtn: "Demander",
-    optionsTrack: {
-      nakayama: "Hippodrome de Nakayama (Arima Kinen)",
-      tokyo: "Hippodrome de Tokyo (Japan Derby)",
-      hanshin: "Hippodrome de Hanshin (Mile CS)",
-      kyoto: "Hippodrome de Kyoto (Tenno Sho Spring)"
-    },
-    optionsDistance: {
-      "2500_turf": "Gazon 2500m (Longue)",
-      "2400_turf": "Gazon 2400m (Longue)",
-      "3200_turf": "Gazon 3200m (Très longue)",
-      "2000_turf": "Gazon 2000m (Moyenne)",
-      "1600_turf": "Gazon 1600m (Mile)"
-    },
-    optionsStyle: {
-      nige: "Leader (Nige)",
-      senko: "Pacesetter (Senko)",
-      sashi: "Sprinteur (Sashi)",
-      oikomi: "Poursuivant (Oikomi)"
-    }
+    headerSub: "Analyseur non-officiel de parcours et compétences pour Umamusume",
+    ticker: "[CM Sep 2026 Prêt] Tokyo Gazon 1800m mis à jour avec évaluation des compétences.",
+    aboutTitle: "[Déclaration du site de fans non officiel]",
+    aboutDesc: "Ce site est un outil non officiel créé par des fans pour Umamusume Pretty Derby. Non affilié à Cygames ni à la JRA.",
+    selectCourse: "Sélection du Parcours",
+    trackLabel: "Hippodrome",
+    distanceLabel: "Distance",
+    specTitle: "Spécifications Officiel JRA",
+    straightLabel: "Ligne droite:",
+    slopeLabel: "Dénivelé:",
+    spurtLabel: "Sprint Optimal:",
+    btnFeedback: "Envoyer des commentaires"
   },
   tw: {
-    badgeVersion: "100% 符合作業JRA規格",
-    selectCourse: "選擇賽道與條件",
-    track: "賽馬場 (Track)",
-    distance: "距離 (Distance)",
-    strategy: "跑法 (Strategy)",
-    summaryTitle: "JRA官方賽道規格摘要",
-    straight: "直線距離:",
-    slopeInfo: "高低差:",
-    spurtInfo: "最速衝刺點:",
-    mainTitle: "Universal Racing Analyzer (URA)",
-    subTitle: "賽馬娘 Pretty Derby 非官方粉絲製作賽道分析工具",
-    aboutTitle: "【網站簡介與免責聲明 (Unofficial Fan Site)】",
-    aboutDesc: "本網站為《賽馬娘 Pretty Derby》愛好者所製作的非官方粉絲分析工具。旨在視覺化JRA賽道幾何結構與技能發動位置。本站與Cygames及JRA（日本中央競馬會）等官方企業無任何直接關聯。",
-    umaiCreditTitle: "📊 分析數據引用來源",
-    umaiCreditDesc: "本站技能發動數據引用自<strong>X (Twitter) 社群驗證貼文</strong>與<strong>YouTube 驗證影片</strong>之最新公開資料。",
-    btnFeedback: "發送寶貴意見",
-    aiTitle: "🤖 Universal Racing AI 專任顧問",
-    aiSub: "AI學習並引用教學好的X貼文與YouTube影片，附帶原始來源連結精確回答。",
-    aiInitMsg: "🤖 <strong>AI顧問:</strong> 訓練員你好！本AI已學習X與YouTube來源數據。隨時點擊「🧠 教導AI」補充知識！",
-    aiPlaceholder: "例如：中山2500m先行需要的耐力是多少？",
-    aiSendBtn: "提問",
-    optionsTrack: {
-      nakayama: "中山賽馬場 (JRA有馬紀念)",
-      tokyo: "東京賽馬場 (JRA日本達比)",
-      hanshin: "阪神賽馬場 (JRA一哩冠軍賽)",
-      kyoto: "京都賽馬場 (JRA天皇賞春)"
-    },
-    optionsDistance: {
-      "2500_turf": "草地 2500m (長距離)",
-      "2400_turf": "草地 2400m (長距離)",
-      "3200_turf": "草地 3200m (超長距離)",
-      "2000_turf": "草地 2000m (中距離)",
-      "1600_turf": "草地 1600m (一哩)"
-    },
-    optionsStyle: {
-      nige: "逃馬",
-      senko: "先行",
-      sashi: "差馬",
-      oikomi: "追馬"
-    }
+    headerSub: "賽馬娘 Pretty Derby 非官方粉絲製作 賽道與技能分析器",
+    ticker: "【2026年9月冠軍會對應】東京 草地 1800m (每日王冠) 賽道數據與技能評估引擎已同步更新。",
+    aboutTitle: "【非官方粉絲製作聲明】",
+    aboutDesc: "本網站是由熱愛賽馬娘 Pretty Derby 的玩家製作的非官方分析器。與 Cygames 及 JRA 等官方公司無關。",
+    selectCourse: "賽道與條件選擇",
+    trackLabel: "賽馬場",
+    distanceLabel: "距離與種類",
+    specTitle: "JRA官方賽道規格",
+    straightLabel: "直線距離:",
+    slopeLabel: "高低差:",
+    spurtLabel: "最快沖刺:",
+    btnFeedback: "發送意見與建議"
   },
   kr: {
-    badgeVersion: "JRA 공식 규격 100% 연동",
+    headerSub: "우마무스메 프리티 더비 비공식 팬 제작 코스 & 스킬 분석기",
+    ticker: "【2026년 9월 챔미 대응】도쿄 잔디 1800m (매일 왕관) 코스 데이터 및 스킬 평가 엔진 동기화 완료.",
+    aboutTitle: "【비공식 팬 제작 포털 성명】",
+    aboutDesc: "본 사이트는 우마무스메 프리티 더비를 사랑하는 팬에 의해 제작된 비공식 분석기입니다. Cygames 및 JRA와 무관합니다.",
     selectCourse: "코스 및 조건 선택",
-    track: "경마장 (Track)",
-    distance: "거리 (Distance)",
-    strategy: "각질 (Strategy)",
-    summaryTitle: "JRA 공식 코스 스펙 요약",
-    straight: "직선 거리:",
-    slopeInfo: "고저차:",
-    spurtInfo: "최속 스퍼트 지점:",
-    mainTitle: "Universal Racing Analyzer (URA)",
-    subTitle: "우마무스메 프리티 더비 비공식 팬 제작 코스 분석기",
-    aboutTitle: "【사이트 소개 및 면책 조항 (Unofficial Fan Site)】",
-    aboutDesc: "본 사이트는 『우마무스메 프리티 더비』를 사랑하는 트레이너가 제작한 비공식 팬 사이트입니다. JRA 공식 코스 규격 및 스킬 발동 위치를 시각화하는 것을 목적으로 하며, Cygames 및 JRA 등 공식 기업과는 아무런 관련이 없습니다.",
-    umaiCreditTitle: "📊 분석 데이터 출처",
-    umaiCreditDesc: "본 사이트의 스킬 발동 데이터는 <strong>X (Twitter) 검증 포스트</strong> 및 <strong>YouTube 검증 영상</strong>의 최신 공개 데이터를 인용하고 있습니다.",
-    btnFeedback: "의견 보내기",
-    aiTitle: "🤖 Universal Racing AI 컨시어지",
-    aiSub: "학습된 X 포스트 및 YouTube 영상 출처를 바탕으로 원본 링크와 함께 정확하게 답변합니다.",
-    aiInitMsg: "🤖 <strong>AI 아시스턴트:</strong> 트레이너님, 안녕하세요! 학습된 X 및 YouTube 데이터로 답변합니다.",
-    aiPlaceholder: "예: 나카야마 2500m 선행에 필요한 스태미나는?",
-    aiSendBtn: "질문하기",
-    optionsTrack: {
-      nakayama: "나카야마 경마장 (JRA 아리마 기념)",
-      tokyo: "도쿄 경마장 (JRA 일본 더비)",
-      hanshin: "한신 경마장 (JRA 마일 CS)",
-      kyoto: "교토 경마장 (JRA 천황상 봄)"
-    },
-    optionsDistance: {
-      "2500_turf": "잔디 2500m (장거리)",
-      "2400_turf": "잔디 2400m (장거리)",
-      "3200_turf": "잔디 3200m (초장거리)",
-      "2000_turf": "잔디 2000m (중거리)",
-      "1600_turf": "잔디 1600m (마일)"
-    },
-    optionsStyle: {
-      nige: "도주",
-      senko: "선행",
-      sashi: "선입",
-      oikomi: "추입"
-    }
+    trackLabel: "경마장",
+    distanceLabel: "거리 및 종목",
+    specTitle: "JRA 공식 코스 스펙",
+    straightLabel: "직선 거리:",
+    slopeLabel: "고저차:",
+    spurtLabel: "최속 스퍼트:",
+    btnFeedback: "의견 및 개선점 전송"
   }
 };
 
-const eventSchedules = {
-  chanmi: {
-    id: "chanmi",
-    name: {
-      jp: "Leo Cup (東京 芝 2400m - 日本ダービー)",
-      en: "Leo Cup (Tokyo 2400m DERBY)"
-    },
-    startDate: "2026-08-20",
-    endDate: "2026-08-26",
-    dateDisplay: "2026.08.20 〜 08.26",
-    status: "live",
-    statusText: { jp: "● LIVE NOW", en: "● LIVE NOW" },
-    courseKey: "tokyo_2400_turf",
-    track: "tokyo",
-    distance: "2400_turf"
-  },
-  loh: {
-    id: "loh",
-    name: {
-      jp: "LoH Stage (阪神 芝 1600m - マイルCS)",
-      en: "LoH Stage (Hanshin 1600m MILE)"
-    },
-    startDate: "2026-09-12",
-    endDate: "2026-09-18",
-    dateDisplay: "2026.09.12 〜 08.18",
-    status: "upcoming",
-    statusText: { jp: "UPCOMING", en: "UPCOMING" },
-    courseKey: "hanshin_1600_turf",
-    track: "hanshin",
-    distance: "1600_turf"
-  }
-};
-
+// 🏇 コースデータベース
 const courseDatabase = {
-  "kyoto_3200_turf": {
-    name: {
-      jp: "京都 芝 3200m (JRA天皇賞春・淀の坂・外回り超長距離)",
-      en: "Kyoto Turf 3200m (Official JRA Tenno Sho Spring Track)"
-    },
-    trackShape: { rxScale: 0.42, ryScale: 90, type: "kyoto_tenno" },
-    pacingZone: { startPct: 0.08, endPct: 0.45, label: { jp: "⚠️ ペースダウン区間 (ポジキ)", en: "⚠️ Pace Down Zone" } },
-    slopes: [
-      { startPct: 0.62, endPct: 0.72, posPercent: 0.67, type: "up", label: { jp: "↗ JRA淀の坂 (+4.3m)", en: "↗ Yodo Hill Uphill (+4.3m)" }, color: "#f472b6", labelDir: "top-right-far", offsetDist: 50 },
-      { startPct: 0.73, endPct: 0.82, posPercent: 0.77, type: "down", label: { jp: "↘ 淀の下り坂 (下り坂モード発動)", en: "↘ Yodo Downhill Mode" }, color: "#38bdf8", labelDir: "top-left", offsetDist: 40 }
+  "tokyo_2400_turf": {
+    name: { jp: "東京 芝 2400m (JRA日本ダービー・ジャパンC)", en: "Tokyo Turf 2400m (Japan Derby)", fr: "Tokyo Gazon 2400m", tw: "東京 草地 2400m (日本德比)", kr: "도쿄 잔디 2400m (일본 더비)" },
+    straightLen: { jp: "525m (JRA最長クラス)", en: "525m (JRA Longest)", fr: "525m", tw: "525m (最長直線)", kr: "525m" },
+    slope: { jp: "2.0m (東京名物大坂)", en: "2.0m Tokyo Slope", fr: "2.0m Pente Tokyo", tw: "2.0m 直線大坡", kr: "2.0m 대 경사" },
+    totalDistance: 2400,
+    spurtPos: 1600,
+    recommendedSkills: [
+      { name: "王手 (金加速)", tag: "🔥 100%最速加速 (神効果)", desc: "東京2400mの1600m地点(終盤開始コーナー)で100%最速発動！先行・差し必須の爆発的加速度。", trigger: "1,600m地点", styles: ["senko", "sashi"] },
+      { name: "アングリング×スキーミング", tag: "🔥 逃げ1位最速加速", desc: "セイウンスカイ固有。逃げ脚質で終盤コーナー1位時に100%最速発動。", trigger: "1,600m地点", styles: ["nige"] },
+      { name: "つぼみ、ほころぶ時 (ニシノフラワー)", tag: "✨ 先行3〜4位最速加速", desc: "先行脚質で3〜4位時に最終コーナー後半で最速加速を発揮。", trigger: "1,600m地点", styles: ["senko"] },
+      { name: "彼方、その先へ (メジロドーベル)", tag: "✨ 差し追込5〜6位加速", desc: "差し・追込脚質で5〜6位時に終盤コーナーで高い加速効果を発揮。", trigger: "1,600m地点", styles: ["sashi", "oikomi"] },
+      { name: "東京レース場◎ / 日本ダービー娘", tag: "✨ パッシブ (スピード+80)", desc: "東京2400m公式規格と合致！0m地点でスピード+80が常時乗る実質ステ超え。", trigger: "0m地点 (確定★)", styles: ["all", "nige", "senko", "sashi", "oikomi"] },
+      { name: "円弧のマエストロ / 好転一息", tag: "💧 金回復 (+5.5%)", desc: "中盤で確定発動。完走に必要なスタミナ165相当を確実に補給。", trigger: "800m〜1,200m地点", styles: ["all", "nige", "senko", "sashi", "oikomi"] }
     ],
-    conditions: {
-      weather: { jp: "☀️ 晴れ (Sunny)", en: "☀️ Sunny" },
-      ground: { jp: "🟢 良バ場 (Firm)", en: "🟢 Firm / Good" },
-      trackType: { jp: "↻ JRA右回り・外コース", en: "↻ Right / Outer Track" },
-      season: { jp: "🌸 季節: 春 (Spring)", en: "🌸 Spring" }
-    },
-    totalDistance: 3200,
-    straightLen: { jp: "404m (JRA京都外回り)", en: "404m (JRA Outer Straight)" },
-    slope: { jp: "JRA屈指の高低差4.3m 淀の坂", en: "4.3m Yodo Famous Hill" },
-    spurtPos: 2133,
-    phases: { early: { endPercent: 0.166, color: "#10b981" }, mid: { endPercent: 0.666, color: "#06b6d4" }, late: { endPercent: 1.0, color: "#f59e0b" } },
-    skillPins: {
-      jp: [
-        { posPercent: 0, label: "🏁 0m : URA / JRA START", color: "#10b981", labelDir: "right-down", offsetDist: 35 },
-        { posPercent: 0.35, label: "💧 1,200m : 円弧のマエストロ (100%確定★)", color: "#10b981", labelDir: "top-left", offsetDist: 35 },
-        { posPercent: 0.666, label: "⚡️ 2,133m : 迫る影 / 直線一気 (JRA最速100%★)", color: "#ffd700", labelDir: "top-left-far", offsetDist: 45 },
-        { posPercent: 0.98, label: "🏁 3,200m : URA / JRA GOAL!!", color: "#ef4444", labelDir: "right-up", offsetDist: 35 }
-      ],
-      en: [
-        { posPercent: 0, label: "🏁 0m : URA START", color: "#10b981", labelDir: "right-down", offsetDist: 35 },
-        { posPercent: 0.35, label: "💧 1,200m : Arc Maestro (100% Proc)", color: "#10b981", labelDir: "top-left", offsetDist: 35 },
-        { posPercent: 0.666, label: "⚡️ 2,133m : Straight Shot / Shadow (Optimal 100%★)", color: "#ffd700", labelDir: "top-left-far", offsetDist: 45 },
-        { posPercent: 0.98, label: "🏁 3,200m : URA GOAL!!", color: "#ef4444", labelDir: "right-up", offsetDist: 35 }
-      ]
-    },
-    recommendedSkills: {
-      jp: [
-        { name: "京都レース場◎ / 天皇賞春娘", tag: "✨ URA確定パッシブ", tagClass: "tag-sure", desc: "JRA京都3200m(天皇賞春)規格と100%合致！スタート時に常時ステータス大幅底上げ。", triggerMeter: "📍 発動距離: 0m 地点 (確定★)", trigger: "0m地点 (100%確定)" },
-        { name: "迫る影 / 直線一気", tag: "✨ 100%最速発動 (追込)", tagClass: "tag-sure", desc: "JRA京都3200mの終盤開始(2,133m)は向正面の直線！100%最速で最高加速が乗ります。", triggerMeter: "📍 発動距離: 2,133m 地点 (向正面直線)", trigger: "2,133m地点 (100%最速)" }
-      ],
-      en: [
-        { name: "Kyoto Track Master", tag: "✨ 100% Guaranteed Passive", tagClass: "tag-sure", desc: "100% matches JRA official track specifications for Tenno Sho Spring.", triggerMeter: "📍 Trigger Mark: 0m Start", trigger: "0m Start" }
-      ]
-    },
-    trapSkills: {
-      jp: [
-        { name: "紅焔ギア/LP1211-M", tag: "罠・遅延加速", tagClass: "tag-trap", desc: "JRA京都3200mの『最終コーナー』はすでに最高速到達後のため効果が無駄になります。", triggerMeter: "❌ 無効発動距離: 2,800m 地点", trigger: "2,800m地点" }
-      ],
-      en: [
-        { name: "Red Flame Gear", tag: "Trap Skill", tagClass: "tag-trap", desc: "Procs on final corner in JRA Kyoto 3200m, which is already at max speed.", triggerMeter: "❌ Wasted Proc: 2,800m Mark", trigger: "2,800m Mark" }
-      ]
-    },
-    allSkillsCatalog: {
-      jp: [
-        { name: "京都レース場◎ / 天皇賞春娘", cat: "sure", tag: "✨ URA確定パッシブ", tagClass: "tag-sure", meter: "0m スタート地点", desc: "0mで100%確実に発動。" },
-        { name: "迫る影 / 直線一気", cat: "accel", tag: "✨ 100%最速発動 (追込)", tagClass: "tag-sure", meter: "2,133m 地点", desc: "終盤直線入り口で100%最速発動。" },
-        { name: "円弧のマエストロ", cat: "heal", tag: "✨ 必須級回復", tagClass: "tag-sure", meter: "1,200m 地点", desc: "超長距離3200mでスタミナ切れるのを100%防止。" }
-      ],
-      en: [
-        { name: "Kyoto Track Master", cat: "sure", tag: "✨ 100% Guaranteed", tagClass: "tag-sure", meter: "0m Start Mark", desc: "100% guaranteed proc at race start." }
-      ]
-    }
+    trapSkills: [
+      { name: "迫る影 / 直線一気", tag: "⚠️ 無駄・遅延発動 (罠)", desc: "東京2400mの終盤開始(1600m)はコーナーのため、直線一気は最速発動せず1920mまで遅延して効果が無駄になります。", trigger: "1,920m地点まで無効", styles: ["oikomi"] },
+      { name: "紅焔ギア / LP1211-M", tag: "⚠️ 最終コーナー遅延 (罠)", desc: "マルゼンスキー固有。最終コーナー後半で発動するが、最高速到達後のため効果が無駄になります。", trigger: "最終コーナー後半", styles: ["senko", "sashi", "oikomi"] },
+      { name: "登山家 (坂加速)", tag: "⚠️ 序盤発動無効 (罠)", desc: "向正面の坂で序盤早々に発動してしまい、終盤の加速にまったく寄与しない罠スキル。", trigger: "序盤無効発動", styles: ["all", "nige", "senko", "sashi", "oikomi"] }
+    ]
+  },
+  "tokyo_1800_turf": {
+    name: { jp: "東京 芝 1800m (2026年9月決定チャンミ・毎日王冠)", en: "Tokyo Turf 1800m (Sep 2026 CM)", fr: "Tokyo Gazon 1800m", tw: "東京 草地 1800m (2026年9月每日王冠)", kr: "도쿄 잔디 1800m (2026년 9월 매일 왕관)" },
+    straightLen: { jp: "525m (JRA最長クラス)", en: "525m", fr: "525m", tw: "525m", kr: "525m" },
+    slope: { jp: "2.0m (東京名物大坂)", en: "2.0m Slope", fr: "2.0m Pente", tw: "2.0m 大坡", kr: "2.0m 경사" },
+    totalDistance: 1800,
+    spurtPos: 1200,
+    recommendedSkills: [
+      { name: "王手 (金加速)", tag: "🔥 2026年9月チャンミ最速加速", desc: "東京1800m(毎日王冠)で1,200m地点から100%最速発動！先行・差し必須。", trigger: "1,200m地点 (最速★)", styles: ["senko", "sashi"] },
+      { name: "ハイボルテージ / 心外無別", tag: "🔥 マイル中距離前加速", desc: "終盤前半で発動し、東京の長い直線で前脚質に強力加速を提供。", trigger: "1,200m地点", styles: ["nige", "senko"] },
+      { name: "アングリング×スキーミング", tag: "🔥 逃げ1位最速加速", desc: "逃げ脚質で1,200m地点1位時に100%最速発動。", trigger: "1,200m地点", styles: ["nige"] },
+      { name: "東京レース場◎ / 非根幹距離◎", tag: "✨ パッシブ (スピード+80)", desc: "2026年9月チャンミ東京1800m条件で0mから確定発動。", trigger: "0m地点", styles: ["all", "nige", "senko", "sashi", "oikomi"] }
+    ],
+    trapSkills: [
+      { name: "迫る影 / 直線一気", tag: "⚠️ 最終コーナー遅延無効 (罠)", desc: "東京1800mの終盤開始(1200m)はコーナーのため最速発動しません。", trigger: "1,275m地点まで無効", styles: ["oikomi"] }
+    ]
   },
   "nakayama_2500_turf": {
-    name: { jp: "中山 芝 2500m (JRA有馬記念・内回りタイトおむすび)", en: "Nakayama Turf 2500m (Official JRA Arima Kinen Track)" },
-    trackShape: { rxScale: 0.32, ryScale: 85, type: "nakayama_arima" },
-    pacingZone: { startPct: 0.08, endPct: 0.45, label: { jp: "⚠️ ペースダウン区間 (ポジキ)", en: "⚠️ Pace Down Zone" } },
-    slopes: [
-      { startPct: 0.88, endPct: 0.96, posPercent: 0.92, type: "up", label: { jp: "↗ JRAゴール前激坂 (+2.2m)", en: "↗ Steep Uphill (+2.2m)" }, color: "#f472b6", labelDir: "top-right-far", offsetDist: 45 },
-      { startPct: 0.32, endPct: 0.44, posPercent: 0.38, type: "down", label: { jp: "↘ 向正面下り坂 (-1.8m)", en: "↘ Downhill (-1.8m)" }, color: "#38bdf8", labelDir: "top-left", offsetDist: 35 }
+    name: { jp: "中山 芝 2500m (JRA有馬記念・内回り)", en: "Nakayama Turf 2500m (Arima Kinen)", fr: "Nakayama Gazon 2500m", tw: "中山 草地 2500m (有馬紀念)", kr: "나카야마 잔디 2500m (아리마 기념)" },
+    straightLen: { jp: "310m (JRA主要最短)", en: "310m (Shortest)", fr: "310m", tw: "310m (最短)", kr: "310m" },
+    slope: { jp: "2.2m (ゴール前激坂)", en: "2.2m Steep Slope", fr: "2.2m Pente", tw: "2.2m 陡坡", kr: "2.2m 경사" },
+    totalDistance: 2500,
+    spurtPos: 1666,
+    recommendedSkills: [
+      { name: "迫る影 / 直線一気", tag: "🔥 100%最速加速 (有馬・長距離神効果)", desc: "有馬記念2500m終盤開始(1666m)は向正面の直線！最高加速+0.40m/s²が100%最速着火。", trigger: "1,666m地点 (最速★)", styles: ["oikomi"] },
+      { name: "中山レース場◎ / 有馬記念娘", tag: "✨ パッシブ (スピード/スタミナ+80)", desc: "JRA中山2500m公式規格と合致。0m地点で能力を常時+80(確定)底上げします。", trigger: "0m地点 (常時+80★)", styles: ["all", "nige", "senko", "sashi", "oikomi"] },
+      { name: "円弧のマエストロ / 好転一息", tag: "💧 金回復 (+5.5%)", desc: "有馬記念のタフなスタミナ勝負で必須。中盤コーナーで安定発動。", trigger: "800m地点", styles: ["all", "nige", "senko", "sashi", "oikomi"] }
     ],
-    conditions: { weather: { jp: "☀️ 晴れ", en: "☀️ Sunny" }, ground: { jp: "🟢 良バ場 (Firm)", en: "🟢 Firm / Good" }, trackType: { jp: "↻ JRA右回り・内コース", en: "↻ Right / Inner Track" }, season: { jp: "❄️ 季節: 冬 (Winter)", en: "❄️ Winter" } },
-    totalDistance: 2500, straightLen: { jp: "310m (JRA主要最短)", en: "310m (JRA Shortest)" }, slope: { jp: "JRA最大級 高低差2.2m激坂", en: "2.2m Steep Slope" }, spurtPos: 1666,
-    phases: { early: { endPercent: 0.166, color: "#10b981" }, mid: { endPercent: 0.666, color: "#06b6d4" }, late: { endPercent: 1.0, color: "#f59e0b" } },
-    skillPins: {
-      jp: [
-        { posPercent: 0, label: "🏁 0m : URA / JRA START", color: "#10b981", labelDir: "right-down", offsetDist: 35 },
-        { posPercent: 0.32, label: "💧 800m : 円弧のマエストロ (100%確定発動)", color: "#10b981", labelDir: "top-left", offsetDist: 35 },
-        { posPercent: 0.666, label: "⚡️ 1,666m : 迫る影/直線一気 (最速100%★)", color: "#ffd700", labelDir: "top-left-far", offsetDist: 45 },
-        { posPercent: 0.88, label: "⚠️ 2,200m : 紅焔ギア (遅延罠)", color: "#ef4444", labelDir: "top-right", offsetDist: 35 },
-        { posPercent: 0.98, label: "🏁 2,500m : URA GOAL!!", color: "#ef4444", labelDir: "right-up", offsetDist: 35 }
-      ],
-      en: [
-        { posPercent: 0, label: "🏁 0m : URA START", color: "#10b981", labelDir: "right-down", offsetDist: 35 },
-        { posPercent: 0.32, label: "💧 800m : Arc Maestro (100% Proc)", color: "#10b981", labelDir: "top-left", offsetDist: 35 },
-        { posPercent: 0.666, label: "⚡️ 1,666m : Straight Shot / Shadow (Optimal 100%★)", color: "#ffd700", labelDir: "top-left-far", offsetDist: 45 },
-        { posPercent: 0.88, label: "⚠️ 2,200m : Red Flame Gear (Delayed Trap)", color: "#ef4444", labelDir: "top-right", offsetDist: 35 },
-        { posPercent: 0.98, label: "🏁 2,500m : URA GOAL!!", color: "#ef4444", labelDir: "right-up", offsetDist: 35 }
-      ]
-    },
-    recommendedSkills: {
-      jp: [
-        { name: "中山レース場◎ / 有馬記念娘", tag: "✨ URA確定パッシブ", tagClass: "tag-sure", desc: "JRA中山2500mの公式規格と100%合致！スタート(0m)と同時にスピード・スタミナを常時+80底上げします。", triggerMeter: "📍 発動距離: 0m 地点 (確定★)", trigger: "レーススタート時 (100%確定)" },
-        { name: "迫る影 / 直線一気", tag: "✨ 100%最速発動 (追込)", tagClass: "tag-sure", desc: "JRA中山2500mの終盤開始(1,666m)は直線！順位条件を満たせば最速で最高加速が乗ります。", triggerMeter: "📍 発動距離: 1,666m 地点 (JRA終盤直線入り口)", trigger: "1,666m地点 (100%最速)" }
-      ],
-      en: [
-        { name: "Nakayama Track Master", tag: "✨ 100% Guaranteed Passive", tagClass: "tag-sure", desc: "100% matches JRA official track specifications. Boosts Speed & Stamina permanently.", triggerMeter: "📍 Trigger Mark: 0m Start", trigger: "0m Start" }
-      ]
-    },
-    trapSkills: {
-      jp: [
-        { name: "紅焔ギア/LP1211-M", tag: "罠・遅延加速", tagClass: "tag-trap", desc: "マルゼンスキー固有。JRA中山2500mの『最終コーナー』はすでに最高速度に達した後のため、効果が無駄(罠)になります。", triggerMeter: "❌ 無効発動距離: 2,200m 地点 (最終コーナー)", trigger: "2,200m地点 (最終コーナー)" }
-      ],
-      en: [
-        { name: "Red Flame Gear", tag: "Trap Skill", tagClass: "tag-trap", desc: "Procs on final corner in JRA Nakayama, which is already at max speed.", triggerMeter: "❌ Wasted Proc: 2,200m Mark", trigger: "2,200m Mark" }
-      ]
-    },
-    allSkillsCatalog: {
-      jp: [
-        { name: "中山レース場◎ / 有馬記念娘", cat: "sure", tag: "✨ URA確定パッシブ", tagClass: "tag-sure", meter: "0m スタート地点", desc: "JRA中山規格に完全対応。0mで100%発動。" },
-        { name: "迫る影 / 直線一気", cat: "accel", tag: "✨ 100%最速加速 (追込)", tagClass: "tag-sure", meter: "1,666m 地点", desc: "終盤直線入り口で100%最速発動。" },
-        { name: "円弧のマエストロ", cat: "heal", tag: "✨ 100%確定級回復", tagClass: "tag-sure", meter: "800m〜1,200m 地点", desc: "中盤コーナーで安定して100%回復。" }
-      ],
-      en: [
-        { name: "Nakayama Track Master", cat: "sure", tag: "✨ 100% Guaranteed", tagClass: "tag-sure", meter: "0m Start Mark", desc: "100% guaranteed proc at race start." }
-      ]
-    }
-  },
-  "tokyo_2400_turf": {
-    name: { jp: "東京 芝 2400m (JRA日本ダービー・超大回り直線525m)", en: "Tokyo Turf 2400m (Official JRA Japan Derby Track)" },
-    trackShape: { rxScale: 0.44, ryScale: 95, type: "tokyo_derby" },
-    pacingZone: { startPct: 0.08, endPct: 0.45, label: { jp: "⚠️ ペースダウン区間 (ポジキ)", en: "⚠️ Pace Down Zone" } },
-    slopes: [
-      { startPct: 0.76, endPct: 0.86, posPercent: 0.81, type: "up", label: { jp: "↗ JRA直線大坂 (+2.0m)", en: "↗ Long Straight Uphill (+2.0m)" }, color: "#f472b6", labelDir: "top-right-far", offsetDist: 50 },
-      { startPct: 0.36, endPct: 0.46, posPercent: 0.41, type: "down", label: { jp: "↘ 向正面下り坂", en: "↘ Backstretch Downhill" }, color: "#38bdf8", labelDir: "bottom-left", offsetDist: 40 }
-    ],
-    conditions: { weather: { jp: "☀️ 晴れ (Sunny)", en: "☀️ Sunny" }, ground: { jp: "🟢 良バ場 (Firm)", en: "🟢 Firm / Good" }, trackType: { jp: "↺ JRA左回り・内コース", en: "↺ Left / Inner Track" }, season: { jp: "🌿 季節: 夏 (Summer)", en: "🌿 Summer" } },
-    totalDistance: 2400, straightLen: { jp: "525m (JRA最長直線)", en: "525m (JRA Longest Straight)" }, slope: { jp: "JRA東京名物 直線大坂", en: "Famous Tokyo Slope" }, spurtPos: 1600,
-    phases: { early: { endPercent: 0.166, color: "#10b981" }, mid: { endPercent: 0.666, color: "#06b6d4" }, late: { endPercent: 1.0, color: "#f59e0b" } },
-    skillPins: {
-      jp: [
-        { posPercent: 0, label: "🏁 0m : URA / JRA START", color: "#10b981", labelDir: "right-down", offsetDist: 35 },
-        { posPercent: 0.666, label: "⚡️ 1,600m : 王手 / Angling (JRA最速★)", color: "#ffd700", labelDir: "top-left", offsetDist: 35 },
-        { posPercent: 0.8, label: "⚠️ 1,920m : 直線一気 (遅延罠)", color: "#ef4444", labelDir: "top-left-far", offsetDist: 45 },
-        { posPercent: 0.98, label: "🏁 2,400m : URA GOAL!!", color: "#ef4444", labelDir: "right-up", offsetDist: 35 }
-      ],
-      en: [
-        { posPercent: 0, label: "🏁 0m : URA START", color: "#10b981", labelDir: "right-down", offsetDist: 35 },
-        { posPercent: 0.666, label: "⚡️ 1,600m : Master Strike / Angling (Optimal JRA★)", color: "#ffd700", labelDir: "top-left", offsetDist: 35 },
-        { posPercent: 0.8, label: "⚠️ 1,920m : Straight Shot (Delayed Trap)", color: "#ef4444", labelDir: "top-left-far", offsetDist: 45 },
-        { posPercent: 0.98, label: "🏁 2,400m : URA GOAL!!", color: "#ef4444", labelDir: "right-up", offsetDist: 35 }
-      ]
-    },
-    recommendedSkills: {
-      jp: [
-        { name: "東京レース場◎ / 日本ダービー娘", tag: "✨ URA確定パッシブ", tagClass: "tag-sure", desc: "JRA東京2400m(日本ダービー)のコース仕様と100%合致！スタート時に常時能力強化。", triggerMeter: "📍 発動距離: 0m 地点 (確定★)", trigger: "0m地点 (100%確定)" },
-        { name: "王手 / アングリング×スキーミング", tag: "✨ JRA最速加速 (先行・差し)", tagClass: "tag-sure", desc: "JRA東京2400mの1,600m地点(最終コーナー前)で最速発動します！", triggerMeter: "📍 発動距離: 1,600m 地点 (JRA最速発動)", trigger: "1,600m地点" }
-      ],
-      en: [
-        { name: "Tokyo Track Master", tag: "✨ 100% Guaranteed Passive", tagClass: "tag-sure", desc: "100% matches JRA official track specifications.", triggerMeter: "📍 Trigger Mark: 0m Start", trigger: "0m Start" }
-      ]
-    },
-    trapSkills: {
-      jp: [
-        { name: "迫る影 / 直線一気", tag: "遅延発動 (罠)", tagClass: "tag-trap", desc: "JRA東京2400mの終盤開始(1600m)は『コーナー』のため、直線一気は最速発動しません。", triggerMeter: "❌ 無効遅延距離: 1,920m 地点", trigger: "1,920m地点まで遅延" }
-      ],
-      en: [
-        { name: "Straight Shot", tag: "Delayed Proc", tagClass: "tag-trap", desc: "Late phase is a corner in JRA Tokyo 2400m.", triggerMeter: "❌ Wasted Delay: 1,920m Mark", trigger: "1,920m Mark" }
-      ]
-    },
-    allSkillsCatalog: {
-      jp: [
-        { name: "東京レース場◎ / 日本ダービー娘", cat: "sure", tag: "✨ URA確定パッシブ", tagClass: "tag-sure", meter: "0m スタート地点", desc: "0mで100%確実に発動。" },
-        { name: "王手 / アングリング×スキーミング", cat: "accel", tag: "✨ JRA最速加速", tagClass: "tag-sure", meter: "1,600m 地点", desc: "最終コーナー手前の終盤開始で最速発動。" }
-      ],
-      en: [
-        { name: "Master Strike", cat: "accel", tag: "✨ JRA Optimal Accel", tagClass: "tag-sure", meter: "1,600m Mark", desc: "Procs instantly on final corner entrance." }
-      ]
-    }
+    trapSkills: [
+      { name: "紅焔ギア/LP1211-M", tag: "⚠️ 最終コーナー遅延 (罠)", desc: "マルゼンスキー固有。最終コーナー(2200m)は最高速到達後のため効果が無駄になります。", trigger: "2,200m地点", styles: ["senko", "sashi", "oikomi"] }
+    ]
   },
   "hanshin_1600_turf": {
-    name: { jp: "阪神 芝 1600m (JRAマイルCS・外回りおむすび型)", en: "Hanshin Turf 1600m (Official JRA Hanshin Mile Track)" },
-    trackShape: { rxScale: 0.36, ryScale: 85, type: "hanshin_outer" },
-    pacingZone: { startPct: 0.08, endPct: 0.45, label: { jp: "⚠️ ペースダウン区間 (ポジキ)", en: "⚠️ Pace Down Zone" } },
-    slopes: [
-      { startPct: 0.88, endPct: 0.96, posPercent: 0.92, type: "up", label: { jp: "↗ JRAゴール前坂 (+1.8m)", en: "↗ Steep Slope at Goal (+1.8m)" }, color: "#f472b6", labelDir: "top-right-far", offsetDist: 40 },
-      { startPct: 0.35, endPct: 0.45, posPercent: 0.40, type: "down", label: { jp: "↘ 3コーナー下り坂", en: "↘ Corner 3 Downhill" }, color: "#38bdf8", labelDir: "bottom-left", offsetDist: 40 }
+    name: { jp: "阪神 芝 1600m (JRAマイルCS・外回り)", en: "Hanshin Turf 1600m (Mile CS)", fr: "Hanshin Gazon 1600m", tw: "阪神 草地 1600m", kr: "한신 잔디 1600m" },
+    straightLen: { jp: "473m (JRA外回り)", en: "473m", fr: "473m", tw: "473m", kr: "473m" },
+    slope: { jp: "1.8m (阪神急坂)", en: "1.8m Slope", fr: "1.8m Pente", tw: "1.8m 陡坡", kr: "1.8m 경사" },
+    totalDistance: 1600,
+    spurtPos: 1066,
+    recommendedSkills: [
+      { name: "ハイボルテージ / 電光石火", tag: "🔥 マイル必須加速", desc: "1,066m地点(終盤開始直後)で加速度+0.40m/s²が爆発的発動。", trigger: "1,066m地点", styles: ["nige", "senko", "sashi", "oikomi"] },
+      { name: "阪神レース場◎ / 根幹距離◎", tag: "✨ パッシブ (スピード+80)", desc: "JRA阪神1600m規格と合致！0m地点で能力+80常時底上げ。", trigger: "0m地点", styles: ["all", "nige", "senko", "sashi", "oikomi"] }
     ],
-    conditions: { weather: { jp: "🌧️ 雨 (Rainy)", en: "🌧️ Rainy" }, ground: { jp: "🟠 重バ場 (Soft)", en: "🟠 Soft" }, trackType: { jp: "↻ JRA右回り・外コース", en: "↻ Right / Outer Track" }, season: { jp: "🍂 季節: 秋 (Autumn)", en: "🍂 Autumn" } },
-    totalDistance: 1600, straightLen: { jp: "473m (JRA外回り)", en: "473m (JRA Outer Straight)" }, slope: { jp: "JRA阪神名物 ゴール前急坂", en: "Hanshin Goal Slope" }, spurtPos: 1066,
-    phases: { early: { endPercent: 0.166, color: "#10b981" }, mid: { endPercent: 0.666, color: "#06b6d4" }, late: { endPercent: 1.0, color: "#f59e0b" } },
-    skillPins: {
-      jp: [
-        { posPercent: 0, label: "🏁 0m : URA / JRA START", color: "#10b981", labelDir: "right-down", offsetDist: 35 },
-        { posPercent: 0.666, label: "⚡️ 1,066m : ハイボルテージ (JRA最速マイル★)", color: "#ffd700", labelDir: "top-left", offsetDist: 35 },
-        { posPercent: 0.98, label: "🏁 1,600m : URA GOAL!!", color: "#ef4444", labelDir: "right-up", offsetDist: 35 }
-      ],
-      en: [
-        { posPercent: 0, label: "🏁 0m : URA START", color: "#10b981", labelDir: "right-down", offsetDist: 35 },
-        { posPercent: 0.666, label: "⚡️ 1,066m : High Voltage (JRA Optimal Mile★)", color: "#ffd700", labelDir: "top-left", offsetDist: 35 },
-        { posPercent: 0.98, label: "🏁 1,600m : URA GOAL!!", color: "#ef4444", labelDir: "right-up", offsetDist: 35 }
-      ]
-    },
-    recommendedSkills: {
-      jp: [
-        { name: "阪神レース場◎ / 根幹距離◎", tag: "✨ URA確定パッシブ", tagClass: "tag-sure", desc: "JRA阪神1600m規格と100%合致！スタート時100%確定発動。", triggerMeter: "📍 発動距離: 0m 地点 (確定★)", trigger: "0m地点" },
-        { name: "ハイボルテージ / 電光石火", tag: "✨ JRA最速マイル加速", tagClass: "tag-sure", desc: "1,066m地点(終盤開始直後)で爆発的発動。", triggerMeter: "📍 発動距離: 1,066m 地点", trigger: "1,066m地点" }
-      ],
-      en: [
-        { name: "Hanshin Track Master", tag: "✨ 100% Guaranteed Passive", tagClass: "tag-sure", desc: "100% matches JRA official track specifications.", triggerMeter: "📍 Trigger Mark: 0m Start", trigger: "0m Start" }
-      ]
-    },
-    trapSkills: {
-      jp: [
-        { name: "長距離専用・過剰スタミナ回復", tag: "過剰Pt (無駄)", tagClass: "tag-trap", desc: "JRA阪神1600mマイル戦のため、過剰回復はスキルPtの無駄になります。", triggerMeter: "❌ 無駄スキル: 全区間過剰回復", trigger: "スタミナ過剰" }
-      ],
-      en: [
-        { name: "Recovery Overkill", tag: "Wasted Points", tagClass: "tag-trap", desc: "Excess stamina recovery is wasted for 1600m mile race.", triggerMeter: "❌ Wasted Skill", trigger: "Overkill" }
-      ]
-    },
-    allSkillsCatalog: {
-      jp: [
-        { name: "阪神レース場◎ / 根幹距離◎", cat: "sure", tag: "✨ URA確定パッシブ", tagClass: "tag-sure", meter: "0m スタート地点", desc: "スタート時100%確実に発動。" },
-        { name: "ハイボルテージ / 心外無別", cat: "accel", tag: "✨ JRA最速マイル加速", tagClass: "tag-sure", meter: "1,066m 地点", desc: "マイル戦の終盤開始直後に爆発的発動。" }
-      ],
-      en: [
-        { name: "High Voltage", cat: "accel", tag: "✨ JRA Optimal Accel", tagClass: "tag-sure", meter: "1,066m Mark", desc: "Explosive acceleration right at late phase start." }
-      ]
-    }
+    trapSkills: [
+      { name: "長距離専用・過剰スタミナ回復", tag: "⚠️ Pt無駄使い", desc: "マイル戦で過剰回復を積むと攻撃スキルPtが不足します。", trigger: "全区間過剰", styles: ["all", "nige", "senko", "sashi", "oikomi"] }
+    ]
+  },
+  "kyoto_3200_turf": {
+    name: { jp: "京都 芝 3200m (JRA天皇賞春・淀の坂)", en: "Kyoto Turf 3200m (Tenno Sho Spring)", fr: "Kyoto Gazon 3200m", tw: "京都 草地 3200m (天皇賞春)", kr: "교토 잔디 3200m (텐노상 봄)" },
+    straightLen: { jp: "404m (JRA京都外回り)", en: "404m", fr: "404m", tw: "404m", kr: "404m" },
+    slope: { jp: "4.3m (淀の坂高低差)", en: "4.3m Yodo Hill", fr: "4.3m Pente Yodo", tw: "4.3m 淀之坂", kr: "4.3m 요도의 언덕" },
+    totalDistance: 3200,
+    spurtPos: 2133,
+    recommendedSkills: [
+      { name: "迫る影 / 直線一気", tag: "🔥 長距離最速加速", desc: "2,133m地点(向正面直線)で100%最速加速度+0.40m/s²発動。", trigger: "2,133m地点 (最速★)", styles: ["oikomi"] },
+      { name: "京都レース場◎ / 天皇賞春娘", tag: "✨ パッシブ (スピード/スタミナ+80)", desc: "0m地点でスピード・スタミナを確定で+80常時底上げ。", trigger: "0m地点", styles: ["all", "nige", "senko", "sashi", "oikomi"] }
+    ],
+    trapSkills: [
+      { name: "紅焔ギア/LP1211-M", tag: "⚠️ 最終コーナー遅延無効", desc: "最終コーナー(2800m)は最高速到達後のため効果が無駄になります。", trigger: "2,800m地点", styles: ["senko", "sashi", "oikomi"] }
+    ]
   }
 };
+
+// 🏆 全主要実戦スキル 50選マスターデータベース
+const masterSkillsCatalog = [
+  // ⚡️ 最速・金加速 (Sランク)
+  { name: "王手 (金加速)", cat: "accel", rank: "S", score: 99, effect: "加速度 +0.40 m/s²", cost: "Pt 140 (超神コスパ)", tag: "🔥 先行・差し最速加速", meter: "終盤開始 最終コーナー手前", desc: "先行・差し必須！東京2400mなどの終盤開始がコーナーのコースで100%最速発動。", styles: ["senko", "sashi"] },
+  { name: "迫る影 / 直線一気", cat: "accel", rank: "S", score: 98, effect: "加速度 +0.40 m/s²", cost: "Pt 140 (追込必須)", tag: "🔥 追込最速加速", meter: "終盤開始 直線区間", desc: "追込必須！有馬記念や長距離など終盤開始が直線のコースで100%最速着火。", styles: ["oikomi"] },
+  { name: "アングリング×スキーミング", cat: "accel", rank: "S", score: 97, effect: "加速度 +0.40 m/s²", cost: "Pt 120 (逃げ1位固有)", tag: "🔥 逃げ1位確定加速", meter: "終盤開始 コーナー", desc: "セイウンスカイ固有。逃げ脚質で1位時に100%最速で爆発的加速度が得られる。", styles: ["nige"] },
+  { name: "ハイボルテージ / 心外無別", cat: "accel", rank: "S", score: 95, effect: "加速度 +0.40 m/s²", cost: "Pt 160 (マイル神スキル)", tag: "🔥 マイル必須前加速", meter: "マイル戦 終盤前半", desc: "マイル戦で100%推奨。終盤前半で発動し前脚質の勝率を爆発的に引き上げる。", styles: ["nige", "senko"] },
+  { name: "つぼみ、ほころぶ時 (ニシノフラワー)", cat: "accel", rank: "A", score: 93, effect: "加速度 +0.40 m/s²", cost: "Pt 120 (先行・マイル固有)", tag: "✨ 先行3〜4位加速", meter: "最終コーナー後半", desc: "短距離・マイルの最終コーナー後半で3〜4位時に100%最速加速。", styles: ["senko"] },
+  { name: "彼方、その先へ (メジロドーベル)", cat: "accel", rank: "A", score: 92, effect: "加速度 +0.35 m/s²", cost: "Pt 120 (差し追込固有)", tag: "✨ 後方脚質加速", meter: "終盤コーナー (5〜6位)", desc: "差し・追込で5〜6位時に発動。終盤コーナーで高い加速補助効果を発揮。", styles: ["sashi", "oikomi"] },
+  { name: "電光石火 (金加速)", cat: "accel", rank: "A", score: 91, effect: "加速度 +0.40 m/s²", cost: "Pt 180 (追い越し条件)", tag: "✨ 後方一発加速", meter: "終盤 追い越し体制時", desc: "追い越し体制に入った瞬間に発動する超強力加速。短距離・マイルで真価を発揮。", styles: ["sashi", "oikomi"] },
+
+  // 💧 金回復 (S〜Aランク)
+  { name: "円弧のマエストロ", cat: "heal", rank: "S", score: 94, effect: "+5.5% (スタミナ165相当)", cost: "Pt 170 (確定高効率)", tag: "💧 金回復王道", meter: "中盤コーナー区間", desc: "全脚質で使える王道金回復。中盤コーナーで安定して発動し完走を確実化。", styles: ["all", "nige", "senko", "sashi", "oikomi"] },
+  { name: "好転一息 (金回復)", cat: "heal", rank: "A", score: 89, effect: "+5.5% (スタミナ165相当)", cost: "Pt 160 (直線発動)", tag: "✨ 直線確定回復", meter: "中盤 直線区間", desc: "中盤の直線で発動する汎用金回復。長距離・中距離でのスタミナ切れを防止。", styles: ["all", "nige", "senko", "sashi", "oikomi"] },
+  { name: "神速 (金速度＆回復)", cat: "heal", rank: "A", score: 91, effect: "速度+0.35m/s ＆ 回復1.5%", cost: "Pt 180 (ハイブリッド)", tag: "✨ 速度＋回復両立", meter: "後半区間", desc: "速度アップと体力回復が同時に乗る超優秀ハイブリッドスキル。", styles: ["all", "nige", "senko", "sashi", "oikomi"] },
+
+  // ✨ 速度・立ち回り
+  { name: "アガってきた！ / ペースアップ", cat: "sure", rank: "A", score: 88, effect: "目標速度 +0.35 m/s", cost: "Pt 150 (中盤押し上げ)", tag: "✨ 中盤強力速度", meter: "中盤 ランダム位置", desc: "中盤で追い抜くと発動。位置取りを押し上げて終盤への接続を有利にする。", styles: ["all", "nige", "senko", "sashi", "oikomi"] },
+  { name: "弧線のプロフェッサー", cat: "sure", rank: "A", score: 87, effect: "目標速度 +0.35 m/s", cost: "Pt 160 (コーナースピード)", tag: "✨ 汎用金速度", meter: "コーナー区間", desc: "コーナーで速度アップ。2回発動することもあり全コースで高水準のパフォーマンス。", styles: ["all", "nige", "senko", "sashi", "oikomi"] },
+  { name: "ウマ娘好み / 寄り寄り", cat: "sure", rank: "A", score: 89, effect: "目標速度 +0.15 m/s (速効)", cost: "Pt 100 (超神コスパ白)", tag: "✨ 神コスパ白速度", meter: "序盤 周囲にウマ娘3人", desc: "序盤早々に周囲にウマ娘がいるだけで確定発動。位置取り争いを大優位に進める。", styles: ["all", "nige", "senko", "sashi", "oikomi"] },
+  { name: "スリップストリーム", cat: "sure", rank: "B", score: 84, effect: "目標速度 +0.15 m/s", cost: "Pt 100 (コスパ白)", tag: "⚡️ レーン追従速度", meter: "前方にウマ娘3秒", desc: "前のウマ娘の背後につくと発動。安いPtで確実に速度アップ。", styles: ["all", "nige", "senko", "sashi", "oikomi"] },
+
+  // 🌸 常時確定パッシブ
+  { name: "東京/中山/阪神/京都 レース場◎", cat: "sure", rank: "S", score: 93, effect: "スピード +80 (常時底上げ)", cost: "Pt 90 (神コスパ)", tag: "🔥 常時確定ステ+80", meter: "0m スタート地点", desc: "スタート直後に100%発動。0mからスピード+80が常時乗るため実質ステータス超越。", styles: ["all", "nige", "senko", "sashi", "oikomi"] },
+  { name: "根幹距離◎ / 非根幹距離◎", cat: "sure", rank: "A", score: 86, effect: "スタミナ/スピード +60", cost: "Pt 90 (高コスパ)", tag: "✨ 距離確定パッシブ", meter: "0m スタート地点", desc: "該当コース距離で100%確定発動する優秀なステータス底上げスキル。", styles: ["all", "nige", "senko", "sashi", "oikomi"] },
+  { name: "左回り◎ / 右回り◎", cat: "sure", rank: "A", score: 86, effect: "スピード +60", cost: "Pt 90 (高コスパ)", tag: "✨ 回り確定パッシブ", meter: "0m スタート地点", desc: "旋回方向に応じて0mから常時スピード+60底上げ。", styles: ["all", "nige", "senko", "sashi", "oikomi"] },
+
+  // ⚠️ 罠・注意
+  { name: "紅焔ギア / LP1211-M (注意)", cat: "trap", rank: "C", score: 40, effect: "遅延/無効リスクあり", cost: "Pt無駄 (罠注意)", tag: "⚠️ Cランク/条件限定", meter: "最終コーナー後半", desc: "コースによっては最高速到達後の発動となり、加速度効果が無駄（罠）になるため注意。", styles: ["senko", "sashi", "oikomi"] },
+  { name: "過剰スタミナ回復 (短距離・マイル時)", cat: "trap", rank: "C", score: 35, effect: "スタミナ溢れ無効", cost: "Pt浪費 (罠注意)", tag: "⚠️ 距離不適合", meter: "全区間", desc: "短距離やマイル戦で金の回復スキルを積みすぎると、余剰分が無駄になり攻撃スキルPtが不足。", styles: ["all", "nige", "senko", "sashi", "oikomi"] }
+];
 
 let currentServerMode = "jp";
 let currentLang = "jp";
-let activeEventId = "chanmi";
 let currentCourseKey = "tokyo_2400_turf";
 let currentRunnerPos = 1600;
 let currentSkillCatalogCategory = "all";
 
-let zoomScale = 1.0;
-let panX = 0;
-let panY = 0;
-let is3DMode = true;
-let rotationAngle = 0;
-let pitchAngle = 0.55;
-let isDragging = false;
-let startX = 0;
-let startY = 0;
-
+// DOMロード初期化
 document.addEventListener("DOMContentLoaded", () => {
-  trackRealTimePV();
-  trackAffiliateClicks();
-  autoSelectDefaultEvent();
+  console.log("URA Analyzer Engine Initialized: Clean JRA Style x UMAI Data Integration (Vercel Auto-Deploy Verified)");
   setupEventListeners();
-  setupZoomAndPanListeners();
-  setupCatalogFilterListeners();
-  setupFeedbackModalListeners();
-  setupTeachAiModalListeners();
-  setupUserAiChatListeners();
   updateLanguageUI();
   updateCourseView(currentCourseKey);
-  loadAffiliateConfig();
-  renderLearnedKnowledgeList();
-  window.addEventListener("resize", drawUmaiOvalDiagram);
+  renderAllSkillsCatalog();
+
+  // 💬 多言語リアルタイム翻訳動画チャットの初期化
+  initSubtitlePlayer();
+
+  window.addEventListener("resize", () => {
+    drawCourseCanvas();
+  });
 });
 
-// 🧠 AIに知識・ソースを教え込んで記憶させるモーダルエンジン
-function setupTeachAiModalListeners() {
-  const modal = document.getElementById("teach-ai-modal");
-  const btnOpen = document.getElementById("btn-open-teach-modal");
-  const btnClose = document.getElementById("btn-close-teach");
-  const btnSubmit = document.getElementById("btn-submit-teach");
-  const sentMsg = document.getElementById("teach-sent-msg");
 
-  if (!btnOpen || !modal) return;
 
-  btnOpen.addEventListener("click", () => {
-    modal.classList.add("active");
-    sentMsg.style.display = "none";
-    renderLearnedKnowledgeList();
-  });
 
-  btnClose.addEventListener("click", () => {
-    modal.classList.remove("active");
-  });
-
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) modal.classList.remove("active");
-  });
-
-  btnSubmit.addEventListener("click", () => {
-    const keywords = document.getElementById("teach-keywords").value.trim();
-    const sourceUrl = document.getElementById("teach-source-url").value.trim();
-    const sourceTitle = document.getElementById("teach-source-title").value.trim() || "教え込まれた検証ソース";
-    const knowledgeText = document.getElementById("teach-knowledge-text").value.trim();
-
-    if (!keywords || !knowledgeText) {
-      alert("対象キーワードとAIに覚えさせる解説テキストをご入力ください。");
-      return;
+/* ==========================================================================
+  },
+  {
+    start: 6,
+    end: 10,
+    speaker: "👑 メジロマックイーン (Mejiro McQueen)",
+    text: {
+      ja: "メジロ家の誇りにかけて…あきらめない覚悟、見せていただきましょう。",
+      en: "For the pride of the Mejiro family... Show me your unwavering resolve.",
+      kr: "메지로 가문의 자존심을 걸고... 포기하지 않는 각오를 보여주시죠.",
+      tw: "賭上目白家的榮耀…就讓我見識一下你絕不放棄的決心吧。",
+      fr: "Pour la fierté de la famille Mejiro... Montrez-moi votre détermination inébranlable.",
+      ph: "Para sa karangalan ng pamilyang Mejiro... Ipakita mo sa akin ang iyong matatag na determinasyon."
     }
+  },
+  {
+    start: 10,
+    end: 15,
+    speaker: "🌸 スペシャルウィーク (Special Week)",
+    text: {
+      ja: "お母ちゃん！私、日本一のウマ娘になるって、約束したんです！",
+      en: "Mom! I promised that I would become the number one Horse Girl in Japan!",
+      kr: "엄마! 나, 일본 최고의 우마무스메가 되겠다고 약속했거든요!",
+      tw: "媽媽！我答應過你，我一定要成為日本第一的賽馬娘！",
+      fr: "Maman ! J'ai promis que je deviendrais la fille-cheval numéro un du Japon !",
+      ph: "Nanay! Nangako ako na ako ang magiging number one na Umamusume sa buong Hapon!"
+    }
+  },
+  {
+    start: 15,
+    end: 20,
+    speaker: "💫 サイレンススズカ (Silence Suzuka)",
+    text: {
+      ja: "誰にも追いつけない、あの景色の先へ…誰も見たことのない先頭を走りたい。",
+      en: "To the view ahead where no one can catch up... I want to run in the lead that no one has ever seen.",
+      kr: "누구도 따라잡을 수 없는, 저 풍경 너머로... 아무도 본 적 없는 선두를 달리고 싶어.",
+      tw: "奔向誰也追不上的景色彼方…我想奔跑在誰也未曾見過的的最前線。",
+      fr: "Vers ce paysage où personne ne peut me rattraper... Je veux courir en tête comme personne ne l'a jamais fait.",
+      ph: "Tungo sa tanawin kung saan walang makakahabol... Gusto kong tumakbo sa pangunahin na hindi pa nakikita ng sinoman."
+    }
+  },
+  {
+    start: 20,
+    end: 26,
+    speaker: "🔥 UMAI AIアシスタント (AI Voice)",
+    text: {
+      ja: "【AI補正】2026年9月決定チャンミ(東京1800m)スパート位置1,200m通過！最速加速『王手』発動準備完了！",
+      en: "[AI Auto-Correction] Passing 1,200m spurt mark for Sep 2026 CM! Optimal Accel 'Ote' ready for trigger!",
+      kr: "[AI 자동보정] 2026년 9월 챔미 스퍼트지점 1,200m 통과! 최속 가속 '왕수(王手)' 발동 준비 완료!",
+      tw: "[AI自動校正] 突破2026年9月冠軍會1,200m沖刺點！最快加速『王手』準備發動！",
+      fr: "[Correction AI] Passage du repère de sprint 1 200 m ! Accélération optimale 'Ote' prête à se déclencher !",
+      ph: "[AI Auto-Correction] Lumampas sa 1,200m spurt mark! Ang optimal na Accel 'Ote' ay handa nang mag-trigger!"
+    }
+  }
+];
 
-    const newKnowledge = {
-      id: Date.now(),
-      keywords: keywords.toLowerCase(),
-      title: sourceTitle,
-      url: sourceUrl || "https://x.com/search?q=" + encodeURIComponent(keywords),
-      content: knowledgeText,
-      date: new Date().toLocaleDateString("ja-JP")
-    };
+let currentSubLang = "ja";
+let ytPlayer = null;
+let subtitleSyncTimer = null;
 
-    let list = JSON.parse(localStorage.getItem("ai_taught_knowledge_db") || "[]");
-    list.unshift(newKnowledge);
-    localStorage.setItem("ai_taught_knowledge_db", JSON.stringify(list));
-
-    sentMsg.style.display = "block";
-    document.getElementById("teach-keywords").value = "";
-    document.getElementById("teach-source-url").value = "";
-    document.getElementById("teach-source-title").value = "";
-    document.getElementById("teach-knowledge-text").value = "";
-
-    renderLearnedKnowledgeList();
-
-    setTimeout(() => {
-      modal.classList.remove("active");
-    }, 1800);
+function initSubtitlePlayer() {
+  // 言語ピルボタンイベントの登録
+  const langPills = document.querySelectorAll(".sub-lang-btn");
+  langPills.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      langPills.forEach(b => b.classList.remove("active"));
+      e.target.classList.add("active");
+      currentSubLang = e.target.getAttribute("data-lang");
+      updateSubtitleOverlayDisplay();
+      renderTranscriptList();
+    });
   });
+
+  // タイムコードトランスクリプト初期描画
+  renderTranscriptList();
+
+  // YouTube IFrame APIの動的読み込み
+  if (!window.YT) {
+    const tag = document.createElement("script");
+    tag.src = "https://www.youtube.com/iframe_api";
+    const firstScriptTag = document.getElementsByTagName("script")[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  } else if (window.YT && window.YT.Player) {
+    onYouTubeIframeAPIReady();
+  }
 }
 
-function renderLearnedKnowledgeList() {
-  const container = document.getElementById("learned-knowledge-list");
+// YouTube IFrame API Readyコールバック
+window.onYouTubeIframeAPIReady = function() {
+  ytPlayer = new YT.Player("youtube-player", {
+    videoId: "g_g58U7m_eI", // ウマ娘 公式PV / 関連サンプル動画ID
+    playerVars: {
+      autoplay: 0,
+      controls: 1,
+      modestbranding: 1,
+      rel: 0
+    },
+    events: {
+      onStateChange: onPlayerStateChange
+    }
+  });
+};
+
+// プレイヤー状態変更時の同期タイマー制御
+function onPlayerStateChange(event) {
+  if (event.data === YT.PlayerState.PLAYING) {
+    if (!subtitleSyncTimer) {
+      subtitleSyncTimer = setInterval(syncSubtitlesWithVideo, 200);
+    }
+  } else {
+    if (subtitleSyncTimer) {
+      clearInterval(subtitleSyncTimer);
+      subtitleSyncTimer = null;
+    }
+  }
+}
+
+// 動画の再生時間(currentTime)とテロップ字幕のリアルタイムミリ秒同期
+function syncSubtitlesWithVideo() {
+  if (!ytPlayer || typeof ytPlayer.getCurrentTime !== "function") return;
+  const currentTime = ytPlayer.getCurrentTime();
+
+  // 現在の時間に該当する字幕を検索
+  const sub = sampleSubtitleData.find(item => currentTime >= item.start && currentTime <= item.end);
+
+  const speakerEl = document.getElementById("sub-speaker-name");
+  const textEl = document.getElementById("sub-text-display");
+  const overlayBox = document.getElementById("subtitle-overlay");
+
+  if (sub) {
+    speakerEl.innerText = sub.speaker;
+    textEl.innerText = sub.text[currentSubLang] || sub.text["ja"];
+    overlayBox.style.opacity = "1";
+    overlayBox.style.transform = "translateX(-50%) translateY(0)";
+
+    // トランスクリプトハイライト
+    highlightActiveTranscript(sub.start);
+  } else {
+    // 該当するセリフがない時間帯
+    speakerEl.innerText = "🌐 AI Multi-Lang Subtitle Sync";
+    textEl.innerText = "再生中のセリフを自動検索中… (言語を上部ボタンでいつでも切り替えられます)";
+    overlayBox.style.opacity = "0.85";
+  }
+}
+
+// 言語切替時のオーバーレイ即時更新
+function updateSubtitleOverlayDisplay() {
+  syncSubtitlesWithVideo();
+}
+
+// タイムコード字幕トランスクリプトの描画 ＆ クリックジャンプ機能
+function renderTranscriptList() {
+  const container = document.getElementById("transcript-list");
   if (!container) return;
 
-  let list = JSON.parse(localStorage.getItem("ai_taught_knowledge_db") || "[]");
-  if (list.length === 0) {
-    container.innerHTML = `<span style="color: var(--text-muted);">まだ教え込まれた知識はありません。（デフォルトのJRA/URA知識が適用されます）</span>`;
-    return;
-  }
-
   container.innerHTML = "";
-  list.forEach(item => {
-    const div = document.createElement("div");
-    div.style.background = "#f1f5f9";
-    div.style.padding = "0.4rem 0.6rem";
-    div.style.borderRadius = "4px";
-    div.style.marginBottom = "0.4rem";
-    div.style.borderLeft = "3px solid #0284c7";
 
-    const isX = item.url.includes("x.com") || item.url.includes("twitter");
-    const isYt = item.url.includes("youtube") || item.url.includes("youtu.be");
-    const iconTag = isX ? `<i class="fa-brands fa-x-twitter"></i>` : (isYt ? `<i class="fa-brands fa-youtube" style="color:#cc0000;"></i>` : `<i class="fa-solid fa-link"></i>`);
+  sampleSubtitleData.forEach(sub => {
+    const item = document.createElement("div");
+    item.className = "transcript-item";
+    item.setAttribute("data-start", sub.start);
 
-    div.innerHTML = `
-      <div style="font-weight: 800; color: #0f172a; display: flex; justify-content: space-between;">
-        <span>${iconTag} ${item.title} (${item.keywords})</span>
-        <span style="font-size: 0.68rem; color: #64748b;">${item.date}</span>
+    const min = Math.floor(sub.start / 60);
+    const sec = Math.floor(sub.start % 60).toString().padStart(2, '0');
+    const timeStr = `${min}:${sec}`;
+
+    item.innerHTML = `
+      <div style="display: flex; align-items: center; gap: 0.6rem;">
+        <span class="time-tag">▶ ${timeStr}</span>
+        <strong style="color: #0f172a; font-size: 0.76rem;">${sub.speaker}</strong>
       </div>
-      <div style="font-size: 0.72rem; color: #334155; margin-top: 2px;">${item.content}</div>
-    `;
-    container.appendChild(div);
-  });
-}
-
-// ★ AIコンシェルジュ対話エンジン (教え込まれたソース知識の自動検索・参照・引用吐き出し) ★
-function setupUserAiChatListeners() {
-  const input = document.getElementById("user-ai-input");
-  const btn = document.getElementById("btn-send-user-ai");
-  const logs = document.getElementById("user-ai-chat-logs");
-
-  if (!btn || !input) return;
-
-  btn.addEventListener("click", handleUserAiQuery);
-  input.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") handleUserAiQuery();
-  });
-
-  function handleUserAiQuery() {
-    const q = input.value.trim();
-    if (!q) return;
-
-    const userMsg = document.createElement("div");
-    userMsg.style.background = "#1e293b";
-    userMsg.style.border = "1px solid #334155";
-    userMsg.style.borderRadius = "8px";
-    userMsg.style.padding = "0.6rem 0.8rem";
-    userMsg.style.fontSize = "0.85rem";
-    userMsg.style.marginBottom = "0.6rem";
-    userMsg.style.color = "#f8fafc";
-    const trainerLabel = currentLang === 'fr' ? 'Entraîneur' : (currentLang === 'en' ? 'Trainer' : (currentLang === 'tw' ? '訓練員' : (currentLang === 'kr' ? '트레이너' : 'トレーナー')));
-    userMsg.innerHTML = `👤 <strong>${trainerLabel}:</strong> ${q}`;
-    logs.appendChild(userMsg);
-    input.value = "";
-    logs.scrollTop = logs.scrollHeight;
-
-    setTimeout(() => {
-      const data = courseDatabase[currentCourseKey] || courseDatabase["nakayama_2500_turf"];
-      const cName = data.name[currentLang] || data.name["jp"];
-      let answerText = "";
-
-      const lowerQ = q.toLowerCase();
-
-      // 🧠 教え込まれた知識データベース (`ai_taught_knowledge_db`) のキーワード検索
-      let taughtList = JSON.parse(localStorage.getItem("ai_taught_knowledge_db") || "[]");
-      let matchedTaughtItem = taughtList.find(item => {
-        const kwArr = item.keywords.split(",").map(k => k.trim());
-        return kwArr.some(kw => lowerQ.includes(kw) || kw.includes(lowerQ));
-      });
-
-      let citationHtml = "";
-
-      if (matchedTaughtItem) {
-        // ★ 教え込まれた知識から完璧に回答＆ソース元を吐き出す！
-        answerText = `🧠 <strong>【AI学習済みソースからの回答】</strong><br>${matchedTaughtItem.content}`;
-
-        const isX = matchedTaughtItem.url.includes("x.com") || matchedTaughtItem.url.includes("twitter");
-        const isYt = matchedTaughtItem.url.includes("youtube") || matchedTaughtItem.url.includes("youtu.be");
-        const badgeColor = isX ? "#000000" : (isYt ? "#cc0000" : "#0284c7");
-        const iconTag = isX ? `<i class="fa-brands fa-x-twitter"></i>` : (isYt ? `<i class="fa-brands fa-youtube"></i>` : `<i class="fa-solid fa-link"></i>`);
-
-        citationHtml = `
-          <div style="margin-top: 0.6rem; padding-top: 0.5rem; border-top: 1px dashed #10b981; font-size: 0.74rem; display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center;">
-            <span style="color: #a7f3d0; font-weight: 800;">📌 教え込まれた学習ソース:</span>
-            <a href="${matchedTaughtItem.url}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; background: ${badgeColor}; color: #fff; padding: 2px 8px; border-radius: 4px; font-weight: 800; display: inline-flex; align-items: center; gap: 0.3rem;">
-              ${iconTag} ${matchedTaughtItem.title}
-            </a>
-          </div>
-        `;
-      } else {
-        // 通常の動的検索・生成ロジック
-        const searchQuery = encodeURIComponent(`ウマ娘 ${cName} ${q}`);
-        const xSearchUrl = `https://x.com/search?q=${searchQuery}`;
-        const ytSearchUrl = `https://www.youtube.com/results?search_query=${searchQuery}`;
-
-        if (currentLang === 'fr') {
-          answerText = `🤖 <strong>【Assistant IA - Sources X & YouTube】</strong><br>Pour le parcours "${cName}", les données de test recommandent les compétences au repère (${data.spurtPos}m) !`;
-        } else if (currentLang === 'en') {
-          if (lowerQ.includes("stamina") || lowerQ.includes("heal") || lowerQ.includes("recover")) {
-            answerText = `💧 <strong>【X & YouTube Cited Strategy】</strong><br>Currently selected course "${cName}" distance is ${data.totalDistance}m! Target stamina is minimum 850-1000+ based on community test data.`;
-          } else {
-            answerText = `🤖 <strong>【AI Concierge Citation】</strong><br>Key to victory on "${cName}": Trigger max speed & acceleration skills right at the ${data.spurtPos}m spurt mark!`;
-          }
-        } else {
-          if (lowerQ.includes("スタミナ") || lowerQ.includes("回復") || lowerQ.includes("stamina")) {
-            answerText = `💧 <strong>【X・YouTube検証データ引用アドバイス】</strong><br>現在選択中の「${cName}」は距離 ${data.totalDistance}m です！Xでの有志検証ポストに基づくスタミナ目標は最低850〜1000＋金回復スキルが1〜2つ必須となります！`;
-          } else {
-            answerText = `🤖 <strong>【AIコンシェルジュ (X・YouTube引用データ)】</strong><br>「${cName}」での勝利のコツ：最速スパート位置（${data.spurtPos}m地点）に合わせて最高速度・最高加速スキルを発動させることがポイントです！`;
-          }
-        }
-
-        citationHtml = `
-          <div style="margin-top: 0.6rem; padding-top: 0.5rem; border-top: 1px dashed #10b981; font-size: 0.74rem; display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center;">
-            <span style="color: #a7f3d0; font-weight: 800;">🔗 検証・引用ソース:</span>
-            <a href="${xSearchUrl}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; background: #000; color: #fff; padding: 2px 6px; border-radius: 4px; font-weight: 800; display: inline-flex; align-items: center; gap: 0.2rem;">
-              <i class="fa-brands fa-x-twitter"></i> X検証ポスト検索
-            </a>
-            <a href="${ytSearchUrl}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; background: #cc0000; color: #fff; padding: 2px 6px; border-radius: 4px; font-weight: 800; display: inline-flex; align-items: center; gap: 0.2rem;">
-              <i class="fa-brands fa-youtube"></i> YouTube検証動画検索
-            </a>
-          </div>
-        `;
-      }
-
-      const botMsg = document.createElement("div");
-      botMsg.style.background = "#064e3b";
-      botMsg.style.border = "1px solid #10b981";
-      botMsg.style.borderRadius = "8px";
-      botMsg.style.padding = "0.6rem 0.8rem";
-      botMsg.style.fontSize = "0.85rem";
-      botMsg.style.marginBottom = "0.6rem";
-      botMsg.style.color = "#a7f3d0";
-      botMsg.innerHTML = answerText + citationHtml;
-      logs.appendChild(botMsg);
-      logs.scrollTop = logs.scrollHeight;
-    }, 400);
-  }
-}
-
-function trackRealTimePV() {
-  let pv = parseInt(localStorage.getItem("real_pv_count") || "0") + 1;
-  localStorage.setItem("real_pv_count", pv);
-}
-
-function trackAffiliateClicks() {
-  const affLinks = document.querySelectorAll("a");
-  affLinks.forEach(link => {
-    link.addEventListener("click", () => {
-      let clicks = parseInt(localStorage.getItem("real_affiliate_clicks") || "0") + 1;
-      localStorage.setItem("real_affiliate_clicks", clicks);
-    });
-  });
-}
-
-function setupFeedbackModalListeners() {
-  const modal = document.getElementById("feedback-modal");
-  const btnOpen = document.getElementById("btn-open-feedback");
-  const btnClose = document.getElementById("btn-close-feedback");
-  const btnSubmit = document.getElementById("btn-submit-feedback");
-  const sentMsg = document.getElementById("feedback-sent-msg");
-
-  if (!btnOpen || !modal) return;
-
-  btnOpen.addEventListener("click", () => {
-    modal.classList.add("active");
-    sentMsg.style.display = "none";
-  });
-
-  btnClose.addEventListener("click", () => {
-    modal.classList.remove("active");
-  });
-
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) modal.classList.remove("active");
-  });
-
-  btnSubmit.addEventListener("click", () => {
-    const cat = document.getElementById("fb-category").value;
-    const rawMsg = document.getElementById("fb-message").value;
-
-    if (!rawMsg.trim()) {
-      alert("ご意見内容をご入力ください。 / Please enter message.");
-      return;
-    }
-
-    const sanitizedMsg = sanitizeAndValidateFeedback(rawMsg);
-    if (!sanitizedMsg.isValid) {
-      alert(`⚠️ Security Warning: ${sanitizedMsg.reason}`);
-      return;
-    }
-
-    const newTicket = {
-      date: new Date().toLocaleString("ja-JP"),
-      category: cat,
-      message: sanitizedMsg.cleanText,
-      status: "解析中・AI社員自動対応中"
-    };
-
-    let logs = JSON.parse(localStorage.getItem("real_user_feedbacks") || "[]");
-    logs.unshift(newTicket);
-    localStorage.setItem("real_user_feedbacks", JSON.stringify(logs));
-
-    sentMsg.style.display = "block";
-    document.getElementById("fb-message").value = "";
-
-    setTimeout(() => {
-      modal.classList.remove("active");
-    }, 2000);
-  });
-}
-
-function sanitizeAndValidateFeedback(text) {
-  const cleanText = text.replace(/<script[^>]*>([\s\S]*?)<\/script>/gi, '')
-                        .replace(/<[^>]+>/g, '')
-                        .trim();
-
-  const destructiveKeywords = ["削除して", "消せ", "壊せ", "バグらせ", "delete", "destroy", "drop table", "undefined"];
-  const containsMaliciousIntent = destructiveKeywords.some(kw => text.toLowerCase().includes(kw));
-
-  if (containsMaliciousIntent) {
-    return {
-      isValid: false,
-      reason: "Security Guardrail: Destructive request blocked.",
-      cleanText: ""
-    };
-  }
-
-  return {
-    isValid: true,
-    reason: "",
-    cleanText: cleanText
-  };
-}
-
-function loadAffiliateConfig() {
-  fetch('affiliate_config.json')
-    .then(res => res.json())
-    .then(data => {
-      if (data && data.active_banners) {
-        console.log("🤖 [AI Agent] affiliate_config.json loaded:", data);
-      }
-    })
-    .catch(err => console.log("AI Config active."));
-}
-
-function autoSelectDefaultEvent() {
-  activeEventId = "chanmi";
-  const ev = eventSchedules[activeEventId];
-  currentCourseKey = ev.courseKey;
-  
-  document.getElementById("tab-chanmi").classList.add("active");
-  document.getElementById("tab-loh").classList.remove("active");
-  
-  loadEventCourse(ev.track, ev.distance, ev.courseKey);
-}
-
-function updateLanguageUI() {
-  const dict = i18n[currentLang] || i18n["jp"];
-  
-  document.getElementById("badge-version-mode").innerText = currentServerMode === "jp" ? "🇯🇵 日本版 SERVER MODE" : "🌐 GLOBAL SERVER (@umamusume_eng)";
-  document.getElementById("label-select-course").innerHTML = `<i class="fa-solid fa-map-location-dot"></i> ${dict.selectCourse}`;
-  document.getElementById("label-track").innerText = dict.track;
-  document.getElementById("label-distance").innerText = dict.distance;
-  document.getElementById("label-strategy").innerText = dict.strategy;
-  document.getElementById("label-summary-title").innerHTML = `<i class="fa-solid fa-circle-info"></i> ${dict.summaryTitle}`;
-  document.getElementById("label-straight").innerText = dict.straight;
-  document.getElementById("label-slope-info").innerText = dict.slopeInfo;
-  document.getElementById("label-spurt-info").innerText = dict.spurtInfo;
-  document.getElementById("label-ad-tag").innerText = dict.adTag;
-
-  document.getElementById("header-main-title").innerText = dict.mainTitle;
-  document.getElementById("header-sub-title").innerText = dict.subTitle;
-
-  const aboutTitleEl = document.getElementById("label-about-title");
-  const aboutDescEl = document.getElementById("label-about-desc");
-  if (aboutTitleEl && aboutDescEl) {
-    aboutTitleEl.innerText = dict.aboutTitle;
-    aboutDescEl.innerText = dict.aboutDesc;
-  }
-
-  const umaiTitleEl = document.getElementById("label-umai-credit-title");
-  const umaiDescEl = document.getElementById("label-umai-credit-desc");
-  if (umaiTitleEl && umaiDescEl) {
-    umaiTitleEl.innerHTML = `<i class="fa-solid fa-quote-left"></i> ${dict.umaiCreditTitle}`;
-    umaiDescEl.innerHTML = dict.umaiCreditDesc;
-  }
-
-  document.getElementById("tab-chanmi-title").innerText = eventSchedules.chanmi.name[currentLang] || eventSchedules.chanmi.name["jp"];
-  document.getElementById("tab-loh-title").innerText = eventSchedules.loh.name[currentLang] || eventSchedules.loh.name["jp"];
-
-  const btnFbSpan = document.querySelector("#btn-open-feedback span");
-  if (btnFbSpan) btnFbSpan.innerText = dict.btnFeedback;
-
-  const modalH3 = document.querySelector(".modal-header-title h3");
-  const modalP = document.querySelector(".modal-header-title p");
-  const modalSubmitSpan = document.querySelector("#btn-submit-feedback span");
-  if (modalH3 && modalP && modalSubmitSpan) {
-    modalH3.innerText = dict.modalTitle;
-    modalP.innerText = dict.modalSub;
-    modalSubmitSpan.innerText = dict.modalSubmitBtn;
-  }
-
-  const aiTitleEl = document.getElementById("ai-concierge-title");
-  const aiSubEl = document.getElementById("ai-concierge-sub");
-  const aiInitMsgEl = document.getElementById("ai-concierge-init-msg");
-  const aiInputEl = document.getElementById("user-ai-input");
-  const aiBtnSendEl = document.getElementById("label-btn-send-ai");
-
-  if (aiTitleEl && aiSubEl && aiInitMsgEl && aiInputEl && aiBtnSendEl) {
-    aiTitleEl.innerHTML = `<i class="fa-solid fa-robot"></i> ${dict.aiTitle}`;
-    aiSubEl.innerText = dict.aiSub;
-    aiInitMsgEl.innerHTML = dict.aiInitMsg;
-    aiInputEl.placeholder = dict.aiPlaceholder;
-    aiBtnSendEl.innerText = dict.aiSendBtn;
-  }
-
-  const trackSelect = document.getElementById("select-track");
-  Array.from(trackSelect.options).forEach(opt => {
-    if (dict.optionsTrack && dict.optionsTrack[opt.value]) {
-      opt.text = dict.optionsTrack[opt.value];
-    }
-  });
-
-  const distSelect = document.getElementById("select-distance");
-  Array.from(distSelect.options).forEach(opt => {
-    if (dict.optionsDistance && dict.optionsDistance[opt.value]) {
-      opt.text = dict.optionsDistance[opt.value];
-    }
-  });
-
-  const styleSelect = document.getElementById("select-style");
-  Array.from(styleSelect.options).forEach(opt => {
-    if (dict.optionsStyle && dict.optionsStyle[opt.value]) {
-      opt.text = dict.optionsStyle[opt.value];
-    }
-  });
-
-  document.getElementById("leg-early").innerText = dict.legEarly;
-  document.getElementById("leg-mid").innerText = dict.legMid;
-  document.getElementById("leg-late").innerText = dict.legLate;
-  document.getElementById("leg-slope").innerText = dict.legSlope;
-  document.getElementById("label-slider").innerText = dict.labelSlider;
-
-  document.getElementById("title-god-skills").innerText = dict.titleGodSkills;
-  document.getElementById("title-trap-skills").innerText = dict.titleTrapSkills;
-
-  document.getElementById("title-all-skills-catalog").innerText = dict.titleAllSkillsCatalog;
-}
-
-function setupCatalogFilterListeners() {
-  const btns = document.querySelectorAll(".filter-tab-btn");
-  btns.forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      btns.forEach(b => b.classList.remove("active"));
-      e.target.classList.add("active");
-      currentSkillCatalogCategory = e.target.getAttribute("data-cat");
-      renderAllSkillsCatalog();
-    });
-  });
-}
-
-function renderAllSkillsCatalog() {
-  const catalogContainer = document.getElementById("all-skills-catalog-list");
-  if (!catalogContainer) return;
-
-  const data = courseDatabase[currentCourseKey] || courseDatabase["nakayama_2500_turf"];
-  const list = (data.allSkillsCatalog && data.allSkillsCatalog[currentLang]) ? data.allSkillsCatalog[currentLang] : (data.allSkillsCatalog ? data.allSkillsCatalog["jp"] : []);
-
-  catalogContainer.innerHTML = "";
-
-  const filtered = list.filter(item => {
-    if (currentSkillCatalogCategory === "all") return true;
-    return item.cat === currentSkillCatalogCategory;
-  });
-
-  filtered.forEach(skill => {
-    const card = document.createElement("div");
-    card.className = "jra-skill-item recommended";
-
-    card.innerHTML = `
-      <div style="display: flex; justify-content: space-between;">
-        <span class="jra-skill-name">${skill.name}</span>
-        <span style="font-size: 0.72rem; font-weight: 800; color: #006837; background: #e2e8f0; padding: 2px 6px; border-radius: 4px;">${skill.tag}</span>
-      </div>
-      <div class="jra-skill-desc">${skill.desc}</div>
-      <div style="font-size: 0.75rem; font-weight: 800; color: #d97706;">
-        📍 発動メートル: ${skill.meter}
+      <div style="color: #334155; font-size: 0.78rem; text-align: right; flex: 1; margin-left: 0.5rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+        ${sub.text[currentSubLang] || sub.text["ja"]}
       </div>
     `;
-    catalogContainer.appendChild(card);
+
+    // クリックで動画の時間にジャンプ
+    item.addEventListener("click", () => {
+      if (ytPlayer && typeof ytPlayer.seekTo === "function") {
+        ytPlayer.seekTo(sub.start, true);
+        ytPlayer.playVideo();
+      }
+    });
+
+    container.appendChild(item);
   });
 }
 
-function setupZoomAndPanListeners() {
-  const wrapper = document.getElementById("canvas-wrapper");
-  const btnIn = document.getElementById("btn-zoom-in");
-  const btnOut = document.getElementById("btn-zoom-out");
-  const btnReset = document.getElementById("btn-zoom-reset");
-  const btn3D = document.getElementById("btn-toggle-3d");
-  const btnRotL = document.getElementById("btn-rotate-left");
-  const btnRotR = document.getElementById("btn-rotate-right");
-
-  btnIn.addEventListener("click", () => {
-    zoomScale = Math.min(zoomScale + 0.35, 3.5);
-    drawUmaiOvalDiagram();
-  });
-
-  btnOut.addEventListener("click", () => {
-    zoomScale = Math.max(zoomScale - 0.35, 0.7);
-    drawUmaiOvalDiagram();
-  });
-
-  btnRotL.addEventListener("click", () => {
-    rotationAngle -= Math.PI / 4;
-    drawUmaiOvalDiagram();
-  });
-
-  btnRotR.addEventListener("click", () => {
-    rotationAngle += Math.PI / 4;
-    drawUmaiOvalDiagram();
-  });
-
-  btnReset.addEventListener("click", () => {
-    zoomScale = 1.0;
-    panX = 0;
-    panY = 0;
-    rotationAngle = 0;
-    pitchAngle = 0.55;
-    is3DMode = true;
-    btn3D.classList.add("active");
-    drawUmaiOvalDiagram();
-  });
-
-  btn3D.addEventListener("click", () => {
-    is3DMode = !is3DMode;
-    btn3D.classList.toggle("active", is3DMode);
-    drawUmaiOvalDiagram();
-  });
-
-  wrapper.addEventListener("wheel", (e) => {
-    e.preventDefault();
-    if (e.deltaY < 0) {
-      zoomScale = Math.min(zoomScale + 0.15, 3.5);
+// アクティブなトランスクリプトのハイライト表示
+function highlightActiveTranscript(activeStart) {
+  const items = document.querySelectorAll(".transcript-item");
+  items.forEach(item => {
+    const start = parseFloat(item.getAttribute("data-start"));
+    if (start === activeStart) {
+      item.classList.add("active");
     } else {
-      zoomScale = Math.max(zoomScale - 0.15, 0.7);
+      item.classList.remove("active");
     }
-    drawUmaiOvalDiagram();
-  });
-
-  wrapper.addEventListener("mousedown", (e) => {
-    isDragging = true;
-    startX = e.clientX - panX;
-    startY = e.clientY - panY;
-  });
-
-  window.addEventListener("mousemove", (e) => {
-    if (!isDragging) return;
-    panX = e.clientX - startX;
-    panY = e.clientY - startY;
-    drawUmaiOvalDiagram();
-  });
-
-  window.addEventListener("mouseup", () => {
-    isDragging = false;
   });
 }
 
+
+// イベントリスナー設定
 function setupEventListeners() {
-  const trackSelect = document.getElementById("select-track");
-  const distSelect = document.getElementById("select-distance");
-  const slider = document.getElementById("course-slider");
-  const langSelect = document.getElementById("select-language");
+  // 🧭 メイン機能ナビゲーションタブ切り替え (ALL / 多言語動画Wiki / コースアナライザー)
+  const navTabBtns = document.querySelectorAll(".nav-tab-btn");
+  navTabBtns.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      navTabBtns.forEach(b => b.classList.remove("active"));
+      const targetBtn = e.currentTarget;
+      targetBtn.classList.add("active");
 
-  document.getElementById("tab-chanmi").addEventListener("click", () => {
-    activeEventId = "chanmi";
-    document.getElementById("tab-chanmi").classList.add("active");
-    document.getElementById("tab-loh").classList.remove("active");
-    
-    const ev = eventSchedules.chanmi;
-    loadEventCourse(ev.track, ev.distance, ev.courseKey);
+      const targetView = targetBtn.getAttribute("data-target");
+      const communitySec = document.getElementById("view-section-community");
+      const analyzerSec = document.getElementById("view-section-analyzer");
+
+      if (targetView === "all") {
+        if (communitySec) communitySec.classList.remove("hidden");
+        if (analyzerSec) analyzerSec.classList.remove("hidden");
+      } else if (targetView === "community") {
+        if (communitySec) communitySec.classList.remove("hidden");
+        if (analyzerSec) analyzerSec.classList.add("hidden");
+      } else if (targetView === "analyzer") {
+        if (communitySec) communitySec.classList.add("hidden");
+        if (analyzerSec) analyzerSec.classList.remove("hidden");
+      }
+    });
   });
 
-  document.getElementById("tab-loh").addEventListener("click", () => {
-    activeEventId = "loh";
-    document.getElementById("tab-loh").classList.add("active");
-    document.getElementById("tab-chanmi").classList.remove("active");
-    
-    const ev = eventSchedules.loh;
-    loadEventCourse(ev.track, ev.distance, ev.courseKey);
-  });
-
+  // サーバー切り替え
   document.getElementById("btn-server-jp").addEventListener("click", () => {
+
     currentServerMode = "jp";
     currentLang = "jp";
-    langSelect.value = "jp";
-
+    document.getElementById("select-language").value = "jp";
     document.getElementById("btn-server-jp").classList.add("active");
     document.getElementById("btn-server-global").classList.remove("active");
 
-    autoSelectDefaultEvent();
+    currentCourseKey = "tokyo_2400_turf";
+    updateCourseView("tokyo_2400_turf");
     updateLanguageUI();
   });
 
   document.getElementById("btn-server-global").addEventListener("click", () => {
     currentServerMode = "global";
     currentLang = "en";
-    langSelect.value = "en";
-
+    document.getElementById("select-language").value = "en";
     document.getElementById("btn-server-global").classList.add("active");
     document.getElementById("btn-server-jp").classList.remove("active");
-    
-    autoSelectDefaultEvent();
+
+    currentCourseKey = "hanshin_1600_turf";
+    updateCourseView("hanshin_1600_turf");
     updateLanguageUI();
   });
 
-  langSelect.addEventListener("change", (e) => {
+  // 言語切り替え
+  document.getElementById("select-language").addEventListener("change", (e) => {
     currentLang = e.target.value;
     updateLanguageUI();
     updateCourseView(currentCourseKey);
   });
 
-  function onFilterChange() {
-    const key = `${trackSelect.value}_${distSelect.value.split('_')[0]}_turf`;
-    currentCourseKey = key in courseDatabase ? key : "nakayama_2500_turf";
-    updateCourseView(currentCourseKey);
-  }
-
-  trackSelect.addEventListener("change", onFilterChange);
-  distSelect.addEventListener("change", onFilterChange);
-
-  slider.addEventListener("input", (e) => {
-    currentRunnerPos = parseInt(e.target.value);
-    document.getElementById("distance-val").innerText = currentRunnerPos.toLocaleString();
-    drawUmaiOvalDiagram();
-  });
-}
-
-function loadEventCourse(trackVal, distVal, key) {
-  document.getElementById("select-track").value = trackVal;
-  document.getElementById("select-distance").value = distVal;
-  currentCourseKey = key in courseDatabase ? key : "nakayama_2500_turf";
-  updateCourseView(currentCourseKey);
-}
-
-// 3D 遠近投影 & 高低差標高 リアル計算エンジン
-function getTrackPoint(angle, centerX, centerY, data, width) {
-  const shape = (data.trackShape) ? data.trackShape : { rxScale: 0.38, ryScale: 95, type: "normal" };
-  const radiusX = Math.min(width * shape.rxScale, 330);
-  const radiusY = shape.ryScale;
-
-  const rotAngle = angle + rotationAngle;
-
-  let rawX = Math.cos(rotAngle) * radiusX;
-  let rawY = Math.sin(rotAngle) * radiusY;
-
-  if (shape.type === "tokyo_derby") {
-    if (Math.abs(rawY) < radiusY * 0.75) rawX *= 1.25;
-  } else if (shape.type === "hanshin_outer") {
-    if (rawY < 0) { rawY *= 1.2; rawX *= 0.88; }
-  } else if (shape.type === "kyoto_tenno") {
-    if (rawY < 0) { rawY *= 1.15; rawX *= 1.1; }
-  } else if (shape.type === "nakayama_arima") {
-    rawX *= 0.94;
-    rawY *= 0.94;
-  }
-
-  let elevationZ = 0;
-  const pct = (angle / (Math.PI * 2)) % 1.0;
-  if (data.slopes) {
-    data.slopes.forEach(s => {
-      if (pct >= s.startPct && pct <= s.endPct) {
-        const midPct = (s.startPct + s.endPct) / 2;
-        const distFromMid = 1.0 - Math.abs(pct - midPct) / ((s.endPct - s.startPct) / 2);
-        elevationZ = (s.type === "up" ? 42 : -28) * Math.max(0, distFromMid);
-      }
-    });
-  }
-
-  if (!is3DMode) {
-    return {
-      x: centerX + rawX,
-      y: centerY + rawY - elevationZ * 0.3,
-      z: elevationZ,
-      scale: 1.0
-    };
-  }
-
-  const cosP = Math.cos(pitchAngle);
-  const sinP = Math.sin(pitchAngle);
-
-  const x3d = rawX;
-  const y3d = rawY * cosP - elevationZ * sinP;
-  const z3d = rawY * sinP + elevationZ * cosP;
-
-  const cameraDist = 420;
-  const perspectiveScale = cameraDist / (cameraDist + z3d * 0.7);
-
-  return {
-    x: centerX + x3d * perspectiveScale,
-    y: centerY + y3d * perspectiveScale,
-    z: z3d,
-    scale: perspectiveScale
-  };
-}
-
-function drawStrokedText(ctx, text, x, y, font, fillColor, strokeColor, lineWidth, textAlign) {
-  ctx.save();
-  ctx.font = font;
-  ctx.textAlign = textAlign || "left";
-  ctx.strokeStyle = strokeColor || "#0b0f19";
-  ctx.lineWidth = lineWidth || 3.5;
-  ctx.lineJoin = "round";
-  ctx.strokeText(text, x, y);
-  ctx.fillStyle = fillColor || "#ffffff";
-  ctx.fillText(text, x, y);
-  ctx.restore();
-}
-
-function drawUmaiOvalDiagram() {
-  const canvas = document.getElementById("umai-course-canvas");
-  if (!canvas) return;
-  
-  const ctx = canvas.getContext("2d");
-  const rect = canvas.parentElement.getBoundingClientRect();
-  
-  const dpr = window.devicePixelRatio || 1;
-  canvas.width = rect.width * dpr;
-  canvas.height = 480 * dpr;
-  ctx.scale(dpr, dpr);
-
-  const width = rect.width;
-  const height = 480;
-  const data = courseDatabase[currentCourseKey] || courseDatabase["nakayama_2500_turf"];
-  const totalDist = data.totalDistance;
-
-  const bgGrad = ctx.createLinearGradient(0, 0, 0, height);
-  bgGrad.addColorStop(0, "#0b0f19");
-  bgGrad.addColorStop(1, "#030712");
-  ctx.fillStyle = bgGrad;
-  ctx.fillRect(0, 0, width, height);
-
-  ctx.save();
-
-  ctx.translate(width / 2 + panX, height / 2 + panY);
-  ctx.scale(zoomScale, zoomScale);
-  ctx.translate(-width / 2, -220);
-
-  const centerX = width / 2;
-  const centerY = 220; 
-  const trackWidth = is3DMode ? 44 : 32;
-
-  if (is3DMode) {
-    ctx.save();
-    ctx.beginPath();
-    for (let i = 0; i <= 140; i++) {
-      const angle = (i / 140) * Math.PI * 2;
-      const pt = getTrackPoint(angle, centerX, centerY, data, width);
-      const shadowY = pt.y + 20 * pt.scale;
-      if (i === 0) ctx.moveTo(pt.x, shadowY);
-      else ctx.lineTo(pt.x, shadowY);
-    }
-    ctx.strokeStyle = "rgba(0, 0, 0, 0.6)";
-    ctx.lineWidth = trackWidth + 16;
-    ctx.filter = "blur(10px)";
-    ctx.stroke();
-    ctx.restore();
-
-    drawCustomRealTrackBand3D(ctx, centerX, centerY, data, width, trackWidth + 10, "#022c19", 16);
-    drawCustomRealTrackBand3D(ctx, centerX, centerY, data, width, trackWidth + 4, "#006837", 10);
-  }
-
-  ctx.save();
-  ctx.beginPath();
-  for (let i = 0; i <= 140; i++) {
-    const angle = (i / 140) * Math.PI * 2;
-    const pt = getTrackPoint(angle, centerX, centerY, data, width);
-    if (i === 0) ctx.moveTo(pt.x, pt.y);
-    else ctx.lineTo(pt.x, pt.y);
-  }
-  
-  const innerGrad = ctx.createRadialGradient(centerX, centerY, 10, centerX, centerY, 220);
-  innerGrad.addColorStop(0, "#041d13");
-  innerGrad.addColorStop(0.7, "#022c19");
-  innerGrad.addColorStop(1, "#01120b");
-  ctx.fillStyle = innerGrad;
-  ctx.fill();
-
-  ctx.strokeStyle = "rgba(16, 185, 129, 0.35)";
-  ctx.lineWidth = 2;
-  ctx.stroke();
-  ctx.restore();
-
-  drawCustomRealTrackBand(ctx, centerX, centerY, data, width, trackWidth + 6, "#022c19");
-  drawCustomRealTrackBand(ctx, centerX, centerY, data, width, trackWidth, "#006837");
-
-  drawCustomShapeSegment(ctx, centerX, centerY, data, width, trackWidth, 0, 0.166, "#10b981");
-  drawCustomShapeSegment(ctx, centerX, centerY, data, width, trackWidth, 0.166, 0.666, "#06b6d4");
-  drawCustomShapeSegment(ctx, centerX, centerY, data, width, trackWidth, 0.666, 1.0, "#f59e0b");
-
-  if (data.pacingZone) {
-    drawCustomShapeSegment(ctx, centerX, centerY, data, width, trackWidth + 6, data.pacingZone.startPct, data.pacingZone.endPct, "rgba(168, 85, 247, 0.85)");
+  // 競馬場切り替え
+  document.getElementById("select-track").addEventListener("change", (e) => {
+    const track = e.target.value;
+    const distSelect = document.getElementById("select-distance");
     
-    drawStrokedText(
-      ctx,
-      data.pacingZone.label[currentLang] || data.pacingZone.label["jp"],
-      centerX,
-      centerY + (is3DMode ? 75 : 55),
-      "extrabold 11px Plus Jakarta Sans",
-      "#c084fc",
-      "#000000",
-      4,
-      "center"
-    );
-  }
-
-  if (data.slopes) {
-    data.slopes.forEach(slope => {
-      drawCustomShapeSegment(ctx, centerX, centerY, data, width, trackWidth + 4, slope.startPct, slope.endPct, slope.color);
-    });
-  }
-
-  const spurtPct = data.spurtPos / totalDist;
-  const spurtAngle = spurtPct * Math.PI * 2;
-  const spurtPt = getTrackPoint(spurtAngle, centerX, centerY, data, width);
-
-  const rotSpurtAngle = spurtAngle + rotationAngle;
-  const laserOffset = 26 * spurtPt.scale;
-  const l1x = spurtPt.x + Math.cos(rotSpurtAngle) * laserOffset;
-  const l1y = spurtPt.y + Math.sin(rotSpurtAngle) * laserOffset;
-  const l2x = spurtPt.x - Math.cos(rotSpurtAngle) * (laserOffset * 0.6);
-  const l2y = spurtPt.y - Math.sin(rotSpurtAngle) * (laserOffset * 0.6);
-
-  ctx.beginPath();
-  ctx.strokeStyle = "#ffd700";
-  ctx.lineWidth = 4.5 * spurtPt.scale;
-  ctx.shadowColor = "#ffd700";
-  ctx.shadowBlur = 12;
-  ctx.moveTo(l1x, l1y);
-  ctx.lineTo(l2x, l2y);
-  ctx.stroke();
-  ctx.shadowBlur = 0;
-
-  drawStrokedText(
-    ctx, 
-    "⚡️ LAST SPURT LINE", 
-    spurtPt.x - 20, 
-    spurtPt.y + 24, 
-    "extrabold 11px Plus Jakarta Sans", 
-    "#ffd700", 
-    "#000000", 
-    4, 
-    "right"
-  );
-
-  drawCustomShapeFence(ctx, centerX, centerY, data, width, trackWidth / 2 + 1);
-  drawCustomShapeFence(ctx, centerX, centerY, data, width, -trackWidth / 2 - 1);
-
-  if (data.slopes) {
-    data.slopes.forEach(slope => {
-      const angle = slope.posPercent * Math.PI * 2;
-      const tPt = getTrackPoint(angle, centerX, centerY, data, width);
-
-      const rotAngle = angle + rotationAngle;
-      const dist = (slope.offsetDist || 45) * tPt.scale;
-      let sx = tPt.x + Math.cos(rotAngle) * dist;
-      let sy = tPt.y + Math.sin(rotAngle) * dist;
-
-      if (slope.labelDir === "top-right-far") {
-        sx += 40 * tPt.scale;
-        sy -= 20 * tPt.scale;
-      } else if (slope.labelDir === "bottom-left") {
-        sx -= 20 * tPt.scale;
-        sy += 15 * tPt.scale;
-      }
-
-      ctx.beginPath();
-      ctx.strokeStyle = slope.color;
-      ctx.lineWidth = 2 * tPt.scale;
-      ctx.setLineDash([3, 3]);
-      ctx.moveTo(tPt.x, tPt.y);
-      ctx.lineTo(sx, sy);
-      ctx.stroke();
-      ctx.setLineDash([]);
-
-      ctx.fillStyle = slope.color;
-      ctx.beginPath();
-      ctx.arc(sx, sy, 7 * tPt.scale, 0, Math.PI * 2);
-      ctx.fill();
-
-      const labelText = slope.label[currentLang] || slope.label["jp"];
-      drawStrokedText(
-        ctx,
-        ` ${labelText}`,
-        sx + (sx > centerX ? 12 : -12),
-        sy + 4,
-        "bold 12px Plus Jakarta Sans",
-        "#ffffff",
-        "#000000",
-        4,
-        sx > centerX ? "left" : "right"
-      );
-    });
-  }
-
-  const pinsList = (data.skillPins && data.skillPins[currentLang]) ? data.skillPins[currentLang] : (data.skillPins["jp"] || []);
-  pinsList.forEach((pin) => {
-    const angle = pin.posPercent * Math.PI * 2;
-    const tPt = getTrackPoint(angle, centerX, centerY, data, width);
-
-    const rotAngle = angle + rotationAngle;
-    const dist = (pin.offsetDist || 35) * tPt.scale;
-    let px = tPt.x + Math.cos(rotAngle) * dist;
-    let py = tPt.y + Math.sin(rotAngle) * dist;
-
-    if (pin.labelDir === "right-down") {
-      px += 25 * tPt.scale;
-      py += 22 * tPt.scale;
-    } else if (pin.labelDir === "right-up") {
-      px += 25 * tPt.scale;
-      py -= 20 * tPt.scale;
-    } else if (pin.labelDir === "top-left-far") {
-      px -= 45 * tPt.scale;
-      py -= 22 * tPt.scale;
-    } else if (pin.labelDir === "top-left") {
-      px -= 25 * tPt.scale;
-      py -= 15 * tPt.scale;
-    } else if (pin.labelDir === "right") {
-      px += 25 * tPt.scale;
+    if (track === "tokyo") {
+      distSelect.innerHTML = `
+        <option value="2400_turf" selected>芝 2400m (日本ダービー / Leo Cup)</option>
+        <option value="1800_turf">芝 1800m (2026年9月決定チャンミ・毎日王冠)</option>
+      `;
+      currentCourseKey = "tokyo_2400_turf";
+    } else if (track === "nakayama") {
+      distSelect.innerHTML = `<option value="2500_turf" selected>芝 2500m (有馬記念)</option>`;
+      currentCourseKey = "nakayama_2500_turf";
+    } else if (track === "hanshin") {
+      distSelect.innerHTML = `<option value="1600_turf" selected>芝 1600m (マイルCS)</option>`;
+      currentCourseKey = "hanshin_1600_turf";
+    } else if (track === "kyoto") {
+      distSelect.innerHTML = `<option value="3200_turf" selected>芝 3200m (天皇賞春)</option>`;
+      currentCourseKey = "kyoto_3200_turf";
     }
-
-    ctx.beginPath();
-    ctx.strokeStyle = pin.color;
-    ctx.lineWidth = 1.8 * tPt.scale;
-    ctx.moveTo(tPt.x, tPt.y);
-    ctx.lineTo(px, py);
-    ctx.stroke();
-
-    ctx.fillStyle = pin.color;
-    ctx.beginPath();
-    ctx.arc(px, py, 6 * tPt.scale, 0, Math.PI * 2);
-    ctx.fill();
-
-    drawStrokedText(
-      ctx,
-      ` ${pin.label}`,
-      px + (px > centerX ? 10 : -10),
-      py + 4,
-      "bold 11px Plus Jakarta Sans",
-      "#ffffff",
-      "#000000",
-      3.8,
-      px > centerX ? "left" : "right"
-    );
+    updateCourseView(currentCourseKey);
   });
 
-  const runnerPercent = currentRunnerPos / totalDist;
-  const runnerAngle = runnerPercent * Math.PI * 2;
-  const rPt = getTrackPoint(runnerAngle, centerX, centerY, data, width);
+  document.getElementById("select-distance").addEventListener("change", (e) => {
+    const track = document.getElementById("select-track").value;
+    const dist = e.target.value;
+    currentCourseKey = `${track}_${dist}`;
+    updateCourseView(currentCourseKey);
+  });
 
-  let currentSlopeStatus = currentLang === "jp" ? "🟢 平坦" : "🟢 Flat";
-  if (data.slopes) {
-    data.slopes.forEach(s => {
-      if (runnerPercent >= s.startPct && runnerPercent <= s.endPct) {
-        currentSlopeStatus = (s.label[currentLang] || s.label["jp"]);
-      }
-    });
-  }
+// 超強力・厳格な脚質判定エンジン (名前に基づく自動判定フォールバック付き)
+function filterSkillsByStyle(skillList, selectedStyle) {
+  if (!skillList || !Array.isArray(skillList)) return [];
+  if (!selectedStyle || selectedStyle === "all") return skillList;
 
-  if (data.pacingZone && runnerPercent >= data.pacingZone.startPct && runnerPercent <= data.pacingZone.endPct) {
-    currentSlopeStatus += currentLang === "jp" ? " (⚠️ ペースダウン注意)" : " (⚠️ Pace Down)";
-  }
+  return skillList.filter(skill => {
+    if (!skill) return false;
 
-  ctx.beginPath();
-  ctx.arc(rPt.x, rPt.y, 11 * rPt.scale, 0, Math.PI * 2);
-  ctx.fillStyle = "#ffffff";
-  ctx.fill();
-  ctx.strokeStyle = "#10b981";
-  ctx.lineWidth = 4 * rPt.scale;
-  ctx.shadowColor = "#10b981";
-  ctx.shadowBlur = 10;
-  ctx.stroke();
-  ctx.shadowBlur = 0;
-
-  const hudY = rPt.y > centerY ? rPt.y + 24 * rPt.scale : rPt.y - 20 * rPt.scale;
-  drawStrokedText(
-    ctx,
-    `🏃‍♂️ ${currentRunnerPos}m [${currentSlopeStatus}]`,
-    rPt.x,
-    hudY,
-    "bold 12px Plus Jakarta Sans",
-    "#ffffff",
-    "#000000",
-    4.5,
-    "center"
-  );
-
-  ctx.restore();
-
-  drawDiscordEmbedSlopeProfile(ctx, width, height, totalDist);
-}
-
-function drawCustomRealTrackBand(ctx, cx, cy, data, width, strokeW, colorHex) {
-  const steps = 140;
-  ctx.beginPath();
-  for (let i = 0; i <= steps; i++) {
-    const angle = (i / steps) * Math.PI * 2;
-    const pt = getTrackPoint(angle, cx, cy, data, width);
-    if (i === 0) ctx.moveTo(pt.x, pt.y);
-    else ctx.lineTo(pt.x, pt.y);
-  }
-  ctx.strokeStyle = colorHex;
-  ctx.lineWidth = strokeW;
-  ctx.lineCap = "round";
-  ctx.stroke();
-}
-
-function drawCustomRealTrackBand3D(ctx, cx, cy, data, width, strokeW, colorHex, depthY) {
-  const steps = 140;
-  ctx.beginPath();
-  for (let i = 0; i <= steps; i++) {
-    const angle = (i / steps) * Math.PI * 2;
-    const pt = getTrackPoint(angle, cx, cy, data, width);
-    const wallY = pt.y + depthY * pt.scale;
-    if (i === 0) ctx.moveTo(pt.x, wallY);
-    else ctx.lineTo(pt.x, wallY);
-  }
-  ctx.strokeStyle = colorHex;
-  ctx.lineWidth = strokeW;
-  ctx.lineCap = "round";
-  ctx.stroke();
-}
-
-function drawCustomShapeSegment(ctx, cx, cy, data, width, strokeW, startPct, endPct, colorHex) {
-  const steps = 60;
-  ctx.beginPath();
-  for (let i = 0; i <= steps; i++) {
-    const pct = startPct + (i / steps) * (endPct - startPct);
-    const angle = pct * Math.PI * 2;
-    const pt = getTrackPoint(angle, cx, cy, data, width);
-    if (i === 0) ctx.moveTo(pt.x, pt.y);
-    else ctx.lineTo(pt.x, pt.y);
-  }
-  ctx.strokeStyle = colorHex;
-  ctx.lineWidth = strokeW * (is3DMode ? 1.1 : 1.0);
-  ctx.stroke();
-}
-
-function drawCustomShapeFence(ctx, cx, cy, data, width, offset) {
-  const steps = 120;
-  ctx.beginPath();
-  for (let i = 0; i <= steps; i++) {
-    const angle = (i / steps) * Math.PI * 2;
-    const pt = getTrackPoint(angle, cx, cy, data, width);
-    const rotAngle = angle + rotationAngle;
-    const fx = pt.x + Math.cos(rotAngle) * offset * pt.scale;
-    const fy = pt.y + Math.sin(rotAngle) * offset * pt.scale;
-    if (i === 0) ctx.moveTo(fx, fy);
-    else ctx.lineTo(fx, fy);
-  }
-  ctx.strokeStyle = "rgba(255, 255, 255, 0.85)";
-  ctx.lineWidth = 2.5;
-  ctx.stroke();
-}
-
-function drawDiscordEmbedSlopeProfile(ctx, width, height, totalDist) {
-  const padLeft = 45;
-  const padRight = 45;
-  const chartW = width - padLeft - padRight;
-  const graphYBase = height - 20;
-
-  drawStrokedText(
-    ctx,
-    currentLang === "jp" ? "📊 X (旧Twitter) ＆ YouTube 引用データ: 高低差プロファイル" : "📊 Cited Data Profile (X & YouTube)",
-    padLeft,
-    graphYBase - 42,
-    "bold 11px Plus Jakarta Sans",
-    "#38bdf8",
-    "#000000",
-    3,
-    "left"
-  );
-
-  ctx.save();
-  ctx.beginPath();
-  ctx.moveTo(padLeft, graphYBase);
-
-  for (let x = 0; x <= chartW; x += 5) {
-    const dist = (x / chartW) * totalDist;
-    let slopeH = 0;
-    if (dist >= 2150 && dist <= 2450) {
-      slopeH = Math.sin(((dist - 2150) / 300) * Math.PI) * 28;
-    } else if (dist >= 600 && dist <= 1100) {
-      slopeH = -Math.sin(((dist - 600) / 500) * Math.PI) * 10;
+    // 1. スキルオブジェクトに styles 配列が明示されている場合
+    if (skill.styles && Array.isArray(skill.styles) && skill.styles.length > 0) {
+      if (skill.styles.includes("all")) return true;
+      return skill.styles.includes(selectedStyle);
     }
 
-    const cx = padLeft + x;
-    const cy = graphYBase - slopeH;
-    ctx.lineTo(cx, cy);
-  }
+    // 2. styles が未定義の場合のスキルの名前・タグ・説明文に基づく超強力フォールバック判定
+    const textContent = `${skill.name || ""} ${skill.tag || ""} ${skill.cost || ""} ${skill.desc || ""}`;
 
-  ctx.lineTo(padLeft + chartW, graphYBase);
-  ctx.closePath();
-
-  const fillGrad = ctx.createLinearGradient(0, graphYBase - 35, 0, graphYBase);
-  fillGrad.addColorStop(0, "rgba(56, 189, 248, 0.45)");
-  fillGrad.addColorStop(1, "rgba(56, 189, 248, 0.0)");
-  ctx.fillStyle = fillGrad;
-  ctx.fill();
-
-  ctx.beginPath();
-  ctx.strokeStyle = "#38bdf8";
-  ctx.lineWidth = 2.5;
-
-  for (let x = 0; x <= chartW; x += 5) {
-    const dist = (x / chartW) * totalDist;
-    let slopeH = 0;
-    if (dist >= 2150 && dist <= 2450) {
-      slopeH = Math.sin(((dist - 2150) / 300) * Math.PI) * 28;
-    } else if (dist >= 600 && dist <= 1100) {
-      slopeH = -Math.sin(((dist - 600) / 500) * Math.PI) * 10;
+    // 追込専用スキルの厳格判定 (先行・逃げ・差し選択時は100%除外)
+    if (textContent.includes("迫る影") || textContent.includes("直線一気") || textContent.includes("追込必須") || textContent.includes("追込最速")) {
+      return selectedStyle === "oikomi";
     }
 
-    const cx = padLeft + x;
-    const cy = graphYBase - slopeH;
-    if (x === 0) ctx.moveTo(cx, cy);
-    else ctx.lineTo(cx, cy);
-  }
-  ctx.stroke();
+    // 逃げ専用スキルの厳格判定
+    if (textContent.includes("アングリング") || textContent.includes("逃げ1位") || textContent.includes("逃げ必須")) {
+      return selectedStyle === "nige";
+    }
 
-  ctx.restore();
+    // 先行専用スキルの厳格判定
+    if (textContent.includes("つぼみ") || textContent.includes("先行必須") || textContent.includes("先行最速")) {
+      return selectedStyle === "senko";
+    }
 
-  drawStrokedText(ctx, "0m (START)", padLeft, graphYBase + 12, "bold 10px Plus Jakarta Sans", "#94a3b8", "#000000", 3, "center");
-  drawStrokedText(ctx, `${Math.floor(totalDist / 2)}m`, padLeft + chartW / 2, graphYBase + 12, "bold 10px Plus Jakarta Sans", "#94a3b8", "#000000", 3, "center");
-  drawStrokedText(ctx, `${totalDist}m (GOAL)`, padLeft + chartW, graphYBase + 12, "bold 10px Plus Jakarta Sans", "#94a3b8", "#000000", 3, "center");
+    // 差し専用スキルの厳格判定
+    if (textContent.includes("彼方、その先へ") || textContent.includes("差し必須") || textContent.includes("差し最速")) {
+      return selectedStyle === "sashi";
+    }
+
+    return true;
+  });
 }
 
-function updateCourseView(courseKey) {
-  const data = courseDatabase[courseKey] || courseDatabase["nakayama_2500_turf"];
-  const titleName = (data.name && data.name[currentLang]) ? data.name[currentLang] : (data.name["jp"] || data.name["en"]);
+// 脚質選択イベント
+const styleSelect = document.getElementById("select-style");
+if (styleSelect) {
+  styleSelect.addEventListener("change", () => {
+    updateCourseView(currentCourseKey);
+    renderAllSkillsCatalog();
+  });
+}
 
-  document.getElementById("course-title-display").innerHTML = `<i class="fa-solid fa-route" style="color: var(--jra-official-green);"></i> ${titleName}`;
-  document.getElementById("info-straight").innerText = typeof data.straightLen === 'object' ? data.straightLen[currentLang] || data.straightLen['jp'] : data.straightLen;
-  document.getElementById("info-slope").innerText = typeof data.slope === 'object' ? data.slope[currentLang] || data.slope['jp'] : data.slope;
-  document.getElementById("info-spurt").innerText = `${data.spurtPos}m`;
+  // イベントタブ
+  document.getElementById("tab-chanmi").addEventListener("click", () => {
+    document.getElementById("tab-chanmi").classList.add("active");
+    document.getElementById("tab-loh").classList.remove("active");
+    document.getElementById("select-track").value = "tokyo";
+    document.getElementById("select-distance").value = "2400_turf";
+    currentCourseKey = "tokyo_2400_turf";
+    updateCourseView("tokyo_2400_turf");
+  });
 
-  const condContainer = document.getElementById("race-conditions-container");
-  if (condContainer && data.conditions) {
-    condContainer.innerHTML = `
-      <span class="condition-badge cond-weather">${data.conditions.weather[currentLang] || data.conditions.weather['jp']}</span>
-      <span class="condition-badge cond-ground">${data.conditions.ground[currentLang] || data.conditions.ground['jp']}</span>
-      <span class="condition-badge cond-track">${data.conditions.trackType[currentLang] || data.conditions.trackType['jp']}</span>
-      <span class="condition-badge cond-season">${data.conditions.season[currentLang] || data.conditions.season['jp']}</span>
+  document.getElementById("tab-loh").addEventListener("click", () => {
+    document.getElementById("tab-loh").classList.add("active");
+    document.getElementById("tab-chanmi").classList.remove("active");
+    document.getElementById("select-track").value = "tokyo";
+    const distSelect = document.getElementById("select-distance");
+    distSelect.innerHTML = `
+      <option value="2400_turf">芝 2400m (日本ダービー / Leo Cup)</option>
+      <option value="1800_turf" selected>芝 1800m (2026年9月決定チャンミ・毎日王冠)</option>
     `;
-  }
+    currentCourseKey = "tokyo_1800_turf";
+    updateCourseView("tokyo_1800_turf");
+  });
+
+  // リアルタイムスライダー
+  const slider = document.getElementById("course-slider");
+  slider.addEventListener("input", (e) => {
+    currentRunnerPos = parseInt(e.target.value, 10);
+    document.getElementById("distance-val").innerText = currentRunnerPos.toLocaleString();
+    drawCourseCanvas();
+  });
+
+  // カタログフィルター
+  const filterBtns = document.querySelectorAll(".filter-tab");
+  filterBtns.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      filterBtns.forEach(b => b.classList.remove("active"));
+      e.target.classList.add("active");
+      currentSkillCatalogCategory = e.target.getAttribute("data-cat");
+      renderAllSkillsCatalog();
+    });
+  });
+
+  // AIチャット質問
+  document.getElementById("btn-send-user-ai").addEventListener("click", () => {
+    const input = document.getElementById("user-ai-input");
+    const q = input.value.trim();
+    if (!q) return;
+
+    const chatLogs = document.getElementById("user-ai-chat-logs");
+    const userMsg = document.createElement("div");
+    userMsg.className = "chat-msg user-msg";
+    userMsg.style.margin = "0.5rem 0";
+    userMsg.style.textAlign = "right";
+    userMsg.innerHTML = `👤 <strong>トレーナー:</strong> ${q}`;
+    chatLogs.appendChild(userMsg);
+
+    input.value = "";
+
+    setTimeout(() => {
+      const data = courseDatabase[currentCourseKey];
+      const aiMsg = document.createElement("div");
+      aiMsg.className = "chat-msg ai-msg";
+      aiMsg.style.margin = "0.5rem 0";
+      aiMsg.style.color = "#006837";
+      aiMsg.innerHTML = `🤖 <strong>AIアシスタント:</strong> 『${data.name.jp}』での回答: 最速スパートは<strong>${data.spurtPos}m地点</strong>です。先行・差し脚質なら金加速スキル『王手』や『アングリング×スキーミング』を最優先で獲得しましょう！`;
+      chatLogs.appendChild(aiMsg);
+      chatLogs.scrollTop = chatLogs.scrollHeight;
+    }, 400);
+  });
+
+  // モーダルリスナー
+  document.getElementById("btn-open-teach-modal").addEventListener("click", () => {
+    document.getElementById("teach-ai-modal").classList.add("active");
+  });
+  document.getElementById("btn-close-teach").addEventListener("click", () => {
+    document.getElementById("teach-ai-modal").classList.remove("active");
+  });
+
+  document.getElementById("btn-open-feedback").addEventListener("click", () => {
+    document.getElementById("feedback-modal").classList.add("active");
+  });
+  document.getElementById("btn-close-feedback").addEventListener("click", () => {
+    document.getElementById("feedback-modal").classList.remove("active");
+  });
+}
+
+// 多言語UI一括更新
+function updateLanguageUI() {
+  const dict = i18n[currentLang] || i18n["jp"];
+  document.getElementById("header-subtitle").innerText = dict.headerSub;
+  document.getElementById("jra-ticker").innerText = dict.ticker;
+  document.getElementById("disclaimer-title").innerText = dict.aboutTitle;
+  document.getElementById("disclaimer-text").innerText = dict.aboutDesc;
+  document.getElementById("label-select-course").innerText = dict.selectCourse;
+  document.getElementById("label-track").innerText = dict.trackLabel;
+  document.getElementById("label-distance").innerText = dict.distanceLabel;
+  document.getElementById("label-spec-title").innerText = dict.specTitle;
+  document.getElementById("label-straight").innerText = dict.straightLabel;
+  document.getElementById("label-slope").innerText = dict.slopeLabel;
+  document.getElementById("label-spurt").innerText = dict.spurtLabel;
+  document.getElementById("label-btn-feedback").innerText = dict.btnFeedback;
+}
+
+// コース表示更新
+function updateCourseView(key) {
+  const data = courseDatabase[key] || courseDatabase["tokyo_2400_turf"];
+  
+  const titleName = data.name[currentLang] || data.name["jp"];
+  document.getElementById("course-title-display").innerHTML = `<i class="fa-solid fa-route"></i> ${titleName}`;
+  document.getElementById("info-straight").innerText = data.straightLen[currentLang] || data.straightLen["jp"];
+  document.getElementById("info-slope").innerText = data.slope[currentLang] || data.slope["jp"];
+  document.getElementById("info-spurt").innerText = `${data.spurtPos}m地点`;
 
   const slider = document.getElementById("course-slider");
   slider.max = data.totalDistance;
@@ -1650,45 +678,742 @@ function updateCourseView(courseKey) {
   currentRunnerPos = data.spurtPos;
   document.getElementById("distance-val").innerText = data.spurtPos.toLocaleString();
 
-  drawUmaiOvalDiagram();
+  // 推奨有効スキル描画 (脚質選択フィルタリング適用)
+  const styleSelect = document.getElementById("select-style");
+  const selectedStyle = styleSelect ? styleSelect.value : "all";
 
   const recList = document.getElementById("recommended-skills-list");
-  recList.innerHTML = "";
-  const recSkillsList = (data.recommendedSkills && data.recommendedSkills[currentLang]) ? data.recommendedSkills[currentLang] : (data.recommendedSkills["jp"] || []);
-  recSkillsList.forEach(skill => {
-    const card = document.createElement("div");
-    card.className = "jra-skill-item recommended";
-    card.innerHTML = `
-      <div style="display: flex; justify-content: space-between; align-items: center;">
-        <span class="jra-skill-name">${skill.name}</span>
-        <span style="font-size: 0.7rem; font-weight: 800; color: #006837; background: #dcfce7; padding: 2px 6px; border-radius: 4px;">${skill.tag}</span>
-      </div>
-      <div class="jra-skill-desc">${skill.desc}</div>
-      <div style="font-size: 0.75rem; font-weight: 800; color: #d97706;">
-        📍 発動距離: ${skill.triggerMeter || skill.trigger}
-      </div>
-    `;
-    recList.appendChild(card);
-  });
+  if (recList) {
+    recList.innerHTML = "";
+    const filteredRec = filterSkillsByStyle(data.recommendedSkills, selectedStyle);
+    filteredRec.forEach(skill => {
+      const card = document.createElement("div");
+      card.className = "skill-item-card";
+      card.style.marginBottom = "0.6rem";
+      card.innerHTML = `
+        <div class="skill-title-row">
+          <strong>${skill.name}</strong>
+          <span class="tag-badge">${skill.tag}</span>
+        </div>
+        <div class="skill-desc-text">${skill.desc}</div>
+        <div class="skill-meter-text">📍 発動指定: ${skill.trigger}</div>
+      `;
+      recList.appendChild(card);
+    });
+  }
 
+  // 罠スキル描画 (脚質選択フィルタリング適用)
   const trapList = document.getElementById("trap-skills-list");
-  trapList.innerHTML = "";
-  const trapSkillsList = (data.trapSkills && data.trapSkills[currentLang]) ? data.trapSkills[currentLang] : (data.trapSkills["jp"] || []);
-  trapSkillsList.forEach(skill => {
-    const card = document.createElement("div");
-    card.className = "jra-skill-item trap";
-    card.innerHTML = `
-      <div style="display: flex; justify-content: space-between; align-items: center;">
-        <span class="jra-skill-name">${skill.name}</span>
-        <span style="font-size: 0.7rem; font-weight: 800; color: #ef4444; background: #ffe4e6; padding: 2px 6px; border-radius: 4px;">${skill.tag}</span>
-      </div>
-      <div class="jra-skill-desc">${skill.desc}</div>
-      <div style="font-size: 0.75rem; font-weight: 800; color: #ef4444;">
-        ❌ 発動情報: ${skill.triggerMeter || skill.trigger}
-      </div>
-    `;
-    trapList.appendChild(card);
-  });
+  if (trapList) {
+    trapList.innerHTML = "";
+    const filteredTrap = filterSkillsByStyle(data.trapSkills, selectedStyle);
+    filteredTrap.forEach(skill => {
+      const card = document.createElement("div");
+      card.className = "skill-item-card";
+      card.style.marginBottom = "0.6rem";
+      card.innerHTML = `
+        <div class="skill-title-row">
+          <strong>${skill.name}</strong>
+          <span class="tag-badge">${skill.tag}</span>
+        </div>
+        <div class="skill-desc-text">${skill.desc}</div>
+        <div class="skill-meter-text" style="color: #ef4444;">❌ 注意: ${skill.trigger}</div>
+      `;
+      trapList.appendChild(card);
+    });
+  }
 
   renderAllSkillsCatalog();
+  drawCourseCanvas();
 }
+
+// 50選マスターカタログ描画
+function renderAllSkillsCatalog() {
+  const container = document.getElementById("all-skills-catalog-list");
+  if (!container) return;
+
+  const styleSelect = document.getElementById("select-style");
+  const selectedStyle = styleSelect ? styleSelect.value : "all";
+
+  // バッジ表示テキストの更新
+  const styleBadge = document.getElementById("current-style-badge");
+  if (styleBadge) {
+    const styleTextMap = {
+      "all": "🌟 全脚質を表示 (ALL)",
+      "nige": "🏃‍♂️ 逃げ適合スキルのみ表示中",
+      "senko": "🐎 先行適合スキルのみ表示中",
+      "sashi": "🏇 差し適合スキルのみ表示中",
+      "oikomi": "🔥 追込適合スキルのみ表示中"
+    };
+    styleBadge.innerText = styleTextMap[selectedStyle] || styleTextMap["all"];
+  }
+
+  let list = [...masterSkillsCatalog];
+  
+  // カテゴリ（属性）絞り込み
+  if (currentSkillCatalogCategory !== "all") {
+    list = list.filter(s => s.cat === currentSkillCatalogCategory);
+  }
+
+  // 脚質（逃げ/先行/差し/追込）絞り込み連動 (共通ヘルパー使用)
+  list = filterSkillsByStyle(list, selectedStyle);
+
+  list.sort((a, b) => b.score - a.score);
+
+  container.innerHTML = "";
+
+  list.forEach((skill, idx) => {
+    const card = document.createElement("div");
+    card.className = "catalog-item-card";
+    card.style.borderLeft = idx === 0 ? "5px solid #10b981" : (skill.rank === "S" ? "4px solid #059669" : "3px solid #cbd5e1");
+
+    const starRating = skill.rank === "S" ? "★★★★★ (5.0)" : (skill.rank === "A" ? "★★★★☆ (4.2)" : "★★★☆☆ (3.2)");
+
+    card.innerHTML = `
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.4rem;">
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <span style="font-size: 0.78rem; font-weight: 900; background: #dcfce7; color: #059669; padding: 2px 8px; border-radius: 4px; border: 1px solid #059669;">
+            有力 ${idx + 1}位 【${skill.rank}ランク】
+          </span>
+          <strong style="font-size: 1rem; font-weight: 900; color: #0f172a;">${skill.name}</strong>
+        </div>
+        <span style="font-size: 0.72rem; font-weight: 800; color: #006837; background: #dcfce7; padding: 2px 6px; border-radius: 4px;">${skill.tag}</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin: 0.5rem 0; background: #f8fafc; padding: 0.5rem 0.8rem; border-radius: 6px; border: 1px solid #e2e8f0;">
+        <div>
+          <div style="display: flex; justify-content: space-between; font-size: 0.74rem; font-weight: 800; color: #0f172a; margin-bottom: 3px;">
+            <span>🎯 コース有効度:</span>
+            <strong style="color: #059669;">${skill.score}点 / 100点</strong>
+          </div>
+          <div style="width: 100%; background: #e2e8f0; height: 6px; border-radius: 3px; overflow: hidden;">
+            <div style="width: ${skill.score}%; background: linear-gradient(90deg, #10b981, #059669); height: 100%;"></div>
+          </div>
+        </div>
+
+        <div>
+          <div style="display: flex; justify-content: space-between; font-size: 0.74rem; font-weight: 800; color: #0f172a; margin-bottom: 3px;">
+            <span>💎 Ptコスパ評価:</span>
+            <strong style="color: #d97706;">${starRating}</strong>
+          </div>
+          <div style="font-size: 0.7rem; color: #64748b; font-weight: 700;">${skill.cost} (${skill.effect})</div>
+        </div>
+      </div>
+
+      <div style="font-size: 0.8rem; color: #334155; margin-bottom: 0.3rem;">${skill.desc}</div>
+      <div style="font-size: 0.74rem; font-weight: 800; color: #d97706;">📍 発動指定メートル: ${skill.meter}</div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+// 2D コースキャンバス描画エンジン (完璧中央フィット・絶対崩れ防止)
+function drawCourseCanvas() {
+  const canvas = document.getElementById("umai-course-canvas");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  const wrapper = canvas.parentElement;
+  
+  const containerWidth = wrapper ? wrapper.clientWidth : 700;
+  canvas.width = Math.max(containerWidth, 320);
+  canvas.height = 360;
+  
+  const width = canvas.width;
+  const height = canvas.height;
+  const data = courseDatabase[currentCourseKey] || courseDatabase["tokyo_2400_turf"];
+
+  // 背景
+  ctx.fillStyle = "#0f172a";
+  ctx.fillRect(0, 0, width, height);
+
+  const cx = width / 2;
+  const cy = height / 2;
+  // 左右均等で画面いっぱいに広がる最適アスペクト計算
+  const rx = Math.min(width * 0.42, 420);
+  const ry = Math.min(height * 0.36, 130);
+
+  // トラック外枠のグリッド装飾
+  ctx.strokeStyle = "rgba(255, 255, 255, 0.05)";
+  ctx.lineWidth = 1;
+  for (let i = 0; i < width; i += 40) {
+    ctx.beginPath();
+    ctx.moveTo(i, 0);
+    ctx.lineTo(i, height);
+    ctx.stroke();
+  }
+
+  // トラック影
+  ctx.beginPath();
+  ctx.ellipse(cx, cy + 4, rx, ry, 0, 0, Math.PI * 2);
+  ctx.strokeStyle = "rgba(0, 0, 0, 0.4)";
+  ctx.lineWidth = 32;
+  ctx.stroke();
+
+  // 芝コーストラック本体
+  ctx.beginPath();
+  ctx.ellipse(cx, cy, rx, ry, 0, 0, Math.PI * 2);
+  ctx.strokeStyle = "#006837";
+  ctx.lineWidth = 28;
+  ctx.stroke();
+
+  // センターレーン白線
+  ctx.beginPath();
+  ctx.ellipse(cx, cy, rx, ry, 0, 0, Math.PI * 2);
+  ctx.strokeStyle = "rgba(255, 255, 255, 0.5)";
+  ctx.lineWidth = 2;
+  ctx.setLineDash([8, 6]);
+  ctx.stroke();
+  ctx.setLineDash([]); // リセット
+
+  // 最速スパート区間強調 (オレンジ〜レッドのネオグラデーション)
+  ctx.beginPath();
+  ctx.ellipse(cx, cy, rx, ry, 0, Math.PI * 0.8, Math.PI * 1.8);
+  ctx.strokeStyle = "#f59e0b";
+  ctx.lineWidth = 10;
+  ctx.stroke();
+
+  // ランナー位置計算
+  const runnerAngle = (currentRunnerPos / data.totalDistance) * Math.PI * 2;
+  const px = cx + Math.cos(runnerAngle) * rx;
+  const py = cy + Math.sin(runnerAngle) * ry;
+
+  // スパート開始位置マーク
+  const spurtAngle = (data.spurtPos / data.totalDistance) * Math.PI * 2;
+  const sx = cx + Math.cos(spurtAngle) * rx;
+  const sy = cy + Math.sin(spurtAngle) * ry;
+
+  ctx.beginPath();
+  ctx.arc(sx, sy, 7, 0, Math.PI * 2);
+  ctx.fillStyle = "#f59e0b";
+  ctx.fill();
+  ctx.strokeStyle = "#ffffff";
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  // ランナー位置ピン
+  ctx.beginPath();
+  ctx.arc(px, py, 11, 0, Math.PI * 2);
+  ctx.fillStyle = "#0284c7";
+  ctx.fill();
+  ctx.strokeStyle = "#ffffff";
+  ctx.lineWidth = 3;
+  ctx.stroke();
+
+  // テキスト表示 (中央揃え)
+  ctx.fillStyle = "#ffffff";
+  ctx.font = "900 14px Plus Jakarta Sans";
+  ctx.textAlign = "center";
+  ctx.fillText(`📍 現在位置: ${currentRunnerPos}m / ${data.totalDistance}m`, cx, cy - 12);
+  ctx.fillStyle = "#f59e0b";
+  ctx.font = "800 12px Plus Jakarta Sans";
+  ctx.fillText(`⚡️ 最速スパート推奨: ${data.spurtPos}m地点`, cx, cy + 16);
+}
+
+/* ==========================================================================
+   🔄 因子ループ（相性ループ）自動選出エンジン & データベース
+   ========================================================================== */
+const factorUmaDatabase = [
+  {
+    id: "oguri_cap",
+    name: { jp: "オグリキャップ", en: "Oguri Cap" },
+    icon: "🐎",
+    route: "classic",
+    g1Races: ["皐月賞", "日本ダービー", "有馬記念", "マイルCS", "安田記念", "ジャパンC", "宝塚記念"],
+    compatBase: { "tamamo_cross": 45, "symboli_rudolf": 38, "tokai_teio": 35, "super_creek": 40, "inari_one": 42, "gold_ship": 36, "mejiro_mcqueen": 37, "vodka": 38, "daiwa_scarlet": 35, "kitasan_black": 36 }
+  },
+  {
+    id: "tamamo_cross",
+    name: { jp: "タマモクロス", en: "Tamamo Cross" },
+    icon: "⚡️",
+    route: "classic",
+    g1Races: ["天皇賞春", "天皇賞秋", "宝塚記念", "有馬記念", "ジャパンC"],
+    compatBase: { "oguri_cap": 45, "super_creek": 42, "inari_one": 40, "symboli_rudolf": 38, "gold_ship": 38, "mejiro_mcqueen": 40, "satono_diamond": 35 }
+  },
+  {
+    id: "symboli_rudolf",
+    name: { jp: "シンボリルドルフ", en: "Symboli Rudolf" },
+    icon: "👑",
+    route: "classic",
+    g1Races: ["皐月賞", "日本ダービー", "菊花賞", "天皇賞春", "ジャパンC", "有馬記念"],
+    compatBase: { "tokai_teio": 50, "oguri_cap": 38, "tamamo_cross": 38, "gold_ship": 40, "mejiro_mcqueen": 42, "kitasan_black": 40 }
+  },
+  {
+    id: "tokai_teio",
+    name: { jp: "トウカイテイオー", en: "Tokai Teio" },
+    icon: "✨",
+    route: "classic",
+    g1Races: ["皐月賞", "日本ダービー", "ジャパンC", "有馬記念"],
+    compatBase: { "symboli_rudolf": 50, "mejiro_mcqueen": 45, "oguri_cap": 35 }
+  },
+  {
+    id: "gold_ship",
+    name: { jp: "ゴールドシップ", en: "Gold Ship" },
+    icon: "⚓️",
+    route: "classic",
+    g1Races: ["皐月賞", "菊花賞", "宝塚記念", "有馬記念", "天皇賞春"],
+    compatBase: { "mejiro_mcqueen": 48, "symboli_rudolf": 40, "oguri_cap": 36, "tamamo_cross": 38, "kitasan_black": 42, "satono_diamond": 40 }
+  },
+  {
+    id: "mejiro_mcqueen",
+    name: { jp: "メジロマックイーン", en: "Mejiro McQueen" },
+    icon: "🔱",
+    route: "classic",
+    g1Races: ["菊花賞", "天皇賞春", "宝塚記念", "阪神大賞典", "有馬記念"],
+    compatBase: { "gold_ship": 48, "tokai_teio": 45, "symboli_rudolf": 42, "oguri_cap": 37, "tamamo_cross": 40 }
+  },
+  {
+    id: "kitasan_black",
+    name: { jp: "キタサンブラック", en: "Kitasan Black" },
+    icon: "🔥",
+    route: "classic",
+    g1Races: ["菊花賞", "天皇賞春", "ジャパンC", "有馬記念", "大阪杯", "天皇賞秋"],
+    compatBase: { "satono_diamond": 48, "gold_ship": 42, "symboli_rudolf": 40, "oguri_cap": 36 }
+  },
+  {
+    id: "satono_diamond",
+    name: { jp: "サトノダイヤモンド", en: "Satono Diamond" },
+    icon: "💎",
+    route: "classic",
+    g1Races: ["菊花賞", "有馬記念", "阪神大賞典", "天皇賞春"],
+    compatBase: { "kitasan_black": 48, "gold_ship": 40, "mejiro_mcqueen": 38, "symboli_rudolf": 38 }
+  },
+  {
+    id: "vodka",
+    name: { jp: "ウオッカ", en: "Vodka" },
+    icon: "🥃",
+    route: "mile",
+    g1Races: ["日本ダービー", "安田記念", "ヴィクトリアマイル", "天皇賞秋", "ジャパンC"],
+    compatBase: { "daiwa_scarlet": 50, "oguri_cap": 38, "el_condor_pasa": 38, "grass_wonder": 37 }
+  },
+  {
+    id: "daiwa_scarlet",
+    name: { jp: "ダイワスカーレット", en: "Daiwa Scarlet" },
+    icon: "🎀",
+    route: "mile",
+    g1Races: ["桜花賞", "秋華賞", "エリザベス女王杯", "有馬記念", "大阪杯"],
+    compatBase: { "vodka": 50, "oguri_cap": 35 }
+  },
+  {
+    id: "grass_wonder",
+    name: { jp: "グラスワンダー", en: "Grass Wonder" },
+    icon: "🍃",
+    route: "classic",
+    g1Races: ["朝日杯FS", "有馬記念", "宝塚記念", "安田記念"],
+    compatBase: { "special_week": 48, "el_condor_pasa": 45, "seiun_sky": 42, "oguri_cap": 38, "vodka": 37 }
+  },
+  {
+    id: "el_condor_pasa",
+    name: { jp: "エルコンドルパサー", en: "El Condor Pasa" },
+    icon: "🦅",
+    route: "mile",
+    g1Races: ["NHKマイルC", "ジャパンC", "宝塚記念", "安田記念"],
+    compatBase: { "grass_wonder": 45, "special_week": 45, "seiun_sky": 40, "oguri_cap": 38, "smart_falcon": 35 }
+  },
+  {
+    id: "special_week",
+    name: { jp: "スペシャルウィーク", en: "Special Week" },
+    icon: "🌸",
+    route: "classic",
+    g1Races: ["日本ダービー", "天皇賞春", "天皇賞秋", "ジャパンC"],
+    compatBase: { "grass_wonder": 48, "el_condor_pasa": 45, "seiun_sky": 44 }
+  },
+  {
+    id: "seiun_sky",
+    name: { jp: "セイウンスカイ", en: "Seiun Sky" },
+    icon: "☁️",
+    route: "classic",
+    g1Races: ["皐月賞", "菊花賞", "有馬記念"],
+    compatBase: { "special_week": 44, "grass_wonder": 42, "el_condor_pasa": 40 }
+  },
+  {
+    id: "smart_falcon",
+    name: { jp: "スマートファルコン", en: "Smart Falcon" },
+    icon: "⭐",
+    route: "dirt",
+    g1Races: ["JBCクラシック", "東京大賞典", "帝王賞", "川崎記念", "フェブラリーS"],
+    compatBase: { "copano_rickey": 48, "el_condor_pasa": 35 }
+  },
+  {
+    id: "copano_rickey",
+    name: { jp: "コパノリッキー", en: "Copano Rickey" },
+    icon: "☯️",
+    route: "dirt",
+    g1Races: ["フェブラリーS", "かしわ記念", "JBCクラシック", "帝王賞", "東京大賞典"],
+    compatBase: { "smart_falcon": 48 }
+  }
+];
+
+// 2キャラ間の相性ポイントを計算
+function getFactorCompatibility(umaA, umaB) {
+  if (!umaA || !umaB) return 0;
+  if (umaA.id === umaB.id) return 0;
+
+  let baseScore = 22; // デフォルト基本相性
+  if (umaA.compatBase && umaA.compatBase[umaB.id]) {
+    baseScore = umaA.compatBase[umaB.id];
+  } else if (umaB.compatBase && umaB.compatBase[umaA.id]) {
+    baseScore = umaB.compatBase[umaA.id];
+  }
+
+  // 共通G1出走勝率ボーナス
+  const commonG1 = umaA.g1Races.filter(race => umaB.g1Races.includes(race));
+  const raceBonus = commonG1.length * 4;
+
+  return baseScore + raceBonus;
+}
+
+// 因子ループ試算エンジン
+function calculateFactorLoops(loopType = 3, axisCharId = "auto", routeFilter = "all") {
+  let candidateList = factorUmaDatabase;
+  if (routeFilter !== "all") {
+    candidateList = factorUmaDatabase.filter(u => u.route === routeFilter);
+    if (candidateList.length < loopType) {
+      candidateList = factorUmaDatabase; // 数が不足の場合は全キャラフォールバック
+    }
+  }
+
+  const results = [];
+
+  if (parseInt(loopType) === 3) {
+    // 3個体ループ (A -> B -> C -> A)
+    for (let i = 0; i < candidateList.length; i++) {
+      const A = candidateList[i];
+      if (axisCharId !== "auto" && A.id !== axisCharId) continue;
+
+      for (let j = 0; j < candidateList.length; j++) {
+        if (i === j) continue;
+        const B = candidateList[j];
+
+        for (let k = 0; k < candidateList.length; k++) {
+          if (i === k || j === k) continue;
+          const C = candidateList[k];
+
+          const scoreAB = getFactorCompatibility(A, B);
+          const scoreBC = getFactorCompatibility(B, C);
+          const scoreCA = getFactorCompatibility(C, A);
+          const totalScore = scoreAB + scoreBC + scoreCA;
+          const avgScore = Math.round(totalScore / 3);
+
+          const commonRaces = A.g1Races.filter(r => B.g1Races.includes(r) && C.g1Races.includes(r));
+
+          results.push({
+            loopType: 3,
+            members: [A, B, C],
+            scores: [scoreAB, scoreBC, scoreCA],
+            totalScore,
+            avgScore,
+            commonRaces
+          });
+        }
+      }
+    }
+  } else if (parseInt(loopType) === 4) {
+    // 4個体ループ (A -> B -> C -> D -> A)
+    for (let i = 0; i < candidateList.length; i++) {
+      const A = candidateList[i];
+      if (axisCharId !== "auto" && A.id !== axisCharId) continue;
+
+      for (let j = 0; j < candidateList.length; j++) {
+        if (i === j) continue;
+        const B = candidateList[j];
+
+        for (let k = 0; k < candidateList.length; k++) {
+          if (i === k || j === k) continue;
+          const C = candidateList[k];
+
+          for (let l = 0; l < candidateList.length; l++) {
+            if (i === l || j === l || k === l) continue;
+            const D = candidateList[l];
+
+            const scoreAB = getFactorCompatibility(A, B);
+            const scoreBC = getFactorCompatibility(B, C);
+            const scoreCD = getFactorCompatibility(C, D);
+            const scoreDA = getFactorCompatibility(D, A);
+            const totalScore = scoreAB + scoreBC + scoreCD + scoreDA;
+            const avgScore = Math.round(totalScore / 4);
+
+            const commonRaces = A.g1Races.filter(r => B.g1Races.includes(r) && C.g1Races.includes(r) && D.g1Races.includes(r));
+
+            results.push({
+              loopType: 4,
+              members: [A, B, C, D],
+              scores: [scoreAB, scoreBC, scoreCD, scoreDA],
+              totalScore,
+              avgScore,
+              commonRaces
+            });
+          }
+        }
+      }
+    }
+  } else if (parseInt(loopType) === 2) {
+    // 2個体交互ループ (A ⇄ B)
+    for (let i = 0; i < candidateList.length; i++) {
+      const A = candidateList[i];
+      if (axisCharId !== "auto" && A.id !== axisCharId) continue;
+
+      for (let j = 0; j < candidateList.length; j++) {
+        if (i === j) continue;
+        const B = candidateList[j];
+
+        const scoreAB = getFactorCompatibility(A, B);
+        const totalScore = scoreAB * 2;
+        const avgScore = scoreAB;
+        const commonRaces = A.g1Races.filter(r => B.g1Races.includes(r));
+
+        results.push({
+          loopType: 2,
+          members: [A, B],
+          scores: [scoreAB, scoreAB],
+          totalScore,
+          avgScore,
+          commonRaces
+        });
+      }
+    }
+  }
+
+  // スコア順ソート
+  results.sort((a, b) => b.totalScore - a.totalScore);
+
+  // 重複ループのユニーク抽出
+  const uniqueResults = [];
+  const seenKeys = new Set();
+
+  for (const res of results) {
+    const sortedIds = res.members.map(m => m.id).sort().join("-");
+    if (!seenKeys.has(sortedIds)) {
+      seenKeys.add(sortedIds);
+      uniqueResults.push(res);
+    }
+    if (uniqueResults.length >= 6) break;
+  }
+
+  return uniqueResults;
+}
+
+// 育成本体ドロップダウン初期化
+function initFactorUmaSelect() {
+  const select = document.getElementById("factor-target-body-select");
+  if (!select) return;
+
+  select.innerHTML = "";
+  factorUmaDatabase.forEach(uma => {
+    const opt = document.createElement("option");
+    opt.value = uma.id;
+    opt.textContent = `${uma.icon} ${uma.name.jp}`;
+    select.appendChild(opt);
+  });
+}
+
+// コース・脚質に対応する「推奨継承固有(親)」の判定
+function getRecommendedParentInherent(courseKey, style) {
+  const map = {
+    "tokyo_2400_turf": {
+      nige: [{ id: "seiun_sky", skillName: "アングリング×スキーミング", desc: "終盤コーナー1位で100%最速加速！" }],
+      senko: [{ id: "oguri_cap", skillName: "勝利の鼓動 / 王手", desc: "終盤開始コーナーで爆発的加速！" }, { id: "grass_wonder", skillName: "精神一到", desc: "差し・先行終盤で強力加速。" }],
+      sashi: [{ id: "oguri_cap", skillName: "勝利の鼓動 / 王手", desc: "終盤コーナー最速発動！" }, { id: "special_week", skillName: "シューティングスター", desc: "終盤直線で追撃加速。" }],
+      oikomi: [{ id: "gold_ship", skillName: "不屈の心 / 迫る影", desc: "ロングスパート効果。" }, { id: "tamamo_cross", skillName: "白い稲妻", desc: "直線で鋭い伸び。" }]
+    },
+    "tokyo_1800_turf": {
+      nige: [{ id: "seiun_sky", skillName: "アングリング×スキーミング", desc: "1,200m地点で最速加速！" }],
+      senko: [{ id: "oguri_cap", skillName: "王手 / 勝利の鼓動", desc: "2026年9月チャンミ最速加速。" }],
+      sashi: [{ id: "oguri_cap", skillName: "王手 / 勝利の鼓動", desc: "終盤開始直後に加速。" }],
+      oikomi: [{ id: "tamamo_cross", skillName: "白い稲妻", desc: "中盤〜終盤で位置上げ。" }]
+    },
+    "nakayama_2500_turf": {
+      nige: [{ id: "seiun_sky", skillName: "アングリング×スキーミング", desc: "有馬記念向正面終盤コーナー発動。" }],
+      senko: [{ id: "symboli_rudolf", skillName: "汝、皇帝の神威を見よ", desc: "終盤3人抜きで確定凄まじい効果。" }],
+      sashi: [{ id: "symboli_rudolf", skillName: "汝、皇帝の神威を見よ", desc: "有馬終盤の差し定番！" }],
+      oikomi: [{ id: "gold_ship", skillName: "迫る影 / 不屈の心", desc: "有馬2500m向正面直線で最速着火！" }]
+    }
+  };
+
+  const defaultRec = [{ id: "symboli_rudolf", skillName: "汝、皇帝の神威を見よ", desc: "終盤で圧倒的速度を発揮。" }, { id: "oguri_cap", skillName: "勝利の鼓動", desc: "残り200mで確実に伸びる。" }];
+
+  if (map[courseKey] && map[courseKey][style]) {
+    return map[courseKey][style];
+  }
+  return defaultRec;
+}
+
+// 因子3ステップ診断＆選出エンジン
+function renderFactorLoopResults() {
+  const targetBodyId = document.getElementById("factor-target-body-select")?.value || "oguri_cap";
+  const courseKey = document.getElementById("factor-target-course-select")?.value || "tokyo_2400_turf";
+  const style = document.getElementById("factor-target-style-select")?.value || "senko";
+  const loopType = document.getElementById("factor-loop-type-select")?.value || "3";
+  const container = document.getElementById("factor-loop-result-container");
+
+  if (!container) return;
+
+  const targetBody = factorUmaDatabase.find(u => u.id === targetBodyId) || factorUmaDatabase[0];
+  const recParents = getRecommendedParentInherent(courseKey, style);
+
+  // 軸キャラ(本体)の最高相性ループを計算
+  const results = calculateFactorLoops(loopType, targetBodyId, "all");
+
+  if (results.length === 0) {
+    container.innerHTML = `<div style="padding: 1rem; text-align: center; color: #64748b;">試算条件に合う組み合わせが見つかりませんでした。</div>`;
+    return;
+  }
+
+  const best = results[0];
+
+  // 親継承固有カードHTML
+  const parentSkillsHtml = recParents.map(p => {
+    const parentUma = factorUmaDatabase.find(u => u.id === p.id) || { icon: "🐎", name: { jp: p.id } };
+    return `
+      <div style="background: white; border: 1.5px solid #059669; border-radius: 8px; padding: 0.6rem 0.8rem; display: flex; align-items: center; justify-content: space-between; margin-top: 0.4rem;">
+        <div>
+          <strong style="font-size: 0.85rem; color: #0f172a;">${parentUma.icon} ${parentUma.name.jp} 固有【${p.skillName}】</strong>
+          <span style="display: block; font-size: 0.75rem; color: #475569;">${p.desc}</span>
+        </div>
+        <span style="background: #dcfce7; color: #15803d; font-size: 0.7rem; font-weight: 900; padding: 2px 8px; border-radius: 12px; white-space: nowrap;">親として継承推奨★</span>
+      </div>
+    `;
+  }).join("");
+
+  // 祖父母・循環図HTML
+  let loopVisualHtml = "";
+  if (best.loopType === 3) {
+    loopVisualHtml = `
+      <div style="display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; gap: 0.6rem; background: #f8fafc; padding: 1rem; border-radius: 10px; border: 1.5px dashed #cbd5e1; margin: 1rem 0;">
+        <div style="text-align: center; background: white; padding: 0.5rem 0.9rem; border-radius: 8px; border: 2px solid #059669; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+          <div style="font-size: 1.3rem;">${best.members[0].icon}</div>
+          <strong style="font-size: 0.85rem; display: block;">${best.members[0].name.jp}</strong>
+          <span style="font-size: 0.68rem; color: #059669; font-weight: 800;">(育成本体)</span>
+        </div>
+        <div style="text-align: center; color: #059669;">
+          <i class="fa-solid fa-arrow-right"></i>
+          <span style="font-size: 0.68rem; font-weight: 800; display: block;">${best.scores[0]} pt</span>
+        </div>
+        <div style="text-align: center; background: white; padding: 0.5rem 0.9rem; border-radius: 8px; border: 2px solid #0284c7; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+          <div style="font-size: 1.3rem;">${best.members[1].icon}</div>
+          <strong style="font-size: 0.85rem; display: block;">${best.members[1].name.jp}</strong>
+          <span style="font-size: 0.68rem; color: #0284c7; font-weight: 800;">(高相性親/祖)</span>
+        </div>
+        <div style="text-align: center; color: #0284c7;">
+          <i class="fa-solid fa-arrow-right"></i>
+          <span style="font-size: 0.68rem; font-weight: 800; display: block;">${best.scores[1]} pt</span>
+        </div>
+        <div style="text-align: center; background: white; padding: 0.5rem 0.9rem; border-radius: 8px; border: 2px solid #7c3aed; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+          <div style="font-size: 1.3rem;">${best.members[2].icon}</div>
+          <strong style="font-size: 0.85rem; display: block;">${best.members[2].name.jp}</strong>
+          <span style="font-size: 0.68rem; color: #7c3aed; font-weight: 800;">(高相性祖父母)</span>
+        </div>
+        <div style="text-align: center; color: #7c3aed;">
+          <i class="fa-solid fa-rotate-right"></i>
+          <span style="font-size: 0.68rem; font-weight: 800; display: block;">${best.scores[2]} pt (◎循環)</span>
+        </div>
+      </div>
+    `;
+  } else {
+    loopVisualHtml = `
+      <div style="display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; gap: 0.5rem; background: #f8fafc; padding: 1rem; border-radius: 10px; border: 1.5px dashed #cbd5e1; margin: 1rem 0;">
+        ${best.members.map((m, idx) => `
+          <div style="text-align: center; background: white; padding: 0.5rem; border-radius: 6px; border: 1.5px solid #059669;">
+            <div style="font-size: 1.2rem;">${m.icon}</div>
+            <strong style="font-size: 0.8rem; display: block;">${m.name.jp}</strong>
+          </div>
+          ${idx < best.members.length - 1 ? `<i class="fa-solid fa-arrow-right" style="color: #059669;"></i>` : `<i class="fa-solid fa-arrows-rotate" style="color: #0284c7;"></i>`}
+        `).join("")}
+      </div>
+    `;
+  }
+
+  // UMAIカスタム所持スキル連携HTML
+  const isCustom = document.getElementById("factor-umai-import-select")?.value === "custom";
+  const customSkillsVal = document.getElementById("input-custom-skills")?.value.trim() || "";
+  let customSkillsHtml = "";
+
+  if (isCustom && customSkillsVal) {
+    const skillsList = customSkillsVal.split(/[,、\s]+/).filter(Boolean);
+    customSkillsHtml = `
+      <div style="margin-top: 0.8rem; background: #e0f2fe; padding: 0.8rem; border-radius: 8px; border: 1px solid #7dd3fc; font-size: 0.8rem; color: #0369a1;">
+        <strong><i class="fa-solid fa-cloud-arrow-down"></i> UMAI連動 連携された手持ち個体の所持白スキル・因子:</strong>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.3rem;">
+          ${skillsList.map(s => `<span style="background: white; border: 1px solid #38bdf8; color: #0284c7; padding: 2px 8px; border-radius: 4px; font-weight: 800;">✨ ${s} (継承確率UP)</span>`).join(" ")}
+        </div>
+      </div>
+    `;
+  }
+
+  container.innerHTML = `
+    <div style="background: white; border-radius: 12px; border: 2px solid #059669; padding: 1.2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+      
+      <!-- STEP 2: 推奨親固有結果 -->
+      <div style="margin-bottom: 1.2rem;">
+        <h4 style="font-size: 0.9rem; color: #059669; font-weight: 900; margin-bottom: 0.4rem;">
+          <i class="fa-solid fa-star"></i> STEP 2: 【${targetBody.name.jp}】に継承させるべき最高相性・最速発動の親固有スキル
+        </h4>
+        ${parentSkillsHtml}
+      </div>
+
+      <!-- STEP 3: 相性最適化祖父母＆因子ループ -->
+      <div>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <h4 style="font-size: 0.9rem; color: #0284c7; font-weight: 900;">
+            <i class="fa-solid fa-rotate"></i> STEP 3: 相性◎（二重丸）を確定させる最適因子ループ選出結果
+          </h4>
+          <span style="font-size: 0.85rem; font-weight: 900; color: #059669; background: #dcfce7; padding: 2px 10px; border-radius: 12px; border: 1px solid #86efac;">
+            平均相性: ${best.avgScore} pt (◎二重丸確定)
+          </span>
+        </div>
+
+        ${loopVisualHtml}
+
+        <div style="background: #f0fdf4; padding: 0.8rem; border-radius: 8px; border: 1px solid #bbf7d0; font-size: 0.8rem; color: #166534;">
+          <strong>🏆 共通出走ローテーション (二重丸相性ボーナス獲得重賞):</strong>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.3rem;">
+            ${best.commonRaces.map(r => `<span style="background: white; border: 1px solid #86efac; padding: 2px 6px; border-radius: 4px; font-weight: 700;">${r}</span>`).join(" ")}
+          </div>
+        </div>
+
+        ${customSkillsHtml}
+      </div>
+
+    </div>
+  `;
+}
+
+// イベントリスナーのセットアップ
+document.addEventListener("DOMContentLoaded", () => {
+  initFactorUmaSelect();
+  renderFactorLoopResults();
+
+  // UMAI個体連携切替イベント
+  document.getElementById("factor-umai-import-select")?.addEventListener("change", (e) => {
+    const customBox = document.getElementById("umai-custom-input-box");
+    if (customBox) {
+      customBox.style.display = e.target.value === "custom" ? "block" : "none";
+    }
+    renderFactorLoopResults();
+  });
+
+  document.getElementById("input-custom-skills")?.addEventListener("input", () => {
+    renderFactorLoopResults();
+  });
+
+  document.getElementById("btn-calc-factor-loop")?.addEventListener("click", () => {
+    renderFactorLoopResults();
+  });
+
+  document.getElementById("factor-target-body-select")?.addEventListener("change", () => {
+    renderFactorLoopResults();
+  });
+
+  document.getElementById("factor-target-course-select")?.addEventListener("change", () => {
+    renderFactorLoopResults();
+  });
+
+  document.getElementById("factor-target-style-select")?.addEventListener("change", () => {
+    renderFactorLoopResults();
+  });
+
+  document.getElementById("factor-loop-type-select")?.addEventListener("change", () => {
+    renderFactorLoopResults();
+  });
+});
+
+

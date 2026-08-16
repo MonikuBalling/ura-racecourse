@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://monikuballing.github.io/ura-racecourse/sitemap.xml

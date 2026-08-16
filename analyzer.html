@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<!-- FORCE_VERCEL_REDEPLOY_TIMESTAMP_20260816_144600 -->
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universal Racing Analyzer (URA) | JRA公式スタイル ウマ娘コース解析ポータル</title>
+  <meta name="description" content="JRA公式コース規格およびUMAI検証データを完全流用！ウマ娘の2026年9月チャンミ(東京1800m)や日本ダービー(東京2400m)等のスパート位置・有効スキルを100点評価で完全可視化するクリーンなJRA風アナライザー。">
+  
+  <!-- キャッシュ破棄＆レスポンシブ (Vercel Reconnected Auto Build 20260816) -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <script>
+    // ブラウザキャッシュ強制フラッシュ
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(regs => regs.forEach(r => r.unregister()));
+    }
+  </script>
+
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css?v=20260816_CATALOG_STYLE_BADGE_SYNC_V9999">
+  <link rel="stylesheet" href="factor-loop/factor_style.css">
+</head>
+<body>
+
+  <!-- URA公式スタイル スッキリ爽やかヘッダー -->
+  <header class="jra-header">
+    <div class="jra-header-inner">
+      <div class="jra-brand">
+        <div class="jra-logo-badge" style="background: #059669; font-weight: 900; font-size: 1.1rem; letter-spacing: 1px;">URA</div>
+        <div class="jra-title-group">
+          <h1>URA×UMAI Course Analyzer</h1>
+          <p id="header-subtitle">ウマ娘 プリティーダービー 公式規格 ＆ UMAIデータ連携コースアナライザー</p>
+        </div>
+      </div>
+
+      <div class="jra-controls" style="display: flex; gap: 0.8rem; align-items: center;">
+        <!-- 🔄 独立した因子ループ＆相性個体選出Toolへの遷移ボタン -->
+        <a href="factor-loop/index.html" class="btn-primary" style="background: linear-gradient(135deg, #059669, #0284c7); text-decoration: none; font-size: 0.82rem; padding: 7px 16px; border-radius: 20px; white-space: nowrap; font-weight: 800; box-shadow: 0 2px 8px rgba(5, 150, 105, 0.3);">
+          <i class="fa-solid fa-arrows-spin"></i> 🔄 因子ループ ＆ 個体選出Toolへ
+        </a>
+
+        <!-- 🌐 独立した多言語コミュニティ＆AI Wikiへの遷移ボタン -->
+        <a href="community.html" class="btn-primary" style="background: #0284c7; text-decoration: none; font-size: 0.8rem; padding: 6px 14px; border-radius: 20px; white-space: nowrap;">
+          <i class="fa-solid fa-earth-americas"></i> 🌐 多言語動画コミュニティ ＆ AI Wikiへ
+        </a>
+
+        <div class="server-toggle">
+          <button class="server-btn active" id="btn-server-jp">🇯🇵 日本版 (JP 2026)</button>
+          <button class="server-btn" id="btn-server-global">🌐 Global (EN/EU)</button>
+        </div>
+
+        <select id="select-language" class="lang-select">
+          <option value="jp" selected>🇯🇵 日本語</option>
+          <option value="en">🇺🇸 English</option>
+          <option value="fr">🇫🇷 Français</option>
+          <option value="tw">🇹🇼 繁體中文</option>
+          <option value="kr">🇰🇷 한국어</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- URA NEWS チッカー -->
+  <div class="news-bar">
+    <span class="news-tag" style="background: #059669; font-weight: 900;">URA NEWS</span>
+    <div class="news-ticker" id="jra-ticker">
+      【2026年9月決定チャンミ対応】東京 芝 1800m (毎日王冠) コースデータ＆有力スキル評価エンジンを同期適用しました。
+    </div>
+  </div>
+
+  <!-- 🏆 因子ループ ＆ UMAI個体スキル継承ナビゲーター インライン完全最優先セクション (強制表示) -->
+  <section id="factor-loop-section" class="tool-container" style="display: block !important; visibility: visible !important; opacity: 1 !important; max-width: 1280px; margin: 1rem auto; padding: 0 1rem; position: relative; z-index: 9999;">
+    
+    <!-- 概要・説明カード -->
+    <div class="intro-card" style="background: linear-gradient(135deg, #15803d 0%, #047857 100%); color: white; border-radius: 12px; padding: 1.2rem 1.5rem; margin-bottom: 1rem; box-shadow: 0 4px 14px rgba(21,128,61,0.25); border: 2.5px solid #fde047;">
+      <div style="display: flex; align-items: center; gap: 0.8rem;">
+        <div style="font-size: 2.2rem; color: #fde047;"><i class="fa-solid fa-arrows-spin"></i></div>
+        <div>
+          <h2 style="font-size: 1.25rem; font-weight: 900; margin: 0; color: #ffffff;"><span data-i18n="introTitle">因子周回 ＆ 相性二重丸◎ 確定選出ツール (統合ナビゲーター)</span></h2>
+          <p style="font-size: 0.85rem; margin: 0.3rem 0 0 0; opacity: 0.95; color: #f1f5f9;"><span data-i18n="introDesc">育成本体ウマ娘・目標レース・手持ち個体の所持スキルを選択するだけで、「最速発動する親固有」と「相性スコアMAXの祖父母・循環ループ」を全自動で最適選定します。</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 📣 𝕏(Twitter)/Discordガチ勢にレビュー依頼・一元シェア機能 -->
+    <div class="share-review-card" style="background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color: white; border-radius: 12px; padding: 1rem 1.2rem; margin-bottom: 1rem; box-shadow: 0 4px 14px rgba(2,132,199,0.25); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem;">
+      <div>
+        <div style="font-size: 0.72rem; font-weight: 900; background: rgba(255,255,255,0.2); padding: 2px 10px; border-radius: 10px; display: inline-block; margin-bottom: 0.3rem;">
+          <i class="fa-solid fa-shield-halved"></i> <span data-i18n="shareBadge">信頼性・評価 ＆ 改善要望レビュー機能</span>
+        </div>
+        <h3 style="font-size: 0.95rem; font-weight: 900; margin: 0; display: flex; align-items: center; gap: 0.4rem;">
+          <i class="fa-solid fa-share-nodes"></i> <span data-i18n="shareTitle">この血統構成 ＆ ツールの評価・改善要望をガチ勢（𝕏 / サークル）に聞いてみる！</span>
+        </h3>
+        <p style="font-size: 0.76rem; margin: 0.3rem 0 0 0; opacity: 0.9;">
+          <span data-i18n="shareDesc">「この血統ツリー構成で正解？」「どんな機能を追加してほしい？」𝕏(Twitter)やDiscordへ評価＆改善要望の募集投稿ができます。</span>
+        </p>
+      </div>
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        <button id="btn-share-x" style="background: #000000; color: white; border: none; font-size: 0.78rem; font-weight: 900; padding: 8px 14px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 0.4rem; transition: transform 0.15s ease;">
+          <i class="fa-brands fa-x-twitter"></i> <span data-i18n="btnShareX">𝕏でガチ勢に評価＆改善要望を求める</span>
+        </button>
+        <button id="btn-copy-summary" style="background: #ffffff; color: #0284c7; border: none; font-size: 0.78rem; font-weight: 900; padding: 8px 14px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 0.4rem; transition: transform 0.15s ease;">
+          <i class="fa-solid fa-copy"></i> <span data-i18n="btnCopySummary">テキストコピー(Discord/サークル用)</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ⭐️⭐️⭐️⭐️⭐️ 5段階評価フィードバック・アンケート ＆ 改善要望コメントカード -->
+    <div class="star-rating-card" style="background: #ffffff; border: 2px solid #fde047; border-radius: 12px; padding: 1rem 1.2rem; margin-bottom: 1.2rem; box-shadow: 0 4px 12px rgba(234,179,8,0.12); flex-direction: column; gap: 0.8rem;">
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem; width: 100%;">
+        <div>
+          <div style="font-size: 0.72rem; font-weight: 900; background: #fef08a; color: #854d0e; padding: 2px 10px; border-radius: 10px; display: inline-block; margin-bottom: 0.3rem;">
+            <i class="fa-solid fa-star text-yellow"></i> <span data-i18n="ratingBadge">ユーザー満足度 ＆ 改善要望フィードバック (UMAI AI要約機能付き)</span>
+          </div>
+          <h3 style="font-size: 0.92rem; font-weight: 900; color: #713f12; margin: 0;">
+            <span data-i18n="ratingTitle">宜しければ本ツール（因子ナビ・血統図）の評価(5段階) ＆ 改善要望コメントをお願いします！</span>
+          </h3>
+          <p style="font-size: 0.75rem; color: #854d0e; margin: 0.2rem 0 0 0;">
+            <span data-i18n="ratingDesc">送られた評価・ご意見はAIが即座に日本語要約・整理し、<strong>UMAIからDiscord(balling5896様宛)へダイレクト通知</strong>されます。</span>
+          </p>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.6rem;">
+          <div class="star-widget" id="star-widget" style="font-size: 1.5rem; color: #cbd5e1; cursor: pointer; display: flex; gap: 0.4rem;">
+            <i class="fa-solid fa-star star-icon" data-value="1"></i>
+            <i class="fa-solid fa-star star-icon" data-value="2"></i>
+            <i class="fa-solid fa-star star-icon" data-value="3"></i>
+            <i class="fa-solid fa-star star-icon" data-value="4"></i>
+            <i class="fa-solid fa-star star-icon" data-value="5"></i>
+          </div>
+          <button id="btn-open-discord-modal" style="background: #5865F2; color: white; border: none; font-size: 0.72rem; font-weight: 900; padding: 5px 10px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 0.3rem;">
+            <i class="fa-brands fa-discord"></i> <span data-i18n="btnDiscordSetting">Discord通知設定</span>
+          </button>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 0.6rem; width: 100%; align-items: center; flex-wrap: wrap;">
+        <textarea id="input-feedback-comment" placeholder="改善点のご要望、追加してほしい機能、応援メッセージなどをご自由にご記入ください...（任意）" style="flex: 1; min-width: 280px; height: 42px; border: 1.5px solid #fde047; border-radius: 8px; padding: 0.5rem 0.8rem; font-size: 0.78rem; outline: none; resize: vertical;"></textarea>
+        <button id="btn-submit-rating" style="background: #ca8a04; color: white; border: none; font-size: 0.82rem; font-weight: 900; padding: 10px 18px; border-radius: 8px; cursor: pointer; white-space: nowrap;">
+          <i class="fa-solid fa-paper-plane"></i> <span data-i18n="btnSubmitRating">評価＆AI要約通知を送信</span>
+        </button>
+      </div>
+
+      <div id="rating-status-msg" style="font-size: 0.78rem; font-weight: 800; color: #15803d; display: none; background: #dcfce7; padding: 6px 12px; border-radius: 6px; border: 1px solid #86efac; width: 100%;">
+        <i class="fa-solid fa-circle-check"></i> <span data-i18n="ratingSuccess">貴重なご意見・評価を受理しました！AIが要約してUMAI Discord通知へ自動転送いたしました。</span>
+      </div>
+
+      <!-- Discord Webhook 設定モーダル -->
+      <div id="discord-modal" style="display: none; background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 0.8rem 1rem; margin-top: 0.4rem; font-size: 0.78rem;">
+        <div style="font-weight: 900; color: #1e293b; margin-bottom: 0.3rem;"><i class="fa-brands fa-discord text-blue"></i> UMAI Discord DM/チャンネル Webhook URL設定</div>
+        <div style="display: flex; gap: 0.4rem; align-items: center;">
+          <input type="text" id="input-discord-webhook" placeholder="https://discord.com/api/webhooks/..." style="flex: 1; padding: 5px 8px; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 0.75rem;">
+          <button id="btn-save-webhook" style="background: #0284c7; color: white; border: none; padding: 5px 12px; border-radius: 4px; font-weight: 800; cursor: pointer;">保存</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 入力ステップフォーム -->
+    <div class="form-card" style="background: white; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 1.2rem 1.4rem; margin-bottom: 1.2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+      <h3 class="section-title text-green"><i class="fa-solid fa-sliders"></i> STEP 1: 育成目標条件 ＆ ループ指定</h3>
+      
+      <div class="form-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 0.8rem;">
+        <div class="form-group">
+          <label for="select-target-uma">育成したいウマ娘 (育成本体)</label>
+          <select id="select-target-uma" class="input-select" style="width: 100%; padding: 8px 12px; border-radius: 8px; border: 1px solid #cbd5e1;"></select>
+        </div>
+
+        <div class="form-group">
+          <label for="select-target-course">目標コース (レース)</label>
+          <select id="select-target-course" class="input-select" style="width: 100%; padding: 8px 12px; border-radius: 8px; border: 1px solid #cbd5e1;">
+            <option value="universal" selected>🌐 【汎用使い回し重視】全レース対応 万能汎用親ウマ娘 厳選モード</option>
+            <option value="tokyo2400">🏆 2026年8月 チャンミ Leo Cup (東京 芝 2400m DERBY)</option>
+            <option value="hanshin1600">🌿 2026年9月 LoH Stage (阪神 芝 1600m MILE)</option>
+            <option value="nakayama2500">❄️ 有馬記念 (中山 芝 2500m LONG)</option>
+            <option value="tokyo1600">🐎 安田記念 / NHKマイル (東京 芝 1600m)</option>
+            <option value="dirt1600">🏜️ フェブラリーS (東京 ダート 1600m)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="select-target-style">予定脚質</label>
+          <select id="select-target-style" class="input-select" style="width: 100%; padding: 8px 12px; border-radius: 8px; border: 1px solid #cbd5e1;">
+            <option value="逃げ">🏃 逃げ (Runner)</option>
+            <option value="先行" selected>🐎 先行 (Leader)</option>
+            <option value="差し">⚡ 差し (Betweener)</option>
+            <option value="追込">🔥 追込 (Chaser)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="select-loop-type">継承ツリー ＆ ループ形式</label>
+          <select id="select-loop-type" class="input-select" style="width: 100%; padding: 8px 12px; border-radius: 8px; border: 1px solid #cbd5e1;">
+            <option value="15" selected>🏛️ 究極15キャラ・曽祖父母因子濃縮血統書 (4世代表示)</option>
+            <option value="7">🌳 7キャラ家系図表示 (本体1・両親2・祖父母4)</option>
+            <option value="4">🔄 4キャラ完全対称循環ループ (A➔B➔C➔D➔A)</option>
+            <option value="3">♻️ 3キャラ循環ループ (A➔B➔C➔A)</option>
+          </select>
+        </div>
+      </div>
+
+      <button id="btn-calc-loop" class="btn-calc" style="width: 100%; margin-top: 1.2rem; background: #059669; color: white; border: none; padding: 12px; border-radius: 8px; font-size: 0.95rem; font-weight: 900; cursor: pointer;">
+        <i class="fa-solid fa-calculator"></i> 因子ループ ＆ 継承シナジーを診断選出
+      </button>
+    </div>
+
+    <!-- 計算結果表示エリア -->
+    <div id="factor-result-output" class="result-container">
+      <!-- JSで動的描画 -->
+    </div>
+
+  </section>
+  <div class="disclaimer-container">
+    <div class="disclaimer-card">
+      <i class="fa-solid fa-circle-info disclaimer-icon"></i>
+      <div>
+        <strong id="disclaimer-title">【非公式ファンポータル声明 ＆ UMAIデータ連動表記】</strong>
+        <p id="disclaimer-text">
+          本サイトはウマ娘ファン制作の非公式データアナライザーです。JRA公式コース規格およびUMAI(umamusume-trainers)のコース・スキル検証データを流用・連携して掲載しております。Cygames様およびJRA様等の公式企業とは一切関係ございません。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- トップ・横長広告バナー (Amazonアソシエイト連動) -->
+  <div class="top-ad-banner-container">
+    <a href="https://www.amazon.co.jp/s?k=%E3%82%A6%E3%83%9E%E5%A8%98+%E3%83%95%E3%82%A3%E3%82%AE%E3%83%A5%E3%82%A2&tag=uraracecourse-22" target="_blank" rel="noopener noreferrer" class="top-ad-card">
+      <div class="ad-badge">SPONSORED</div>
+      <div class="ad-content-flex">
+        <i class="fa-brands fa-amazon ad-amazon-icon"></i>
+        <div>
+          <strong>ウマ娘 プリティーダービー Amazon特設オフィシャルストア</strong>
+          <span>最新CD・ライブBlu-ray・フィギュア・ゲーム関連書籍が勢ぞろい！ (Amazonアソシエイト)</span>
+        </div>
+      </div>
+      <div class="ad-btn">ストアを見る <i class="fa-solid fa-chevron-right"></i></div>
+    </a>
+  </div>
+
+  <!-- メイン2カラムコンテンツ構造 -->
+  <div class="main-container">
+
+    <!-- 左サイドバー: コース選択＆条件設定 ＆ 広告枠 -->
+    <aside class="sidebar">
+
+      <a href="#factor-loop-section" style="text-decoration: none; display: block; margin-bottom: 0.8rem;">
+        <div style="background: linear-gradient(135deg, #ca8a04 0%, #a16207 100%); color: white; padding: 10px 14px; border-radius: 10px; font-weight: 900; font-size: 0.85rem; display: flex; align-items: center; justify-content: space-between; border: 2px solid #fde047; box-shadow: 0 4px 10px rgba(202,138,4,0.3);">
+          <span><i class="fa-solid fa-arrows-spin"></i> 因子ループ ＆ 血統ツリーへ</span>
+          <i class="fa-solid fa-arrow-down"></i>
+        </div>
+      </a>
+
+      <div class="card-box">
+        <h3><i class="fa-solid fa-filter"></i> <span id="label-select-course">コース ＆ 条件選択</span></h3>
+
+        <div class="form-group">
+          <label id="label-track">競馬場 (Track)</label>
+          <select id="select-track" class="input-select">
+            <option value="tokyo" selected>東京競馬場 (JRA大回り・ダービー/毎日王冠)</option>
+            <option value="nakayama">中山競馬場 (JRA内回り・有馬記念)</option>
+            <option value="hanshin">阪神競馬場 (JRA外回り・マイルCS)</option>
+            <option value="kyoto">京都競馬場 (JRA淀の坂・天皇賞春)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label id="label-distance">距離 ＆ コース種別 (Distance)</label>
+          <select id="select-distance" class="input-select">
+            <option value="2400_turf" selected>芝 2400m (日本ダービー / Leo Cup)</option>
+            <option value="1800_turf">芝 1800m (2026年9月決定チャンミ・毎日王冠)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label id="label-style"><i class="fa-solid fa-horse"></i> 脚質選択 (Running Style)</label>
+          <select id="select-style" class="input-select" style="border: 1.5px solid var(--jra-green); background: #f0fdf4;">
+            <option value="all" selected>🌟 全脚質を表示 (ALL)</option>
+            <option value="nige">🏃‍♂️ 逃げ (Runner / Front)</option>
+            <option value="senko">🐎 先行 (Pacer)</option>
+            <option value="sashi">🏇 差し (Late Surger)</option>
+            <option value="oikomi">🔥 追込 (Chaser)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- JRA公式スペック ＆ UMAIデータ -->    <!-- 🏆 因子ループ ＆ 血統ナビゲーター 特設バナー -->
+    <div style="background: linear-gradient(135deg, #15803d 0%, #047857 100%); color: white; border-radius: 14px; padding: 1.2rem 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 6px 16px rgba(21,128,61,0.25); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+      <div>
+        <div style="font-size: 0.75rem; font-weight: 900; background: #fef08a; color: #854d0e; padding: 3px 12px; border-radius: 12px; display: inline-block; margin-bottom: 0.4rem;">
+          <i class="fa-solid fa-fire"></i> 最新アップデート (Ver 3.5)
+        </div>
+        <h2 style="font-size: 1.15rem; font-weight: 900; margin: 0; display: flex; align-items: center; gap: 0.5rem;">
+          <i class="fa-solid fa-arrows-spin"></i> 因子ループ ＆ UMAI個体スキル継承ナビゲーター
+        </h2>
+        <p style="font-size: 0.82rem; margin: 0.4rem 0 0 0; opacity: 0.95;">
+          本命ウマ娘と目標コースを選ぶだけで、「最速発動する親固有」と「相性二重丸◎確定の祖父母・循環ループ」を全自動で最適選定！
+        </p>
+      </div>
+      <a href="./factor-loop/index.html" style="background: #fde047; color: #713f12; border: none; font-size: 0.9rem; font-weight: 900; padding: 12px 22px; border-radius: 10px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 10px rgba(0,0,0,0.15); transition: transform 0.15s ease;">
+        <i class="fa-solid fa-circle-play"></i> ツールを起動する <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div><h3 id="label-spec-title">JRA規格 ＆ UMAI検証データ</h3>
+        <div class="spec-row">
+          <span id="label-straight">最終直線長:</span>
+          <strong id="info-straight">525m (JRA最長直線)</strong>
+        </div>
+        <div class="spec-row">
+          <span id="label-slope">コース高低差:</span>
+          <strong id="info-slope" style="color: #d97706;">2.0m (東京名物大坂)</strong>
+        </div>
+        <div class="spec-row">
+          <span id="label-spurt">UMAI最適スパート:</span>
+          <strong id="info-spurt" style="color: #059669;">1,600m地点 (最速★)</strong>
+        </div>
+        <div style="font-size: 0.72rem; color: #64748b; margin-top: 0.5rem; text-align: right;">
+          Data powered by UMAI Trainer Archive
+        </div>
+      </div>
+
+      <!-- サイドバー広告枠 -->
+      <div class="card-box ad-sidebar-box">
+        <div class="ad-badge" style="margin-bottom: 0.5rem;">RECOMMENDED AD</div>
+        <a href="https://www.amazon.co.jp/s?k=%E3%82%A6%E3%83%9E%E5%A8%98+%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89&tag=uraracecourse-22" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+          <div style="display: flex; gap: 0.8rem; align-items: center;">
+            <div style="width: 40px; height: 40px; background: #ff9900; color: #fff; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+            <div>
+              <strong style="font-size: 0.82rem; display: block; color: var(--text-main);">ウマ娘 関連グッズ特選ストア</strong>
+              <span style="font-size: 0.72rem; color: var(--text-muted);">ウマ娘のコミックス・BD・フィギュア等の最新作品一覧</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- ご意見・改善点送信ボタン -->
+      <button id="btn-open-feedback" class="btn-primary">
+        <i class="fa-solid fa-paper-plane"></i> <span id="label-btn-feedback">ご意見・改善点送信</span>
+      </button>
+
+    </aside>
+
+    <!-- 右エリア: メインアナライザー -->
+    <main class="content-area">
+
+      <!-- イベント選択タブ -->
+      <div class="tabs-grid">
+        <div class="tab-card active" id="tab-chanmi" data-event="chanmi">
+          <div class="tab-badge-row">
+            <span class="badge-chanmi">🏆 Champions Meeting</span>
+            <span class="badge-status-live">● LIVE NOW</span>
+          </div>
+          <div class="tab-title" id="tab-chanmi-title">Leo Cup (東京 芝 2400m DERBY)</div>
+          <div class="tab-date"><i class="fa-regular fa-calendar-days"></i> <span id="tab-chanmi-date">2026.08.20 〜 08.26</span></div>
+        </div>
+
+        <div class="tab-card" id="tab-loh" data-event="loh">
+          <div class="tab-badge-row">
+            <span class="badge-loh">⭐ 2026年9月決定チャンミ</span>
+            <span class="badge-status-next">UPCOMING</span>
+          </div>
+          <div class="tab-title" id="tab-loh-title">MILE (東京 芝 1800m 毎日王冠)</div>
+          <div class="tab-date"><i class="fa-regular fa-calendar-days"></i> <span id="tab-loh-date">2026.09.12 〜 09.18</span></div>
+        </div>
+      </div>
+
+      <!-- コースキャンバス ＆ UMAIデータリアルタイムスライダー -->
+      <section class="course-card">
+        <div class="course-header">
+          <h3 id="course-title-display"><i class="fa-solid fa-flag-checkered"></i> 東京 芝 2400m (JRA日本ダービー規格 × UMAIデータ)</h3>
+          <div class="conditions-tags" id="race-conditions-container">
+            <span class="cond-tag">☀️ 晴れ</span>
+            <span class="cond-tag">🟢 良バ場</span>
+            <span class="cond-tag">↺ 左回り</span>
+            <span class="cond-tag">🌸 夏</span>
+          </div>
+        </div>
+
+        <div class="canvas-wrapper">
+          <canvas id="umai-course-canvas" height="380"></canvas>
+        </div>
+
+        <div class="slider-control">
+          <label>
+            <i class="fa-solid fa-person-running"></i> <span id="label-slider">コース位置プレビュー (UMAI発動検証):</span> <strong id="distance-val">1,600</strong> m
+          </label>
+          <input type="range" id="course-slider" min="0" max="2400" value="1600" step="5">
+        </div>
+      </section>
+
+      <!-- 推奨有効スキル vs 注意・罠スキル (2カラム) -->
+      <div class="skills-two-col">
+        
+        <!-- 左: 推奨有効スキル (Recommended) -->
+        <div class="skill-box rec-box">
+          <h4 style="color: #059669;"><i class="fa-solid fa-circle-check"></i> 推奨有効スキル (UMAIデータ準拠)</h4>
+          <div id="recommended-skills-list" class="skill-items-list">
+            <!-- JSで選択脚質に応じて100%動的厳密描画 -->
+          </div>
+        </div>
+
+        <!-- 右: 注意・罠スキル (Ineffective) -->
+        <div class="skill-box trap-box">
+          <h4 style="color: #ef4444;"><i class="fa-solid fa-triangle-exclamation"></i> 注意・罠スキル (UMAIデータ準拠)</h4>
+          <div id="trap-skills-list" class="skill-items-list">
+            <!-- JSで選択脚質に応じて100%動的厳密描画 -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- イン記事広告バナー枠 (AdSense / Amazonアソシエイト連動) -->
+      <div class="in-article-ad-card">
+        <div class="ad-badge">SPONSORED ADVERTISEMENT</div>
+        <div class="in-article-ad-flex">
+          <i class="fa-solid fa-gem ad-gem-icon"></i>
+          <div>
+            <strong>ウマ娘 プリティーダービー 公式関連書籍 ＆ サントラCD特設リンク</strong>
+            <span>全コースの育成・因子周回に役立つ公式ガイド＆サウンドトラック (Amazonアソシエイト)</span>
+          </div>
+          <a href="https://www.amazon.co.jp/s?k=%E3%82%A6%E3%83%9E%E5%A8%98+CD&tag=uraracecourse-22" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size: 0.78rem; padding: 6px 12px; text-decoration: none;">
+            ストアを見る <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- UMamusumeAI 24h自動学習 AIコンシェルジュ -->
+      <section class="ai-card">
+        <div class="ai-header">
+          <h3><i class="fa-solid fa-robot"></i> UMamusumeAI (ウマ娘AI) コンシェルジュ</h3>
+          <button id="btn-open-teach-modal" class="btn-teach">
+            <i class="fa-solid fa-brain"></i> 🧠 AIに知識・ソースを教え込む
+          </button>
+        </div>
+        <p class="ai-desc">教え込まれた𝕏ポストやYouTube検証動画の知識をUMamusumeAIが学習し、UMAIデータと照合して回答します。</p>
+
+        <div id="user-ai-chat-logs" class="chat-logs">
+          <div class="chat-msg ai-msg">
+            🤖 <strong>AIアシスタント:</strong> トレーナーさん、こんにちは！現在選択中のコースに関する育成目標スタミナやUMAI検証スキル構成について何でも質問してください！
+          </div>
+        </div>
+
+        <div class="chat-input-row">
+          <input type="text" id="user-ai-input" placeholder="例: 東京2400mで先行に必要なスタミナ目標値は？" class="input-text">
+          <button id="btn-send-user-ai" class="btn-primary">質問する</button>
+        </div>
+      </section>
+
+      <!-- 有効スキル評価カタログ (50選・100点満点ゲージ＆★コスパ表示) -->
+      <section class="catalog-card">
+        <div class="catalog-header">
+          <div style="display: flex; flex-direction: column; gap: 0.2rem;">
+            <h3><i class="fa-solid fa-list-check"></i> 有効スキル評価一覧 (UMAI流用データ・効果量有力順)</h3>
+            <div style="font-size: 0.75rem; font-weight: 800; color: #059669; margin-top: 0.2rem;">
+              📍 現在の選択脚質: <span id="current-style-badge" style="background: #dcfce7; padding: 2px 8px; border-radius: 4px; border: 1px solid #059669;">全脚質を表示 (ALL)</span>
+            </div>
+          </div>
+          
+          <div class="catalog-filter-tabs">
+            <button class="filter-tab active" data-cat="all">ALL (すべて)</button>
+            <button class="filter-tab" data-cat="accel">⚡️ 加速 (Accel)</button>
+            <button class="filter-tab" data-cat="heal">💧 回復 (Heal)</button>
+            <button class="filter-tab" data-cat="sure">✨ 速度・パッシブ</button>
+            <button class="filter-tab" data-cat="trap">⚠️ 注意・罠</button>
+          </div>
+        </div>
+
+        <div id="all-skills-catalog-list" class="catalog-items-grid">
+          <!-- JSで50選マスターDBを完璧描画 -->
+        </div>
+      </section>
+
+      </div> <!-- /#view-section-analyzer -->
+
+    </main>
+  </div>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <p>&copy; 2026 Universal Racing Analyzer (URA). Powered by JRA Official Spec & UMAI Data. Non-official Fan Portal.</p>
+  </footer>
+
+  <!-- モーダル: AIに知識を教え込む -->
+  <div class="modal-overlay" id="teach-ai-modal">
+    <div class="modal-card">
+      <button class="modal-close" id="btn-close-teach"><i class="fa-solid fa-xmark"></i></button>
+      <h3>🧠 AIに検証ソース・知識を教え込む</h3>
+      <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 1rem;">𝕏の検証ポストURLやYouTube動画リンク、UMAI検証ノウハウを入力するとAIが学習します。</p>
+
+      <div class="form-group">
+        <label>対象コース・キーワード</label>
+        <input type="text" id="teach-keywords" placeholder="例: 東京2400m, 先行, スタミナ" class="input-select">
+      </div>
+
+      <div class="form-group">
+        <label>検証ソースのURL (𝕏 ポスト / ▶️ YouTube)</label>
+        <input type="text" id="teach-source-url" placeholder="https://x.com/... や https://youtube.com/..." class="input-select">
+      </div>
+
+      <div class="form-group">
+        <label>検証データの結論・解説</label>
+        <textarea id="teach-knowledge-text" rows="3" placeholder="例: 東京2400mの先行はスタミナ950＋金回復1つで走破可能。" class="input-select"></textarea>
+      </div>
+
+      <button id="btn-submit-teach" class="btn-primary" style="width: 100%; margin-top: 0.8rem;">🧠 AIに記憶させる</button>
+      <div id="teach-sent-msg" style="display:none; color: #059669; font-weight:800; font-size:0.85rem; margin-top:0.8rem; text-align:center;">✅ AIが学習記憶いたしました！</div>
+    </div>
+  </div>
+
+  <!-- モーダル: ご意見送信 -->
+  <div class="modal-overlay" id="feedback-modal">
+    <div class="modal-card">
+      <button class="modal-close" id="btn-close-feedback"><i class="fa-solid fa-xmark"></i></button>
+      <h3>ご意見・改善点送信フォーム</h3>
+      <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 1rem;">機能リクエストや改善のご提案をお送りください。</p>
+
+      <div class="form-group">
+        <label>ご意見内容</label>
+        <textarea id="fb-message" rows="4" placeholder="ご自由にご記入ください。" class="input-select"></textarea>
+      </div>
+
+      <button id="btn-submit-feedback" class="btn-primary" style="width: 100%; margin-top: 0.8rem;">送信する</button>
+      <div id="feedback-sent-msg" style="display:none; color: #059669; font-weight:800; font-size:0.85rem; margin-top:0.8rem; text-align:center;">✅ ご送信ありがとうございました！</div>
+    </div>
+  </div>
+
+  <script src="app.js?v=20260816_STRICT_SKILL_NAME_FILTER_ENGINE_FINAL"></script>
+  <script src="factor-loop/factor_app.js"></script>
+</body>
+</html>
