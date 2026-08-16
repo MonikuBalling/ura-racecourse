@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ウマ娘 因子ループ ＆ 因子厳選血統ナビゲーター | URA Racing Analyzer (Umamusume Factor Tool)</title>
+  <meta name="description" content="ウマ娘 (Umamusume Pretty Derby) の因子周回・因子ループ・両親固有継承・相性二重丸◎確定血統図を全自動選出・計算する無料ツール。チャンミ・LOH全コース対応！Umamusume Factor Loop Calculator.">
+  <meta name="keywords" content="ウマ娘, umamusume, ウマ娘 因子, 因子周回, 因子ループ, 因子厳選, 相性二重丸, ウマ娘相性, 両親固有, チャンミ, LOH, ウマ娘DB, UMAI">
+  <meta name="author" content="MonikuBalling / URA Team">
+
+  <!-- Open Graph / OGP (𝕏/Googleシェア表示) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://monikuballing.github.io/ura-racecourse/factor-loop/">
+  <meta property="og:title" content="ウマ娘 (Umamusume) 因子ループ ＆ 血統ナビゲーター">
+  <meta property="og:description" content="本命ウマ娘と目標コースを選ぶだけで、最速親固有・相性◎二重丸祖父母・全15キャラ血統書が全自動で即出揃う無料ツール！">
+  <meta property="og:site_name" content="URA Umamusume Factor Engine">
+
+  <!-- Twitter / 𝕏 Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ウマ娘 因子ループ ＆ 因子厳選ナビゲーター (Umamusume)">
+  <meta name="twitter:description" content="ウマ娘 (Umamusume) 因子周回・相性二重丸◎・両親固有全自動判定！">
+
+  <!-- Google 構造化データ (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "ウマ娘 因子ループ ＆ 血統ナビゲーター (Umamusume Factor Tool)",
+    "url": "https://monikuballing.github.io/ura-racecourse/factor-loop/",
+    "description": "ウマ娘 Pretty Derby (Umamusume) の因子周回・因子ループ・両親固有継承・相性二重丸◎確定血統図を全自動計算するツール",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "All",
+    "inLanguage": ["ja", "en"]
+  }
+  </script>
+  
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="factor_style.css">
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="tool-header">
+    <div class="header-inner">
+      <div class="brand">
+        <a href="../index.html" class="back-link"><i class="fa-solid fa-chevron-left"></i> メインアナライザーへ戻る</a>
+        <h1><i class="fa-solid fa-arrows-spin text-green"></i> 因子ループ ＆ UMAI個体スキル継承ナビゲーター</h1>
+      </div>
+      <div style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;">
+        <div class="server-toggle-group">
+          <button class="server-btn active" id="btn-factor-server-jp">🇯🇵 日本サーバー (JP 2026)</button>
+          <button class="server-btn" id="btn-factor-server-global">🌐 Global (EN/TW/KR)</button>
+        </div>
+
+        <!-- 🌐 言語切り替え (🇯🇵 JP / 🇺🇸 EN) -->
+        <div class="lang-toggle-group" style="display: flex; background: rgba(0,0,0,0.25); padding: 3px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2);">
+          <button class="lang-btn active" id="btn-lang-jp" style="background: white; color: #004d25; border: none; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 16px; cursor: pointer;">🇯🇵 JP</button>
+          <button class="lang-btn" id="btn-lang-en" style="background: transparent; color: #a7f3d0; border: none; font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 16px; cursor: pointer;">🇺🇸 EN</button>
+        </div>
+
+        <div class="version-tag">Ver 3.0 (Multilingual)</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- メインコンテンツ -->
+  <div class="tool-container">
+
+    <!-- 概要・説明カード -->
+    <div class="intro-card">
+      <div class="intro-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+      <div>
+        <h2>因子周回 ＆ 相性二重丸◎ 確定選出ツール</h2>
+        <p>育成本体ウマ娘・目標レース・手持ち個体の所持スキルを選択するだけで、<strong>「最速発動する親固有」</strong>と<strong>「相性スコアMAXの祖父母・循環ループ」</strong>を全自動で最適選定します。</p>
+      </div>
+    </div>
+
+    <!-- 📣 𝕏(Twitter)/Discordガチ勢にレビュー依頼・一元シェア機能 -->
+    <div class="share-review-card" style="background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color: white; border-radius: 12px; padding: 1rem 1.2rem; margin-bottom: 1rem; box-shadow: 0 4px 14px rgba(2,132,199,0.25); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem;">
+      <div>
+        <div style="font-size: 0.72rem; font-weight: 900; background: rgba(255,255,255,0.2); padding: 2px 10px; border-radius: 10px; display: inline-block; margin-bottom: 0.3rem;">
+          <i class="fa-solid fa-shield-halved"></i> 信頼性・評価 ＆ 改善要望レビュー機能
+        </div>
+        <h3 style="font-size: 0.95rem; font-weight: 900; margin: 0; display: flex; align-items: center; gap: 0.4rem;">
+          <i class="fa-solid fa-share-nodes"></i> この血統構成 ＆ ツールの評価・改善要望をガチ勢（𝕏 / サークル）に聞いてみる！
+        </h3>
+        <p style="font-size: 0.76rem; margin: 0.3rem 0 0 0; opacity: 0.9;">
+          「この血統ツリー構成で正解？」「どんな機能を追加してほしい？」𝕏(Twitter)やDiscordへ評価＆改善要望の募集投稿ができます。
+        </p>
+      </div>
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        <button id="btn-share-x" style="background: #000000; color: white; border: none; font-size: 0.78rem; font-weight: 900; padding: 8px 14px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 0.4rem; transition: transform 0.15s ease;">
+          <i class="fa-brands fa-x-twitter"></i> 𝕏でガチ勢に評価＆改善要望を求める
+        </button>
+        <button id="btn-copy-summary" style="background: #ffffff; color: #0284c7; border: none; font-size: 0.78rem; font-weight: 900; padding: 8px 14px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 0.4rem; transition: transform 0.15s ease;">
+          <i class="fa-solid fa-copy"></i> テキストコピー(Discord/サークル用)
+        </button>
+      </div>
+    </div>
+
+    <!-- ⭐️⭐️⭐️⭐️⭐️ 5段階評価フィードバック・アンケート ＆ 改善要望コメントカード -->
+    <div class="star-rating-card" style="background: #ffffff; border: 2px solid #fde047; border-radius: 12px; padding: 1rem 1.2rem; margin-bottom: 1.2rem; box-shadow: 0 4px 12px rgba(234,179,8,0.12); flex-direction: column; gap: 0.8rem;">
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem; width: 100%;">
+        <div>
+          <div style="font-size: 0.72rem; font-weight: 900; background: #fef08a; color: #854d0e; padding: 2px 10px; border-radius: 10px; display: inline-block; margin-bottom: 0.3rem;">
+            <i class="fa-solid fa-star text-yellow"></i> ユーザー満足度 ＆ 改善要望フィードバック
+          </div>
+          <h3 style="font-size: 0.92rem; font-weight: 900; color: #713f12; margin: 0;">
+            宜しければ本ツール（因子ナビ・血統図）の評価(5段階) ＆ 改善要望コメントをお願いします！
+          </h3>
+          <p style="font-size: 0.75rem; color: #854d0e; margin: 0.2rem 0 0 0;">
+            「ここを改善してほしい」「追加してほしい機能」といったご意見・ご要望を元に即座にアップデートいたします。
+          </p>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.6rem;">
+          <div class="star-widget" id="star-widget" style="font-size: 1.5rem; color: #cbd5e1; cursor: pointer; display: flex; gap: 0.4rem;">
+            <i class="fa-solid fa-star star-icon" data-value="1"></i>
+            <i class="fa-solid fa-star star-icon" data-value="2"></i>
+            <i class="fa-solid fa-star star-icon" data-value="3"></i>
+            <i class="fa-solid fa-star star-icon" data-value="4"></i>
+            <i class="fa-solid fa-star star-icon" data-value="5"></i>
+          </div>
+          <button id="btn-open-discord-modal" style="background: #5865F2; color: white; border: none; font-size: 0.72rem; font-weight: 900; padding: 5px 10px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 0.3rem;">
+            <i class="fa-brands fa-discord"></i> Discord通知設定
+          </button>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 0.6rem; width: 100%; align-items: center; flex-wrap: wrap;">
+        <textarea id="input-feedback-comment" placeholder="改善点のご要望、追加してほしい機能、応援メッセージなどをご自由にご記入ください...（任意）" style="flex: 1; min-width: 280px; height: 42px; border: 1.5px solid #fde047; border-radius: 8px; padding: 0.5rem 0.8rem; font-size: 0.78rem; outline: none; resize: vertical;"></textarea>
+        <button id="btn-submit-rating" style="background: #ca8a04; color: white; border: none; font-size: 0.82rem; font-weight: 900; padding: 10px 18px; border-radius: 8px; cursor: pointer; white-space: nowrap;">
+          <i class="fa-solid fa-paper-plane"></i> 評価＆AI要約通知を送信
+        </button>
+      </div>
+
+      <div id="rating-status-msg" style="font-size: 0.78rem; font-weight: 800; color: #15803d; display: none; background: #dcfce7; padding: 6px 12px; border-radius: 6px; border: 1px solid #86efac; width: 100%;">
+        <i class="fa-solid fa-circle-check"></i> 貴重なご意見・評価を受理しました！AIが要約してUMAI Discord通知へ自動転送いたしました。
+      </div>
+
+      <!-- Discord Webhook 設定モーダル -->
+      <div id="discord-modal" style="display: none; background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 0.8rem 1rem; margin-top: 0.4rem; font-size: 0.78rem;">
+        <div style="font-weight: 900; color: #1e293b; margin-bottom: 0.3rem;"><i class="fa-brands fa-discord text-blue"></i> UMAI Discord DM/チャンネル Webhook URL設定</div>
+        <div style="display: flex; gap: 0.4rem; align-items: center;">
+          <input type="text" id="input-discord-webhook" placeholder="https://discord.com/api/webhooks/..." style="flex: 1; padding: 5px 8px; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 0.75rem;">
+          <button id="btn-save-webhook" style="background: #0284c7; color: white; border: none; padding: 5px 12px; border-radius: 4px; font-weight: 800; cursor: pointer;">保存</button>
+        </div>
+        <div style="font-size: 0.7rem; color: #64748b; margin-top: 0.3rem;">
+          ※Discordの「チャンネル設定」➔「連携サービス」➔「ウェブフックを作成」で発行したURLを貼り付けると、AI要約レポートがDM/チャンネルに届きます。
+        </div>
+      </div>
+    </div>
+    <div class="utools-diff-card" style="background: #f0fdf4; border: 1.5px solid #86efac; border-radius: 10px; padding: 0.9rem 1.2rem; margin-bottom: 1rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem;">
+      <div style="display: flex; align-items: center; gap: 0.6rem;">
+        <span style="background: #059669; color: white; font-size: 0.72rem; font-weight: 900; padding: 3px 10px; border-radius: 12px; white-space: nowrap;">
+          <i class="fa-solid fa-circle-info"></i> U-toolsとの違い
+        </span>
+        <span style="font-size: 0.85rem; font-weight: 800; color: #166534;">
+          U-toolsは手動で1体ずつ選ぶ電卓型。本ツールは<strong>「本命ウマとコースを選ぶだけで最速親固有＆祖父母家系図が全自動で出揃うナビ型」</strong>です！
+        </span>
+      </div>
+      <div style="font-size: 0.78rem; font-weight: 700; color: #047857;">
+        ✨ ワンクリックで「ウマ娘DB」のレンタルID検索にも直通！
+      </div>
+    </div>
+
+    <!-- 📚 赤因子・段階別狙い目 ＆ ダート因子ぐるぐる解説カード -->
+    <div class="red-factor-guide-card" style="background: #fff1f2; border: 1.5px solid #fecdd3; border-radius: 12px; padding: 1rem 1.2rem; margin-bottom: 1.2rem;">
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.8rem;">
+        <h3 style="font-size: 0.95rem; font-weight: 900; color: #9f1239; margin: 0;">
+          <i class="fa-solid fa-dna text-red"></i> 📚 段階別・赤因子ベスト狙い目 ＆ ダート因子ぐるぐる攻略ガイド
+        </h3>
+        <span style="background: #be123c; color: white; font-size: 0.68rem; font-weight: 900; padding: 2px 8px; border-radius: 10px;">
+          赤因子ノウハウ解説★
+        </span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <!-- 段階別狙い目表 -->
+        <div style="background: white; border-radius: 8px; padding: 0.8rem; border: 1px solid #ffe4e6;">
+          <h4 style="font-size: 0.82rem; font-weight: 900; color: #881337; margin-bottom: 0.4rem;">
+            📌 段階別 赤因子のベスト配置パターン
+          </h4>
+          <ul style="font-size: 0.76rem; color: #4c0519; padding-left: 1.1rem; line-height: 1.5; margin: 0;">
+            <li><strong>親①・親②</strong>: <span style="color: #be123c; font-weight: 800;">【距離適性★3】</span> (最優先！本育成で最高速度が伸びる距離S確定枠)</li>
+            <li><strong>祖父母</strong>: <span style="color: #be123c; font-weight: 800;">【距離適性★3】</span> または <span style="color: #d97706; font-weight: 800;">【ダート★3 / 芝★3】</span> (バ場適性底上げ)</li>
+            <li><strong>ひい祖父母</strong>: <span style="color: #be123c; font-weight: 800;">【距離適性★3 / バ場★3】</span> (全体確率の底上げルーツ)</li>
+          </ul>
+        </div>
+
+        <!-- ダート因子ぐるぐる解説 -->
+        <div style="background: white; border-radius: 8px; padding: 0.8rem; border: 1px solid #ffe4e6;">
+          <h4 style="font-size: 0.82rem; font-weight: 900; color: #881337; margin-bottom: 0.4rem;">
+            💡 ダート因子ぐるぐるは祖父母に入れて大丈夫？
+          </h4>
+          <p style="font-size: 0.76rem; color: #4c0519; line-height: 1.45; margin: 0;">
+            <strong>【大正解！むしろ「祖父母」に組み込むのが最も強力です！】</strong><br>
+            祖父母にダート★3を入れておくと、芝専ウマのダート初期適性がD/Cに上がり、フェブラリーS等で勝てるようになります。結果、<strong>G1全勝ローテで相性Pt（二重丸◎）が劇的UP</strong>します！
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 Step 因子厳選フォーム -->
+    <div class="steps-grid">
+      
+      <!-- STEP 1: 育成本体 ＆ 目標コース -->
+      <div class="step-card">
+        <div class="step-header text-green">
+          <span class="step-num bg-green">1</span>
+          <h3>STEP 1: 育成本体 ＆ 目標条件</h3>
+        </div>
+
+        <div class="form-group">
+          <label>育成したいウマ娘 (育成本体)</label>
+          <select id="select-target-uma" class="input-select">
+            <!-- JSで動的生成 -->
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>目標コース (レース) <span class="badge-hot" style="background: #ef4444; color: white; font-size: 0.68rem; padding: 2px 6px; border-radius: 8px; font-weight: 800;">直近対人優先</span></label>
+          <select id="select-target-course" class="input-select highlight-select">
+            
+            <!-- 🏆 直近対人イベント（最優先表示） -->
+            <optgroup label="🌟 【最優先】汎用使い回し ＆ 直近対人イベント">
+              <option value="universal" selected>🌐 【汎用使い回し重視】全レース対応 万能汎用親ウマ娘 厳選モード (全コース汎用★)</option>
+              <option value="tokyo_2400_turf">🏆 【2026年8月 チャンミ Leo Cup】東京 芝 2400m (日本ダービー / 夏・晴・良)</option>
+              <option value="tokyo_1800_turf">⭐ 【2026年9月 決定チャンミ】東京 芝 1800m (毎日王冠 / 秋・晴・良)</option>
+              <option value="kyoto_3000_turf">⭐ 【2026年10月 予想チャンミ】京都 芝 3000m (菊花賞 / 秋・晴・良)</option>
+              <option value="nakayama_2500_turf">⭐ 【2026年12月 有馬記念チャンミ】中山 芝 2500m (有馬記念 / 冬)</option>
+            </optgroup>
+
+            <!-- 🏛️ 東京競馬場 -->
+            <optgroup label="🏛️ 東京競馬場 (JRA大回り)">
+              <option value="tokyo_1600_turf">東京 芝 1600m (安田記念 / NHKマイルC / ヴィクトリアM)</option>
+              <option value="tokyo_1800_turf">東京 芝 1800m (毎日王冠 / エプソムC)</option>
+              <option value="tokyo_2000_turf">東京 芝 2000m (天皇賞秋)</option>
+              <option value="tokyo_2400_turf">東京 芝 2400m (日本ダービー / ジャパンC / オークス)</option>
+              <option value="tokyo_2500_turf">東京 芝 2500m (目黒記念)</option>
+              <option value="tokyo_3400_turf">東京 芝 3400m (ダイヤモンドS)</option>
+              <option value="tokyo_1600_dirt">東京 ダート 1600m (フェブラリーS)</option>
+              <option value="tokyo_2100_dirt">東京 ダート 2100m (東京スプリント)</option>
+            </optgroup>
+
+            <!-- 🏛️ 中山競馬場 -->
+            <optgroup label="🏛️ 中山競馬場 (JRA急坂・小回り)">
+              <option value="nakayama_1200_turf">中山 芝 1200m (スプリンターズS)</option>
+              <option value="nakayama_1600_turf">中山 芝 1600m (ニュージーランドT / ダービー卿CT)</option>
+              <option value="nakayama_1800_turf">中山 芝 1800m (中山記念)</option>
+              <option value="nakayama_2000_turf">中山 芝 2000m (皐月賞 / ホープフルS)</option>
+              <option value="nakayama_2200_turf">中山 芝 2200m (オールカマー / アメリカJCC)</option>
+              <option value="nakayama_2500_turf">中山 芝 2500m (有馬記念 / 日経賞)</option>
+              <option value="nakayama_3600_turf">中山 芝 3600m (ステイヤーズS)</option>
+              <option value="nakayama_1200_dirt">中山 ダート 1200m (カペラS)</option>
+              <option value="nakayama_1800_dirt">中山 ダート 1800m (マーチS)</option>
+            </optgroup>
+
+            <!-- 🏛️ 阪神競馬場 -->
+            <optgroup label="🏛️ 阪神競馬場 (JRA外回り・坂)">
+              <option value="hanshin_1200_turf">阪神 芝 1200m (セントウルS)</option>
+              <option value="hanshin_1400_turf">阪神 芝 1400m (阪神C)</option>
+              <option value="hanshin_1600_turf">阪神 芝 1600m (マイルCS / 桜花賞 / 阪神JF)</option>
+              <option value="hanshin_1800_turf">阪神 芝 1800m (ローズS)</option>
+              <option value="hanshin_2000_turf">阪神 芝 2000m (大阪杯)</option>
+              <option value="hanshin_2200_turf">阪神 芝 2200m (宝塚記念)</option>
+              <option value="hanshin_2400_turf">阪神 芝 2400m (神戸新聞杯)</option>
+              <option value="hanshin_3000_turf">阪神 芝 3000m (阪神大賞典)</option>
+              <option value="hanshin_1400_dirt">阪神 ダート 1400m (プロキオンS)</option>
+              <option value="hanshin_1800_dirt">阪神 ダート 1800m (みやこS / チャンピオンズC代替)</option>
+            </optgroup>
+
+            <!-- 🏛️ 京都競馬場 -->
+            <optgroup label="🏛️ 京都競馬場 (淀の坂・平坦)">
+              <option value="kyoto_1200_turf">京都 芝 1200m (シルクロードS)</option>
+              <option value="kyoto_1400_turf">京都 芝 1400m (スワンS)</option>
+              <option value="kyoto_1600_turf">京都 芝 1600m (マイラーズC)</option>
+              <option value="kyoto_1800_turf">京都 芝 1800m (きさらぎ賞)</option>
+              <option value="kyoto_2000_turf">京都 芝 2000m (秋華賞)</option>
+              <option value="kyoto_2200_turf">京都 芝 2200m (エリザベス女王杯)</option>
+              <option value="kyoto_2400_turf">京都 芝 2400m (京都大賞典)</option>
+              <option value="kyoto_3000_turf">京都 芝 3000m (菊花賞)</option>
+              <option value="kyoto_3200_turf">京都 芝 3200m (天皇賞春)</option>
+              <option value="kyoto_1200_dirt">京都 ダート 1200m</option>
+              <option value="kyoto_1800_dirt">京都 ダート 1800m (平安S)</option>
+            </optgroup>
+
+            <!-- 🏛️ 中京競馬場 -->
+            <optgroup label="🏛️ 中京競馬場 (左回り・急坂)">
+              <option value="chukyo_1200_turf">中京 芝 1200m (高松宮記念)</option>
+              <option value="chukyo_1600_turf">中京 芝 1600m (中京記念)</option>
+              <option value="chukyo_2000_turf">中京 芝 2000m (金鯱賞)</option>
+              <option value="chukyo_2200_turf">中京 芝 2200m (神戸新聞杯中京)</option>
+              <option value="chukyo_1800_dirt">中京 ダート 1800m (チャンピオンズC)</option>
+            </optgroup>
+
+            <!-- 🏛️ 新潟・小倉・福島・札幌・函館 -->
+            <optgroup label="🏛️ 新潟・小倉・福島・札幌・函館">
+              <option value="niigata_1000_turf">新潟 芝 1000m (アイビスサマーダッシュ / 千直)</option>
+              <option value="niigata_2000_turf">新潟 芝 2000m (新潟記念)</option>
+              <option value="kokura_1200_turf">小倉 芝 1200m (小倉2歳S)</option>
+              <option value="fukushima_2000_turf">福島 芝 2000m (福島記念)</option>
+              <option value="sapporo_2000_turf">札幌 芝 2000m (札幌記念)</option>
+              <option value="hakodate_1200_turf">函館 芝 1200m (函館スプリントS)</option>
+            </optgroup>
+
+            <!-- 🏜️ 地方競馬 ダート重賞 -->
+            <optgroup label="🏜️ 地方ダート (JBC / 大賞典)">
+              <option value="oi_2000_dirt">大井 ダート 2000m (帝王賞 / 東京大賞典 / JBCクラシック)</option>
+              <option value="oi_1200_dirt">大井 ダート 1200m (JBCスプリント)</option>
+              <option value="funabashi_1600_dirt">船橋 ダート 1600m (かしわ記念)</option>
+              <option value="kawasaki_2100_dirt">川崎 ダート 2100m (川崎記念)</option>
+              <option value="morioka_1600_dirt">盛岡 ダート 1600m (マイルCS南部杯)</option>
+            </optgroup>
+
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>予定脚質</label>
+          <select id="select-target-style" class="input-select">
+            <option value="nige">🏃‍♂️ 逃げ (Runner)</option>
+            <option value="senko" selected>🐎 先行 (Pacer)</option>
+            <option value="sashi">🏇 差し (Surger)</option>
+            <option value="oikomi">🔥 追込 (Chaser)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- STEP 2: ループ＆所持個体データ連動 -->
+      <div class="step-card">
+        <div class="step-header text-blue">
+          <span class="step-num bg-blue">2</span>
+          <h3>STEP 2: ループ形式 ＆ 所持個体連携</h3>
+        </div>
+
+        <div class="form-group">
+          <label>継承ツリー ＆ ループ形式</label>
+          <select id="select-loop-type" class="input-select highlight-select">
+            <option value="15" selected>🏛️ 究極15キャラ・曽祖父母血統書 (ひい祖父母8体 ＋ 祖父母4体 ＋ 親2体 ＋ 本体1体) 【ガチ勢対応★】</option>
+            <option value="7">🌳 完全因子家系ツリー (両親2体 ＋ 祖父母4体 [全7キャラ表示])</option>
+            <option value="3">🔄 3個体相性ループ (親2人 ＋ 祖父母循環)</option>
+            <option value="4">🔄 4個体相性ループ (4キャラ相性循環)</option>
+            <option value="2">⇄ 2個体交互ループ (親ペア固定)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label><i class="fa-solid fa-database text-blue"></i> UMAI個体データ・所持スキル連携</label>
+          <select id="select-umai-mode" class="input-select highlight-select">
+            <option value="auto" selected>🔗 UMAI標準DBと自動連携 (おすすめ)</option>
+            <option value="custom">📥 手持ち個体の所持スキル・因子を入力連携</option>
+          </select>
+        </div>
+
+        <!-- カスタム所持スキル入力エリア -->
+        <div id="custom-skills-box" class="custom-input-card" style="display: none;">
+          <label>手持ち個体の所持白スキル・因子 (カンマ区切り)</label>
+          <input type="text" id="input-custom-skills" placeholder="例: コーナースキル◎, 直線巧者, スリップストリーム, 王手" class="input-select">
+        </div>
+
+        <button id="btn-calc-loop" class="btn-calc">
+          <i class="fa-solid fa-calculator"></i> 因子ループ ＆ 継承シナジーを診断選出
+        </button>
+      </div>
+
+    </div>
+
+    <!-- 計算結果表示エリア -->
+    <div id="factor-result-output" class="result-container">
+      <!-- JSで動的描画 -->
+    </div>
+
+  </div>
+
+  <footer class="tool-footer">
+    <p>&copy; 2026 Universal Racing Analyzer (URA) - Factor Loop Sub-Tool Portal</p>
+  </footer>
+
+  <script src="factor_app.js"></script>
+</body>
+</html>

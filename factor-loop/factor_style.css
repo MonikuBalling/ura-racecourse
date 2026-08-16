@@ -1,0 +1,831 @@
+/* ==========================================================================
+   因子ループ ＆ UMAI個体スキル継承ナビゲーター 専用スタイル (factor_style.css)
+   ========================================================================== */
+
+:root {
+  --primary-green: #059669;
+  --primary-blue: #0284c7;
+  --primary-purple: #7c3aed;
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --border-color: #cbd5e1;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+/* ヘッダー */
+.tool-header {
+  background: linear-gradient(135deg, #004d25 0%, #059669 100%);
+  color: white;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand h1 {
+  font-size: 1.3rem;
+  font-weight: 900;
+  margin-top: 0.2rem;
+}
+
+.back-link {
+  color: #a7f3d0;
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.server-toggle-group {
+  display: flex;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 3px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.server-btn {
+  background: transparent;
+  color: #a7f3d0;
+  border: none;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.server-btn.active {
+  background: #ffffff;
+  color: #004d25;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.version-tag {
+  background: rgba(255,255,255,0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+/* メインコンテナ */
+.tool-container {
+  max-width: 1100px;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+}
+
+/* イントロカード */
+.intro-card {
+  background: white;
+  border-left: 5px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 1.2rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  margin-bottom: 1.5rem;
+}
+
+.intro-icon {
+  font-size: 2rem;
+  color: var(--primary-green);
+}
+
+.intro-card h2 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--primary-green);
+}
+
+.intro-card p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+/* フォームグリッド */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.step-card {
+  background: white;
+  border: 1.5px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.2rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.step-header h3 {
+  font-size: 0.95rem;
+  font-weight: 900;
+}
+
+.step-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 900;
+}
+
+.bg-green { background: var(--primary-green); }
+.bg-blue { background: var(--primary-blue); }
+.text-green { color: var(--primary-green); }
+.text-blue { color: var(--primary-blue); }
+.text-purple { color: var(--primary-purple); }
+
+.form-group {
+  margin-bottom: 0.8rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 0.3rem;
+}
+
+.input-select {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  font-size: 0.88rem;
+  background: #f8fafc;
+  color: var(--text-main);
+  outline: none;
+}
+
+.highlight-select {
+  border: 1.5px solid var(--primary-blue);
+  background: #f0f9ff;
+}
+
+.custom-input-card {
+  background: #e0f2fe;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #7dd3fc;
+  margin-bottom: 0.8rem;
+}
+
+.custom-input-card label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #0369a1;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.btn-calc {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(135deg, var(--primary-green), var(--primary-blue));
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(5, 150, 105, 0.2);
+  transition: transform 0.1s ease;
+}
+
+.btn-calc:hover {
+  transform: translateY(-1px);
+}
+
+/* 計算結果カード */
+.result-card {
+  background: white;
+  border-radius: 12px;
+  border: 2px solid var(--primary-green);
+  padding: 1.5rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+.section-title {
+  font-size: 0.95rem;
+  font-weight: 900;
+  margin-bottom: 0.6rem;
+}
+
+.parent-skill-card {
+  background: #f0fdf4;
+  border: 1.5px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.parent-title {
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+.parent-desc {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.badge-rec {
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 0.72rem;
+  font-weight: 900;
+  padding: 3px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.badge-compat {
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 0.85rem;
+  font-weight: 900;
+  padding: 4px 12px;
+  border-radius: 16px;
+  border: 1px solid #86efac;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pedigree-grid-15 {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr 1.3fr 1.6fr;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+@media (max-width: 1100px) {
+  .pedigree-grid-15 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.col-great-grandparents {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.card-great-grand-slot {
+  background: #fff5f5;
+  border: 1px dashed #fca5a5;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+/* 因子ループ個体 埋め込み血統図 (Pedigree Chart Visualizer) */
+.pedigree-chart-container {
+  background: #ffffff;
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 1.2rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+  margin: 1rem 0;
+}
+
+.pedigree-banner {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #166534;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.loop-tag {
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 0.72rem;
+  padding: 2px 10px;
+  border-radius: 12px;
+  border: 1px solid #86efac;
+}
+
+.pedigree-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1.5fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+@media (max-width: 850px) {
+  .pedigree-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pedigree-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  justify-content: center;
+}
+
+.pedigree-card {
+  background: #f8fafc;
+  border-radius: 10px;
+  padding: 0.8rem;
+  border: 1.5px solid var(--border-color);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+  transition: transform 0.15s ease;
+}
+
+.pedigree-card:hover {
+  transform: translateY(-2px);
+}
+
+.card-target-body {
+  border: 2.5px solid var(--primary-green);
+  background: #f0fdf4;
+}
+
+.card-parent-slot {
+  border: 2px solid var(--primary-blue);
+}
+
+.card-grand-slot {
+  border: 1.5px solid var(--primary-purple);
+}
+
+.loop-embedded {
+  background: #faf5ff;
+  border-left: 4px solid var(--primary-purple);
+}
+
+.loop-slot-badge {
+  background: #7c3aed;
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 900;
+  padding: 2px 6px;
+  border-radius: 8px;
+  margin-left: auto;
+}
+
+.pedigree-role-tag {
+  font-size: 0.7rem;
+  font-weight: 900;
+  padding: 2px 8px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-bottom: 0.4rem;
+}
+
+.pedigree-char-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.p-icon { font-size: 1.3rem; }
+.p-name { font-size: 0.92rem; font-weight: 900; color: var(--text-main); }
+.p-score { background: #0284c7; color: white; font-size: 0.7rem; font-weight: 900; padding: 1px 6px; border-radius: 8px; margin-left: auto; }
+
+.pedigree-reason {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  background: white;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  margin-bottom: 0.5rem;
+  line-height: 1.35;
+}
+
+.p-db-btn {
+  display: block;
+  text-align: center;
+  background: #0284c7;
+  color: white;
+  text-decoration: none;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.p-db-btn-mini {
+  display: block;
+  text-align: center;
+  background: #e0f2fe;
+  color: #0284c7;
+  text-decoration: none;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 3px;
+  border-radius: 4px;
+  border: 1px solid #7dd3fc;
+}
+
+.p-db-btn-mini:hover {
+  background: #0284c7;
+  color: white;
+}
+
+/* 家系ツリー構造 (育成本体 1 / 両親 2 / 祖父母 4) */
+.family-tree-wrapper {
+  background: #f8fafc;
+  border: 1.5px dashed var(--border-color);
+  border-radius: 12px;
+  padding: 1.2rem;
+  margin: 1.2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.tree-tier {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.tree-connector {
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 900;
+  color: var(--primary-green);
+  padding: 0.2rem 0;
+}
+
+.tree-card {
+  background: white;
+  border-radius: 10px;
+  padding: 0.9rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-body {
+  width: 100%;
+  max-width: 400px;
+  border: 2.5px solid var(--primary-green);
+}
+
+.card-parent {
+  flex: 1;
+  min-width: 280px;
+  border: 2px solid var(--primary-blue);
+}
+
+.card-grand {
+  flex: 1;
+  min-width: 180px;
+  border: 1.5px solid var(--primary-purple);
+  padding: 0.7rem;
+}
+
+.score-tag {
+  background: #0284c7;
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 900;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-left: auto;
+}
+
+.bg-green-badge { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+.bg-blue-badge { background: #e0f2fe; color: #0369a1; border: 1px solid #7dd3fc; }
+.bg-gold-badge { background: #fef3c7; color: #b45309; border: 1px solid #fde047; }
+.bg-purple-badge { background: #f3e8ff; color: #6b21a8; border: 1px solid #d8b4fe; }
+
+.db-search-btn-mini {
+  display: block;
+  text-align: center;
+  background: #e0f2fe;
+  color: #0284c7;
+  text-decoration: none;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 3px 6px;
+  border-radius: 4px;
+  border: 1px solid #7dd3fc;
+  margin-top: 0.4rem;
+}
+
+.db-search-btn-mini:hover {
+  background: #0284c7;
+  color: white;
+}
+
+/* 役割＆選んだ理由つきグリッドレイアウト */
+.cycle-grid-3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  background: #f8fafc;
+  padding: 1.2rem;
+  border-radius: 12px;
+  border: 1.5px dashed var(--border-color);
+  margin: 1.2rem 0;
+}
+
+.cycle-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  background: #f8fafc;
+  padding: 1.2rem;
+  border-radius: 12px;
+  border: 1.5px dashed var(--border-color);
+  margin: 1.2rem 0;
+}
+
+.member-detail-card {
+  flex: 1;
+  min-width: 220px;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.role-badge {
+  font-size: 0.72rem;
+  font-weight: 900;
+  padding: 3px 10px;
+  border-radius: 12px;
+  display: inline-block;
+  align-self: flex-start;
+  margin-bottom: 0.6rem;
+}
+
+.char-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.char-icon {
+  font-size: 1.6rem;
+}
+
+.char-name {
+  font-size: 1rem;
+  font-weight: 900;
+  color: var(--text-main);
+}
+
+.reason-box {
+  background: #f1f5f9;
+  border-radius: 6px;
+  padding: 0.6rem;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+}
+
+.reason-box strong {
+  color: #334155;
+}
+
+.reason-box p {
+  margin-top: 0.2rem;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.text-yellow { color: #d97706; }
+
+.db-search-btn-full {
+  display: block;
+  text-align: center;
+  background: #0284c7;
+  color: white;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: opacity 0.15s ease;
+}
+
+.db-search-btn-full:hover {
+  opacity: 0.85;
+}
+
+.arrow-divider {
+  text-align: center;
+  padding: 0.4rem;
+}
+
+.arrow-score {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 900;
+  margin-top: 2px;
+}
+
+/* 従来の循環フロー */
+.cycle-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  background: #f8fafc;
+  padding: 1.2rem;
+  border-radius: 10px;
+  border: 1.5px dashed var(--border-color);
+  margin: 1rem 0;
+}
+
+.node-box {
+  background: white;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.node-icon { font-size: 1.4rem; }
+
+.border-green { border: 2px solid var(--primary-green); }
+.border-blue { border: 2px solid var(--primary-blue); }
+.border-purple { border: 2px solid var(--primary-purple); }
+
+.arrow-box {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.arrow-box i { font-size: 1.1rem; display: block; }
+
+.races-box {
+  background: #f0fdf4;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #bbf7d0;
+  font-size: 0.82rem;
+  color: #166534;
+}
+
+.tags-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag-race {
+  background: white;
+  border: 1px solid #86efac;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.custom-skills-result {
+  margin-top: 1rem;
+  background: #e0f2fe;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #7dd3fc;
+  font-size: 0.82rem;
+  color: #0369a1;
+}
+
+.tag-skill {
+  background: white;
+  border: 1px solid #38bdf8;
+  color: #0284c7;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: 800;
+}
+
+.btn-db-search {
+  background: #0284c7;
+  color: white;
+  text-decoration: none;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 2px 5px rgba(2, 132, 199, 0.2);
+  transition: opacity 0.15s ease;
+}
+
+.btn-db-search:hover {
+  opacity: 0.85;
+}
+
+.btn-x-search {
+  background: #0f172a;
+  color: white;
+  text-decoration: none;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 2px 5px rgba(15, 23, 42, 0.2);
+  transition: opacity 0.15s ease;
+}
+
+.btn-x-search:hover {
+  opacity: 0.85;
+}
+
+.mini-db-btn {
+  display: block;
+  margin-top: 4px;
+  background: #e0f2fe;
+  color: #0284c7;
+  text-decoration: none;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid #7dd3fc;
+}
+
+.mini-db-btn:hover {
+  background: #0284c7;
+  color: white;
+}
+
+/* フッター */
+.tool-footer {
+  text-align: center;
+  padding: 2rem 0;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.text-xs { font-size: 0.7rem; }
+.font-bold { font-weight: 800; }
